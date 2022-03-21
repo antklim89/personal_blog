@@ -3,13 +3,14 @@ import CMS from 'netlify-cms-app';
 
 import { about } from './about';
 import { products } from './products';
+import { siteData } from './siteData';
 
 
 CMS.init({
     config: {
         load_config_file: false,
 
-        site_url: 'https://cozy-clothing.netlify.app',
+        // site_url: 'https://cozy-clothing.netlify.app',
 
         backend: {
             name: 'git-gateway',
@@ -26,6 +27,8 @@ CMS.init({
                 editor: { preview: false },
                 files: [
                     about,
+                    siteData,
+                    hero,
                 ],
             },
         ],

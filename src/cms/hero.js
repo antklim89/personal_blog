@@ -3,10 +3,10 @@
 /**
  * @type { import('netlify-cms-core').CmsCollectionFile }
  */
-export const about = {
-    label: 'About',
-    name: 'about',
-    file: 'content/about/about.json',
+export const hero = {
+    label: 'Hero',
+    name: 'hero',
+    file: 'content/hero/hero.json',
     media_folder: 'images/',
     fields: [
         {

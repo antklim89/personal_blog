@@ -1,18 +1,17 @@
 import { FC } from 'react';
 
+import Footer from '~/layouts/Footer';
+import Header from '~/layouts/Header';
+
 
 const Layout: FC = ({ children }) => {
     return (
         <div className="root">
-            <header>
-                HEADER
-            </header>
+            <Header />
             <main>
                 {children}
             </main>
-            <footer>
-                FOOTER
-            </footer>
+            <Footer />
         </div>
     );
 };

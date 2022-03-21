@@ -4,13 +4,14 @@ import { FC } from 'react';
 import { Seo } from '~/components/Seo';
 
 
-const HomePage: FC<PageProps> = () => {
+const BlogsPage: FC<PageProps> = () => {
     return (
         <>
-            <Seo title="Home" />
+            <Seo title="Blogs" />
+            <div>BLOGS</div>
         </>
     );
 };
 
-export default HomePage;
+export default BlogsPage;
 
