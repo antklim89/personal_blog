@@ -1,13 +1,19 @@
 module.exports = {
-    siteMetadata: {
-        title: 'Gatsby Template',
-        description: 'Template',
-    },
+    siteMetadata: {},
     plugins: [
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-image',
         'gatsby-plugin-sass',
         'gatsby-plugin-netlify',
+        'gatsby-transformer-json',
+        {
+            resolve: 'gatsby-transformer-remark',
+            options: {
+                footnotes: true,
+                gfm: true,
+                plugins: [],
+            },
+        },
         {
             resolve: 'gatsby-plugin-netlify-cms',
             options: {
@@ -22,6 +28,13 @@ module.exports = {
             options: {
                 resetCSS: true,
                 isUsingColorMode: true,
+            },
+        },
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                name: 'content',
+                path: `${__dirname}/src/content`,
             },
         },
         {

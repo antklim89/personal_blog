@@ -6,7 +6,7 @@
 export const about = {
     label: 'About',
     name: 'about',
-    file: 'content/about/about.json',
+    file: 'src/content/about/about.json',
     media_folder: 'images/',
     fields: [
         {

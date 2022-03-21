@@ -6,7 +6,7 @@
 export const hero = {
     label: 'Hero',
     name: 'hero',
-    file: 'content/hero/hero.json',
+    file: 'src/content/hero/hero.json',
     media_folder: 'images/',
     fields: [
         {

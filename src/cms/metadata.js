@@ -3,10 +3,10 @@
 /**
  * @type { import('netlify-cms-core').CmsCollectionFile }
  */
-export const siteData = {
-    label: 'Site Data',
-    name: 'siteData',
-    file: 'content/siteData/siteData.json',
+export const metadata = {
+    label: 'Metadata',
+    name: 'metadata',
+    file: 'src/content/metadata/metadata.json',
     media_folder: 'images/',
     fields: [
         {

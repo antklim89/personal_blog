@@ -7,7 +7,7 @@
 export const products = {
     name: 'post',
     label: 'Post',
-    folder: 'content/posts',
+    folder: 'src/content/posts',
     create: true,
     slug: '{{type}}-{{category}}-{{title}}',
     media_folder: 'images',

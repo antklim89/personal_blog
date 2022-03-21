@@ -11,20 +11,19 @@ export const Seo: FC<SeoProps> = ({
     keywords = [],
     title,
 }) => {
-    const { site: { siteMetadata } } = useStaticQuery<SeoQuery>(graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-          }
+    const { metadata } = useStaticQuery<SeoQuery>(graphql`
+        query Seo {
+            metadata: metadataJson {
+                title
+                description
+                keywords
+            }
         }
-      }
-    `,
-    );
 
-    const metaDescription = `${siteMetadata.description} ${description || ''}`.trim();
-    const defaultTitle = siteMetadata.title;
+    `);
+
+    const metaDescription = `${metadata.description} ${description || ''}`.trim();
+    const metaTitle = metadata.title;
 
     return (
         <Helmet
@@ -33,7 +32,7 @@ export const Seo: FC<SeoProps> = ({
                 ...meta,
                 {
                     name: 'keywords',
-                    content: [...keywords].join(', '),
+                    content: [...metadata.keywords, ...keywords].join(', '),
                 },
                 {
                     name: 'description',
@@ -61,7 +60,7 @@ export const Seo: FC<SeoProps> = ({
                 },
             ]}
             title={title}
-            titleTemplate={defaultTitle && `%s | ${defaultTitle}`}
+            titleTemplate={metaTitle && `%s | ${metaTitle}`}
         />
     );
 };
