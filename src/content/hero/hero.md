@@ -1,6 +1,6 @@
 ---
-background: images/placeholder_2.jpg
-portrait: images/blushypixy-artist-art-барышня-art-5545724.jpeg
+background: images/maxim-hopman-zeeqrk7f4j8-unsplash.jpg
+portrait: images/alexander-hipp-ieebwgy_6la-unsplash.jpg
 ---
 # Hello
 
