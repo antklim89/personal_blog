@@ -1,19 +1,50 @@
-import { PageProps } from 'gatsby';
+import { Container } from '@chakra-ui/react';
+import { graphql, PageProps } from 'gatsby';
 import { FC } from 'react';
 
 import { Seo } from '~/components/Seo';
 import Hero from '~/layouts/Hero';
+import PostsList from '~/layouts/PostsList';
+import { Post } from '~/types';
 
 
-const HomePage: FC<PageProps> = () => {
+const HomePage: FC<PageProps<{ allMarkdownRemark: { nodes: Post[] } }>> = ({ data }) => {
+
     return (
         <>
             <Seo title="Home" />
             <Hero />
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque commodi quibusdam molestiae est ipsum totam labore! Provident soluta illum tenetur sunt tempore. Amet laboriosam vero laborum at odit tenetur commodi.
+            <Container maxW="container.lg" my={10}>
+                <PostsList posts={data.allMarkdownRemark.nodes} />
+            </Container>
         </>
     );
 };
 
 export default HomePage;
 
+export const query = graphql`
+  query PostsList{
+    allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/\\/posts\\/.*\\.md/i"}}) {
+      nodes {
+        frontmatter {
+          title
+          hidden
+          createdAt
+          imagePreview {
+            childImageSharp {
+              gatsbyImageData(
+                width: 270
+                height: 400
+                placeholder: BLURRED
+                layout: CONSTRAINED
+              )
+            }
+          }
+        }
+        id
+        body: excerpt(format: HTML, pruneLength: 300)
+      }
+    }
+  }
+`;

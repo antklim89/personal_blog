@@ -1,8 +1,8 @@
 /* eslint-disable */
-import {init} from 'netlify-cms-app';
+import { init } from 'netlify-cms-app';
 
 import { about } from './about';
-import { products } from './products';
+import { posts } from './posts';
 import { metadata } from './metadata';
 import { hero } from './hero';
 
@@ -21,7 +21,7 @@ init({
         publish_mode: 'editorial_workflow',
         media_folder: 'src/content/uploaded/',
         collections: [
-            products,
+            posts,
             {
                 label: 'Site',
                 name: 'site',
