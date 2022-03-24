@@ -19,5 +19,16 @@ export default extendTheme({
         },
         secondary: { 600: 'green' },
     },
+    styles: {
+        global: {
+            h1: { fontSize: '3xl' },
+            h2: { fontSize: '2xl' },
+            h3: { fontSize: '1xl' },
+            h4: { fontSize: 'xl' },
+            h5: { fontSize: 'lg' },
+            h6: { fontSize: 'md' },
+            p: { overflowWrap: 'break-word' },
+        },
+    },
     custom: { headerHeight: '64px' },
 });

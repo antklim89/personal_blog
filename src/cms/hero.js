@@ -6,15 +6,24 @@
 export const hero = {
     label: 'Hero',
     name: 'hero',
-    file: 'src/content/hero/hero.json',
+    file: 'src/content/hero/hero.md',
     media_folder: 'images/',
     fields: [
         {
-            name: 'text',
+            name: 'layout',
+            widget: 'hidden',
+            default: 'hero'
+        },
+        {
+            name: 'body',
             widget: 'markdown',
         },
         {
-            name: 'image',
+            name: 'background',
+            widget: 'image',
+        },
+        {
+            name: 'portrait',
             widget: 'image',
         },
     ],
