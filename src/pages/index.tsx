@@ -9,7 +9,6 @@ import { IPost } from '~/types';
 
 
 const HomePage: FC<PageProps<{ allMarkdownRemark: { nodes: IPost[] } }>> = ({ data }) => {
-
     return (
         <>
             <Seo title="Home" />
@@ -24,11 +23,14 @@ const HomePage: FC<PageProps<{ allMarkdownRemark: { nodes: IPost[] } }>> = ({ da
 export default HomePage;
 
 export const query = graphql`
-  query PostsList{
-    allMarkdownRemark(filter: {
-        fileAbsolutePath: { regex: "/\\/posts\\/.*\\.md/i" },
-        frontmatter: { hidden: { eq: false } }
-    }) {
+  query HomePostsList{
+    allMarkdownRemark(
+        filter: {
+            fileAbsolutePath: { regex: "/\\/posts\\/.*\\.md/i" },
+            frontmatter: { hidden: { eq: false } }
+        },
+        limit: 10,
+    ) {
       nodes {
         ...PostFragment
         body: excerpt(format: HTML, pruneLength: 300)
