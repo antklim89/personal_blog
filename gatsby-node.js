@@ -1,5 +1,7 @@
 const path = require('path');
 
+const { paginate } = require('gatsby-awesome-pagination');
+
 
 exports.onCreateBabelConfig = ({ actions }) => {
     actions.setBabelPreset({
@@ -36,6 +38,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                 component: path.resolve('src/templates/post.tsx'),
                 context: { id },
             });
+        });
+
+        paginate({
+            createPage, // The Gatsby `createPage` function
+            items: posts, // An array of objects
+            itemsPerPage: 10, // How many items you want per page
+            pathPrefix: '/blogs', // Creates pages like `/blog`, `/blog/2`, etc
+            component: path.resolve('src/templates/blogs.tsx'), // Just like `createPage()`
         });
 
     } catch (error) {
