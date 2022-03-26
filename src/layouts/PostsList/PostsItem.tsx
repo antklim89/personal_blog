@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Divider, Heading, Text } from '@chakra-ui/react';
 import { Link } from 'gatsby';
 import { FC } from 'react';
 
@@ -21,6 +21,7 @@ const PostsItem: FC<Post> = ({ id, frontmatter, body }) => {
             >
                 Read more...
             </Button>
+            <Divider mb={10} mt={4} />
         </Box>
     );
 };
