@@ -2,10 +2,10 @@ import { Box, Button, Divider, Heading, Text } from '@chakra-ui/react';
 import { Link } from 'gatsby';
 import { FC } from 'react';
 
-import { Post } from '~/types';
+import { IPost } from '~/types';
 
 
-const PostsItem: FC<Post> = ({ id, frontmatter, body }) => {
+const PostsItem: FC<IPost> = ({ id, frontmatter, body }) => {
     return (
         <Box as="article">
             <Heading as="h3">

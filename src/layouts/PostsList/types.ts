@@ -1,6 +1,6 @@
-import { Post } from '~/types';
+import { IPost } from '~/types';
 
 
 export interface PostsListProps {
-     posts: Post[]
+     posts: IPost[]
 }

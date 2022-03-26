@@ -1,13 +1,26 @@
+import { graphql, PageProps } from 'gatsby';
 import { FC } from 'react';
 
 import { Seo } from '~/components/Seo';
 
 
-const UsingDSG:FC = () => (
-    <>
-        <Seo title="Post" />
-        <h1>POST</h1>
-    </>
-);
+const PostPage: FC<PageProps> = () => {
 
-export default UsingDSG;
+
+    return (
+        <>
+            <Seo title="Post" />
+            <h1>POST</h1>
+        </>
+    );
+};
+
+export default PostPage;
+
+export const query = graphql`
+    query PostPage($id: String!) {
+        markdownRemark(id: {eq: $id}) {
+            ...PostFragment
+        }
+    }
+`;

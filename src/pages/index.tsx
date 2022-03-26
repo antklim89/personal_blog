@@ -5,10 +5,10 @@ import { FC } from 'react';
 import { Seo } from '~/components/Seo';
 import Hero from '~/layouts/Hero';
 import PostsList from '~/layouts/PostsList';
-import { Post } from '~/types';
+import { IPost } from '~/types';
 
 
-const HomePage: FC<PageProps<{ allMarkdownRemark: { nodes: Post[] } }>> = ({ data }) => {
+const HomePage: FC<PageProps<{ allMarkdownRemark: { nodes: IPost[] } }>> = ({ data }) => {
 
     return (
         <>
@@ -25,26 +25,34 @@ export default HomePage;
 
 export const query = graphql`
   query PostsList{
-    allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/\\/posts\\/.*\\.md/i"}}) {
+    allMarkdownRemark(filter: {
+        fileAbsolutePath: { regex: "/\\/posts\\/.*\\.md/i" },
+        frontmatter: { hidden: { eq: false } }
+    }) {
       nodes {
-        frontmatter {
-          title
-          hidden
-          createdAt(fromNow: true)
-          imagePreview {
-            childImageSharp {
-              gatsbyImageData(
-                width: 270
-                height: 400
-                placeholder: BLURRED
-                layout: CONSTRAINED
-              )
-            }
-          }
-        }
-        id
-        body: excerpt(format: HTML, pruneLength: 300)
+        ...PostFragment
       }
     }
   }
+
+
+fragment PostFragment on MarkdownRemark {
+    frontmatter {
+        title
+        hidden
+        createdAt(fromNow: true)
+        imagePreview {
+            childImageSharp {
+                gatsbyImageData(
+                    width: 270
+                    height: 400
+                    placeholder: BLURRED
+                    layout: CONSTRAINED
+                )
+            }
+        }
+    }
+    id
+    body: excerpt(format: HTML, pruneLength: 300)
+}
 `;
