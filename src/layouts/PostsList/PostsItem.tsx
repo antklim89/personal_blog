@@ -8,10 +8,10 @@ import { Post } from '~/types';
 const PostsItem: FC<Post> = ({ id, frontmatter, body }) => {
     return (
         <Box as="article">
-            <Heading as="h3" mb={4}>
+            <Heading as="h3">
                 {frontmatter.title}
             </Heading>
-            <Text>xx{frontmatter.createdAt}</Text>
+            <Text mb={4}>{frontmatter.createdAt}</Text>
             <Box dangerouslySetInnerHTML={{ __html: body }} mb={4} />
             <Button
                 as={Link}

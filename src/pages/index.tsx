@@ -30,7 +30,7 @@ export const query = graphql`
         frontmatter {
           title
           hidden
-          createdAt
+          createdAt(fromNow: true)
           imagePreview {
             childImageSharp {
               gatsbyImageData(
