@@ -31,6 +31,7 @@ export const query = graphql`
     }) {
       nodes {
         ...PostFragment
+        body: excerpt(format: HTML, pruneLength: 300)
       }
     }
   }
@@ -53,6 +54,5 @@ fragment PostFragment on MarkdownRemark {
         }
     }
     id
-    body: excerpt(format: HTML, pruneLength: 300)
 }
 `;
