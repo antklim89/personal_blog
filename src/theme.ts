@@ -27,7 +27,7 @@ export default extendTheme({
             h4: { fontSize: 'xl' },
             h5: { fontSize: 'lg' },
             h6: { fontSize: 'md' },
-            p: { overflowWrap: 'break-word' },
+            p: { overflowWrap: 'break-word', pb: 6 },
         },
     },
     custom: { headerHeight: '64px' },
