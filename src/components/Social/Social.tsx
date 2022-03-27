@@ -3,25 +3,25 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
-import { SocialProps } from './Social.types';
+import { SocialQuery } from './types';
 
 
-const Social: FC<SocialProps> = () => {
-    const { social: { icons } } = useStaticQuery(graphql`
-    query SocialIcons{
-      social: socialJson {
-        icons: social {
-          name
-          link
-          icon {
-            childImageSharp {
-              gatsbyImageData(width: 24, height: 24)
+const Social: FC = () => {
+    const { social: { icons } } = useStaticQuery<SocialQuery>(graphql`
+        query SocialIcons{
+            social: socialJson {
+                icons: social {
+                    name
+                    link
+                    icon {
+                        childImageSharp {
+                            gatsbyImageData(width: 24, height: 24)
+                        }
+                    }
+                }
             }
-          }
         }
-      }
-    }
-  `);
+    `);
 
     return (
         <nav>

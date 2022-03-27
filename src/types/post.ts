@@ -1,4 +1,4 @@
-import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { IGatsbyImage } from './gatsby-image';
 
 
 export interface IPost {
@@ -7,10 +7,6 @@ export interface IPost {
     frontmatter: {
         title: string
         createdAt: string
-        imagePreview: {
-            childImageSharp: {
-                gatsbyImageData: IGatsbyImageData
-            }
-        }
+        imagePreview: IGatsbyImage
     }
 }

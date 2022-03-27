@@ -4,10 +4,12 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
+import { HeroQuery } from './types';
+
 
 const Hero: FC = () => {
     const { custom: { headerHeight } } = useTheme() as { custom: {headerHeight: number } };
-    const { hero } = useStaticQuery(graphql`
+    const { hero } = useStaticQuery<HeroQuery>(graphql`
         query Hero{
             hero: markdownRemark(fileAbsolutePath: {regex: "/hero.md$/"}) {
                 frontmatter {
