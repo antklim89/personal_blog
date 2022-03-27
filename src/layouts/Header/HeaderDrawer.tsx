@@ -9,12 +9,13 @@ import HeaderLinks from './HeaderLinks';
 
 
 const HeaderDrawer: FC = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { isOpen, onClose, onToggle } = useDisclosure();
     const btnRef = useRef<HTMLButtonElement>(null);
-    const { breakpoints } = useTheme() as {breakpoints: {lg: string}};
-    const [isLargerThenLg] = useMediaQuery(`(min-width: ${breakpoints.lg})`);
+    const { breakpoints } = useTheme() as {breakpoints: {md: string}};
+    const [isLargerThenMd] = useMediaQuery(`(min-width: ${breakpoints.md})`);
+    const { custom: { headerHeight } } = useTheme() as { custom: {headerHeight: number } };
 
-    if (isLargerThenLg) return (
+    if (isLargerThenMd) return (
         <Stack as="ul" direction="row" listStyleType="none">
             <HeaderLinks />
         </Stack>
@@ -25,7 +26,7 @@ const HeaderDrawer: FC = () => {
                 color="white" 
                 ref={btnRef}
                 variant="link"
-                onClick={onOpen}
+                onClick={onToggle}
             >
                 <HamburgerIcon />
             </Button>
@@ -38,7 +39,12 @@ const HeaderDrawer: FC = () => {
                 <DrawerOverlay onClick={onClose} />
                 <DrawerContent>
                     <DrawerBody sx={{ 'a': { color: 'primary.text' } }}>
-                        <Stack as="ul" direction="column" listStyleType="none">
+                        <Stack
+                            as="ul" 
+                            direction="column" 
+                            listStyleType="none"
+                            mt={headerHeight}
+                        >
                             <HeaderLinks />
                         </Stack>
                     </DrawerBody>
