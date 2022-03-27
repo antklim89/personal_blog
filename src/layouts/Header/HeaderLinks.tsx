@@ -1,46 +1,41 @@
 import { Button } from '@chakra-ui/react';
 import { Link } from 'gatsby';
+import { FC } from 'react';
 
 
-const HeaderLinks = () => {
+const LINKS = [
+    {
+        to: '/',
+        name: 'home',
+    },
+    {
+        to: '/posts',
+        name: 'posts',
+    },
+    {
+        to: '/',
+        name: 'contacts',
+    },
+];
+
+const HeaderLinks: FC = () => {
     return (
         <>
-            <li>
-                <Button
-                    activeClassName="activeLink"
-                    as={Link}
-                    color="primary.textLight"
-                    pl={4} pr={4}
-                    to="/"
-                    variant="link"
-                >
-                    HOME
-                </Button>
-            </li>
-            <li>
-                <Button
-                    activeClassName="activeLink"
-                    as={Link}
-                    color="primary.textLight"
-                    pl={4} pr={4}
-                    to="/posts"
-                    variant="link"
-                >
-                    POSTS
-                </Button>
-            </li>
-            <li>
-                <Button
-                    activeClassName="activeLink"
-                    as={Link}
-                    color="primary.textLight"
-                    pl={4} pr={4}
-                    to="/contacts"
-                    variant="link"
-                >
-                    CONTACTS
-                </Button>
-            </li>
+            {LINKS.map(({ to, name }) => (
+                <li key={name}>
+                    <Button
+                        activeClassName="activeLink"
+                        as={Link}
+                        color="primary.textLight"
+                        pl={4} pr={4}
+                        textTransform="uppercase"
+                        to={to}
+                        variant="link"
+                    >
+                        {name}
+                    </Button>
+                </li>
+            ))}
         </>
     );
 };
