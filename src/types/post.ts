@@ -8,7 +8,9 @@ export interface IPost {
         title: string
         createdAt: string
         imagePreview: {
-            childImageSharp: IGatsbyImageData
+            childImageSharp: {
+                gatsbyImageData: IGatsbyImageData
+            }
         }
     }
 }

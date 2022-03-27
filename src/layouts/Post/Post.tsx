@@ -1,4 +1,5 @@
 import { Box, Heading, Text } from '@chakra-ui/react';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
 import { PostProps } from './types';
@@ -7,6 +8,12 @@ import { PostProps } from './types';
 const Post: FC<PostProps> = ({ body, frontmatter }) => {
     return (
         <Box as="article" my={10}>
+            <Box mb={4}>
+                <GatsbyImage
+                    alt="post prewiew image"
+                    image={frontmatter.imagePreview.childImageSharp.gatsbyImageData}
+                />
+            </Box>
             <Heading as="h1">
                 {frontmatter.title}
             </Heading>

@@ -48,8 +48,8 @@ fragment PostFragment on MarkdownRemark {
         imagePreview {
             childImageSharp {
                 gatsbyImageData(
-                    width: 270
-                    height: 400
+                    width: 900
+                    height: 270
                     placeholder: BLURRED
                     layout: CONSTRAINED
                 )

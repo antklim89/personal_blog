@@ -1,5 +1,6 @@
 import { Box, Button, Divider, Heading, Text } from '@chakra-ui/react';
 import { Link } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
 import { IPost } from '~/types';
@@ -8,6 +9,12 @@ import { IPost } from '~/types';
 const PostsItem: FC<IPost> = ({ id, frontmatter, body }) => {
     return (
         <Box as="article">
+            <Box mb={4}>
+                <GatsbyImage
+                    alt="post prewiew image"
+                    image={frontmatter.imagePreview.childImageSharp.gatsbyImageData}
+                />
+            </Box>
             <Heading as="h3">
                 {frontmatter.title}
             </Heading>
