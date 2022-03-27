@@ -29,6 +29,7 @@ export const query = graphql`
             fileAbsolutePath: { regex: "/\\/posts\\/.*\\.md/i" },
             frontmatter: { hidden: { eq: false } }
         },
+        sort: { fields: [frontmatter___createdAt], order: DESC }
         limit: 10,
     ) {
       nodes {
