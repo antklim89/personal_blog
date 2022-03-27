@@ -23,10 +23,10 @@ const HeaderLinks = () => {
                     as={Link}
                     color="primary.textLight"
                     pl={4} pr={4}
-                    to="/blogs"
+                    to="/posts"
                     variant="link"
                 >
-                    BLOGS
+                    POSTS
                 </Button>
             </li>
             <li>

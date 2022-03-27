@@ -8,7 +8,7 @@ import PostsList from '~/layouts/PostsList';
 import { IPagination, IPost } from '~/types';
 
 
-const BlogsPage: FC<PageProps<{ allMarkdownRemark: { nodes: IPost[] } }, IPagination>> = ({ data, pageContext }) => {
+const PostsPage: FC<PageProps<{ allMarkdownRemark: { nodes: IPost[] } }, IPagination>> = ({ data, pageContext }) => {
     return (
         <>
             <Seo title="Blogs" />
@@ -21,7 +21,7 @@ const BlogsPage: FC<PageProps<{ allMarkdownRemark: { nodes: IPost[] } }, IPagina
     );
 };
 
-export default BlogsPage;
+export default PostsPage;
 
 export const query = graphql`
 query PostsList ($skip: Int!, $limit: Int!) {

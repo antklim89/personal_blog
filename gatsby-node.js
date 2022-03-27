@@ -41,11 +41,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         });
 
         paginate({
-            createPage, // The Gatsby `createPage` function
-            items: posts, // An array of objects
-            itemsPerPage: 10, // How many items you want per page
-            pathPrefix: '/blogs', // Creates pages like `/blog`, `/blog/2`, etc
-            component: path.resolve('src/templates/blogs.tsx'), // Just like `createPage()`
+            createPage,
+            items: posts,
+            itemsPerPage: 10,
+            pathPrefix: '/posts',
+            component: path.resolve('src/templates/posts.tsx'),
         });
 
     } catch (error) {
