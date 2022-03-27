@@ -10,8 +10,11 @@ import '@fontsource/roboto/700-italic.css';
 import Layout from './src/layouts/Layout';
 import theme from './src/theme';
 
-
-export const wrapRootElement = ({ element }) => {
+/**
+ * 
+ * @param {import('gatsby').WrapPageElementBrowserArgs 
+ */
+export const wrapPageElement = ({ element }) => {
     return (
         <ChakraProvider theme={theme}>
             <Layout>
