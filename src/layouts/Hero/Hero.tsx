@@ -36,7 +36,6 @@ const Hero: FC = () => {
             bgRepeat="no-repeat"
             bgSize="cover"
             display="flex"
-            // height={470}
             marginTop={`-${headerHeight}`}
             width="100%"
         >
