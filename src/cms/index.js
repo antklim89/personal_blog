@@ -5,6 +5,7 @@ import { about } from './about';
 import { posts } from './posts';
 import { metadata } from './metadata';
 import { hero } from './hero';
+import { social } from './social';
 
 
 init({
@@ -30,6 +31,7 @@ init({
                     about,
                     metadata,
                     hero,
+                    social
                 ],
             },
         ],

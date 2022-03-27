@@ -7,6 +7,8 @@ import { FC, useRef } from 'react';
 
 import HeaderLinks from './HeaderLinks';
 
+import Social from '~/components/Social';
+
 
 const HeaderDrawer: FC = () => {
     const { isOpen, onClose, onToggle } = useDisclosure();
@@ -16,9 +18,14 @@ const HeaderDrawer: FC = () => {
     const { custom: { headerHeight } } = useTheme() as { custom: {headerHeight: number } };
 
     if (isLargerThenMd) return (
-        <Stack as="ul" direction="row" listStyleType="none">
-            <HeaderLinks />
-        </Stack>
+        <>
+            <Stack as="ul" direction="row" listStyleType="none">
+                <HeaderLinks />
+            </Stack>
+            <Stack as="ul" direction="row" listStyleType="none">
+                <Social />
+            </Stack>
+        </>
     );
     return (
         <>
@@ -47,6 +54,7 @@ const HeaderDrawer: FC = () => {
                         >
                             <HeaderLinks />
                         </Stack>
+                        <Social />
                     </DrawerBody>
                 </DrawerContent>
             </Drawer>
