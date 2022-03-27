@@ -35,10 +35,10 @@ const HeaderLinks = () => {
                     as={Link}
                     color="primary.textLight"
                     pl={4} pr={4}
-                    to="/about"
+                    to="/contacts"
                     variant="link"
                 >
-                    ABOUT
+                    CONTACTS
                 </Button>
             </li>
         </>
