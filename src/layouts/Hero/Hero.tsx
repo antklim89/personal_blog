@@ -48,9 +48,9 @@ const Hero: FC = () => {
                 maxWidth="container.lg"
             >
                 <Box 
-                    color="white"
                     dangerouslySetInnerHTML={{ __html: hero.excerpt }}
                     p={4}
+                    sx={{ '*': { color: 'white' } }}
                 />
                 <Box p={4}>
                     <GatsbyImage
