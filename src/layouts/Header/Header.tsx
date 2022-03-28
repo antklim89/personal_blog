@@ -1,4 +1,4 @@
-import { Stack, Box, Container } from '@chakra-ui/react';
+import { Stack, Box } from '@chakra-ui/react';
 import { useTheme } from '@emotion/react';
 import { FC } from 'react';
 
@@ -11,21 +11,20 @@ const Header: FC = () => {
         <>
             <Box
                 as="header"
-                background="linear-gradient(black, transparent)"
+                backdropFilter="blur(2px)"
+                background="rgba(0, 0, 0, 0.4)"
                 flexShrink={0}
                 position="fixed"
-                width="100%"
+                right={0}
                 zIndex={100}
             >
-                <Container maxW='container.lg'>
-                    <Stack
-                        alignItems="center"
-                        direction="row"
-                        justifyContent="flex-end"
-                    >
-                        <HeaderDrawer />
-                    </Stack>
-                </Container>
+                <Stack
+                    alignItems="center"
+                    direction="row"
+                    justifyContent="flex-end"
+                >
+                    <HeaderDrawer />
+                </Stack>
             </Box>
             <Box mb={headerHeight} />
         </>
