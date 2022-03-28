@@ -7,7 +7,7 @@ import { PostProps } from './types';
 
 const Post: FC<PostProps> = ({ body, frontmatter }) => {
     return (
-        <Box as="article" my={10}>
+        <Box as="article" mb={10}>
             <Box mb={4}>
                 <GatsbyImage
                     alt="post prewiew image"
