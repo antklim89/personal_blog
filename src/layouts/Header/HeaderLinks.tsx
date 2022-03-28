@@ -13,7 +13,7 @@ const LINKS = [
         name: 'posts',
     },
     {
-        to: '/',
+        to: '/contacts',
         name: 'contacts',
     },
 ];
