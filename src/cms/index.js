@@ -1,7 +1,5 @@
-/* eslint-disable */
 import { init } from 'netlify-cms-app';
 
-import { about } from './about';
 import { posts } from './posts';
 import { metadata } from './metadata';
 import { hero } from './hero';
@@ -28,7 +26,6 @@ init({
                 name: 'site',
                 editor: { preview: false },
                 files: [
-                    about,
                     metadata,
                     hero,
                     social
