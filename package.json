@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-template",
+  "name": "personal_blog",
   "private": true,
-  "description": "Template",
+  "description": "A blog created for self-study",
   "version": "0.1.0",
   "author": "Me",
   "scripts": {
@@ -59,7 +59,10 @@
     "typescript": "^4.6.2"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "typescript",
+    "netlifyCMS",
+    "chakra-ui"
   ],
   "license": "0BSD"
 }
