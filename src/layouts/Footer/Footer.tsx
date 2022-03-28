@@ -1,12 +1,17 @@
-import { Box, Container } from '@chakra-ui/react';
+import { Box, Container, HStack } from '@chakra-ui/react';
 import { FC } from 'react';
+
+import Social from '~/components/Social';
 
 
 const Footer: FC = () => {
     return (
         <Box as="footer" bgColor="black" color="white">
             <Container maxWidth='container.lg'>
-                Footer
+                <HStack justifyContent="space-between">
+                    <span>&copy; 2021-{new Date().getFullYear()}</span>
+                    <Social />
+                </HStack>
             </Container>
         </Box>
     );
