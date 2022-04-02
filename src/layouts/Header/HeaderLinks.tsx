@@ -27,7 +27,7 @@ const HeaderLinks: FC = () => {
                         activeClassName="activeLink"
                         as={Link}
                         color="primary.textLight"
-                        pl={4} pr={4}
+                        pl={[1,2,4]} pr={[1,2,4]}
                         textTransform="uppercase"
                         to={to}
                         variant="link"

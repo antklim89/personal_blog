@@ -13,8 +13,8 @@ import Social from '~/components/Social';
 const HeaderDrawer: FC = () => {
     const { isOpen, onClose, onToggle } = useDisclosure();
     const btnRef = useRef<HTMLButtonElement>(null);
-    const { breakpoints } = useTheme() as {breakpoints: {md: string}};
-    const [isLargerThenMd] = useMediaQuery(`(min-width: ${breakpoints.md})`);
+    const { breakpoints } = useTheme() as {breakpoints: {sm: string}};
+    const [isLargerThenMd] = useMediaQuery(`(min-width: ${breakpoints.sm})`);
     const { custom: { headerHeight } } = useTheme() as { custom: {headerHeight: number } };
 
     if (isLargerThenMd) return (
@@ -31,9 +31,11 @@ const HeaderDrawer: FC = () => {
         <>
             <Button 
                 color="white" 
+                height={headerHeight}
+                pl={4}
+                pr={4}
                 ref={btnRef}
-                variant="link"
-                onClick={onToggle}
+                variant="link" onClick={onToggle}
             >
                 <HamburgerIcon />
             </Button>
