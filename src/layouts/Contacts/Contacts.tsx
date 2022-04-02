@@ -19,10 +19,8 @@ const Contacts: FC = () => {
                 name="contact"
                 netlify-honeypot="bot-field"
             >
-                <Box as="p" display="none">
-                    <label>
-                        Don’t fill this out if you’re human: <input name="bot-field" />
-                    </label>
+                <Box as="label" display="none">
+                    Don’t fill this out if you’re human: <input name="bot-field" />
                 </Box>
                 <Input
                     mb={4}
