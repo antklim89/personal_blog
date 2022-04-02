@@ -11,9 +11,11 @@ const Contacts: FC = () => {
             </Heading>
             <Box
                 as="form"
-                data-netlify="true" 
+                data-netlify="true"
                 display="flex"
-                flexDir="column"
+                flexDir="column" 
+                method="POST"
+                name="contact"
             >
                 <Input
                     mb={4}
