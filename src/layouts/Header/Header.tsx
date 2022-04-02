@@ -8,9 +8,8 @@ import HeaderDrawer from './HeaderDrawer';
 const Header: FC = () => {
     const { custom: { headerHeight } } = useTheme() as { custom: {headerHeight: number } };
     return (
-        <>
+        <header>
             <Box
-                as="header"
                 backdropFilter="blur(2px)"
                 background="rgba(0, 0, 0, 0.4)"
                 flexShrink={0}
@@ -27,7 +26,7 @@ const Header: FC = () => {
                 </Stack>
             </Box>
             <Box mb={headerHeight} />
-        </>
+        </header>
     );
 };
 
