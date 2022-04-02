@@ -3,7 +3,17 @@
     {
       "name": "Vkontakte",
       "link": "https://vk.com",
-      "icon": "images/3560compl.jpg"
+      "icon": "images/social-vkontakte-svgrepo-com.svg"
+    },
+    {
+      "name": "Twitter",
+      "link": "https://twitter.com",
+      "icon": "images/twitter-svgrepo-com.svg"
+    },
+    {
+      "name": "Facebook",
+      "link": "https://fb.com",
+      "icon": "images/facebook-svgrepo-com.svg"
     }
   ]
 }

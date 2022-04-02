@@ -1,4 +1,4 @@
-import { Box, IconButton } from '@chakra-ui/react';
+import { Box, IconButton, Image } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
@@ -17,6 +17,7 @@ const Social: FC = () => {
                         childImageSharp {
                             gatsbyImageData(width: 24, height: 24)
                         }
+                        publicURL
                     }
                 }
             }
@@ -36,12 +37,27 @@ const Social: FC = () => {
                         <IconButton
                             aria-label="vkontakte"
                             as="a"
-                            colorScheme="primary"
                             href={item.link}
                             size="sm"
                             target="_blank"
+                            variant="solid"
                         >
-                            <GatsbyImage alt={item.name} image={item.icon.childImageSharp.gatsbyImageData} />
+                            {item.icon.childImageSharp
+                                ? (
+                                    <GatsbyImage 
+                                        alt={item.name} 
+                                        image={item.icon.childImageSharp.gatsbyImageData}
+                                    />
+                                )
+                                : (
+                                    <Image
+                                        alt={item.name}
+                                        h="24px"
+                                        src={item.icon.publicURL}
+                                        w="24px"
+                                    />
+                                )}
+                            
                         </IconButton>
                     </Box>
                 ))}

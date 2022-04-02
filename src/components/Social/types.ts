@@ -1,4 +1,4 @@
-import { IGatsbyImage } from '~/types';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 
 export interface SocialQuery {
@@ -6,7 +6,12 @@ export interface SocialQuery {
         icons: Array<{
             name: string
             link: string
-            icon: IGatsbyImage
+            icon: {
+                childImageSharp?: {
+                    gatsbyImageData: IGatsbyImageData
+                }
+                publicURL: string
+            }
         }>
     }
 }
