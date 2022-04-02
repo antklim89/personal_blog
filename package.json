@@ -9,7 +9,7 @@
     "dev": "run-p dev:**",
     "dev:gatsby": "gatsby develop -p 3000 -H 0.0.0.0",
     "dev:cms-proxy": "netlify-cms-proxy-server",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve -p 3000 -H 0.0.0.0",
     "clean": "gatsby clean"
   },
   "dependencies": {
