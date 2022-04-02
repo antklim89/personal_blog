@@ -10,6 +10,7 @@ const Contacts: FC = () => {
                 Contact me
             </Heading>
             <Box
+                action='/contacts/success'
                 as="form"
                 data-netlify="true"
                 display="flex" 
@@ -18,6 +19,11 @@ const Contacts: FC = () => {
                 name="contact"
                 netlify-honeypot="bot-field"
             >
+                <Box as="p" display="none">
+                    <label>
+                        Don’t fill this out if you’re human: <input name="bot-field" />
+                    </label>
+                </Box>
                 <Input
                     mb={4}
                     name="name"
