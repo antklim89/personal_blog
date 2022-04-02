@@ -12,10 +12,11 @@ const Contacts: FC = () => {
             <Box
                 as="form"
                 data-netlify="true"
-                display="flex"
-                flexDir="column" 
-                method="POST"
+                display="flex" 
+                flexDir="column"
+                method="post"
                 name="contact"
+                netlify-honeypot="bot-field"
             >
                 <Input
                     mb={4}
@@ -25,9 +26,9 @@ const Contacts: FC = () => {
                 />
                 <Input
                     mb={4}
-                    name="email"
-                    placeholder="Your email"
-                    type="email"
+                    name="theme"
+                    placeholder="Your message theme"
+                    type="text"
                 />
                 <Textarea
                     mb={4}
