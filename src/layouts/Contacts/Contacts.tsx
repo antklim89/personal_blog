@@ -37,6 +37,7 @@ const Contacts: FC = () => {
                     resize="none"
                     rows={5}
                 />
+                <input name="form-name" type="hidden" value="contact" />
                 <Button
                     colorScheme="primary"
                     type="submit"
