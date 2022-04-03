@@ -13,7 +13,7 @@ export const Pagination: FC<PaginationPropTypes> = ({
 }) => {
     if (numberOfPages === 1) return null;
     return (
-        <Box display="flex" justifyContent="flex-end">
+        <Box display="flex" justifyContent="center" mb={4}>
             {previousPagePath.length === 0
                 ? (
                     <Button disabled colorScheme="primary">
