@@ -1839,6 +1839,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@faker-js/faker@^6.1.1":
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/@faker-js/faker/-/faker-6.1.1.tgz#adf002d986e1751daadfcf65d1cc03944dab3ced"
+  integrity sha512-8yq1LJVGn4GY06riLddIU1LbJm15yjt46hjfkpWNpH/mqdciPOBVzicKOJxzQNrGgVHVBxcdm7sgwjI/Y19MYw==
+
 "@fontsource/roboto@^4.5.3":
   version "4.5.3"
   resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.5.3.tgz#c729ac22c35ae1c224cde10042ce7ab356bc4dda"
