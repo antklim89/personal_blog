@@ -6,14 +6,14 @@ module.exports = {
         'gatsby-plugin-sass',
         'gatsby-plugin-netlify',
         'gatsby-transformer-json',
-        // {
-        //     resolve: 'gatsby-plugin-social9-socialshare',
-        //     options: {
-        //         content: '3ebf01e8a66a4ee29876e04ea15540a6',
-        //         async: true,
-        //         defer: true,
-        //     },
-        // },
+        {
+            resolve: 'gatsby-plugin-social9-socialshare',
+            options: {
+                content: '3ebf01e8a66a4ee29876e04ea15540a6',
+                async: true,
+                defer: true,
+            },
+        },
         {
             resolve: 'gatsby-transformer-remark',
             options: {
