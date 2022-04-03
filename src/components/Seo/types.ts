@@ -7,7 +7,13 @@ export interface SeoProps {
         content: string;
     }[];
     title: string;
-    keywords?: string[]
+    keywords?: string[],
+    image?: {
+        src: string
+        type: string
+        width: string
+        height: string
+    }
 }
 
 export interface SeoQuery {

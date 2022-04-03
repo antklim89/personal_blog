@@ -10,6 +10,7 @@ export const Seo: FC<SeoProps> = ({
     meta = [],
     keywords = [],
     title,
+    image,
 }) => {
     const { metadata } = useStaticQuery<SeoQuery>(graphql`
         query Seo {
@@ -25,11 +26,31 @@ export const Seo: FC<SeoProps> = ({
     const metaDescription = `${metadata.description} ${description || ''}`.trim();
     const metaTitle = metadata.title;
 
+    const imageMeta = image
+        ? [{
+            name: 'og:image',
+            content: image.src,
+        },
+        {
+            name: 'og:image:type',
+            content: image.type,
+        },
+        {
+            name: 'og:image:width',
+            content: image.width,
+        },
+        {
+            name: 'og:image:height',
+            content: image.height,
+        }]
+        : [];
+
     return (
         <Helmet
             htmlAttributes={{ lang: 'en' }}
             meta={[
                 ...meta,
+                ...imageMeta,
                 {
                     name: 'keywords',
                     content: [...metadata.keywords, ...keywords].join(', '),
@@ -58,6 +79,7 @@ export const Seo: FC<SeoProps> = ({
                     name: 'twitter:description',
                     content: metaDescription,
                 },
+                
             ]}
             title={title}
             titleTemplate={metaTitle && `%s | ${metaTitle}`}

@@ -53,6 +53,11 @@ fragment PostFragment on MarkdownRemark {
                     placeholder: BLURRED
                     layout: CONSTRAINED
                 )
+                resize(toFormat: PNG, width: 640, height: 480) {
+                    width
+                    src
+                    height
+                }
             }
         }
     }

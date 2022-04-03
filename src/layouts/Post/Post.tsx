@@ -17,8 +17,10 @@ const Post: FC<PostProps> = ({ body, frontmatter }) => {
             <Heading as="h1">
                 {frontmatter.title}
             </Heading>
+            <div className="s9-widget-wrapper" />
             <Text mb={4}>{frontmatter.createdAt}</Text>
             <Box dangerouslySetInnerHTML={{ __html: body }} />
+            
         </Box>
     );
 };
