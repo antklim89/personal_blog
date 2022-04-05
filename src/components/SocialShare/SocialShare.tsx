@@ -16,6 +16,7 @@ import { SocialShareProps } from './types';
 
 const SocialShare: FC<SocialShareProps> = ({ title, imageSrc, postSrc }) => {
     const url = process.env.URL || 'localhost:3000';
+    console.debug('`${url}${postSrc}`: \n', `${url}${postSrc}`);
     return (
         <HStack sx={{ svg: { width: 12 } }}>
             <VKShareButton 
