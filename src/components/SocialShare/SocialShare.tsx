@@ -21,34 +21,32 @@ const SocialShare: FC<SocialShareProps> = ({ title, image }) => {
         if (location.href && !isLoad) setIsLoad(true);
     });
 
-    console.debug(': \n', isLoad);
     
     if (!isLoad) return null;
-    console.debug(': \n', location.href, `${location.origin}${image}`);
     return (
         <HStack sx={{ svg: { width: 12 } }}>
             <VKShareButton 
                 image={`${location.origin}${image}`} 
                 title={title} 
-                url={location.href} 
+                url="https://personal-blog-dev.netlify.app/posts/ffb85fe6-a6ff-54c6-a5e8-bdca79c6630d" 
             >
                 <VKIcon />
             </VKShareButton>
             <EmailShareButton 
                 subject={title}
-                url={location.href}
+                url="https://personal-blog-dev.netlify.app/posts/ffb85fe6-a6ff-54c6-a5e8-bdca79c6630d"
             >
                 <EmailIcon />
             </EmailShareButton>
             <FacebookShareButton 
                 title={title}
-                url={location.href}
+                url="https://personal-blog-dev.netlify.app/posts/ffb85fe6-a6ff-54c6-a5e8-bdca79c6630d"
             >
                 <FacebookIcon />
             </FacebookShareButton>
             <RedditShareButton 
                 title={title}
-                url={location.href}
+                url="https://personal-blog-dev.netlify.app/posts/ffb85fe6-a6ff-54c6-a5e8-bdca79c6630d"
             >
                 <RedditIcon />
             </RedditShareButton>
