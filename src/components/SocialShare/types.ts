@@ -2,5 +2,6 @@
 
 export interface SocialShareProps {
     title: string
-    image: string
+    imageSrc: string
+    postSrc: string
 }

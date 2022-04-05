@@ -14,31 +14,32 @@ import {
 import { SocialShareProps } from './types';
 
 
-const SocialShare: FC<SocialShareProps> = ({ title, image }) => {
+const SocialShare: FC<SocialShareProps> = ({ title, imageSrc, postSrc }) => {
+    const url = process.env.URL || 'localhost:3000';
     return (
         <HStack sx={{ svg: { width: 12 } }}>
             <VKShareButton 
-                image={`${process.env.URL || 'localhost:3000'}${image}`} 
+                image={`${url}${imageSrc}`} 
                 title={title} 
-                url={location.href} 
+                url={`${url}${postSrc}`} 
             >
                 <VKIcon />
             </VKShareButton>
             <EmailShareButton 
                 subject={title}
-                url={location.href}
+                url={`${url}${postSrc}`}
             >
                 <EmailIcon />
             </EmailShareButton>
             <FacebookShareButton 
                 title={title}
-                url={location.href}
+                url={`${url}${postSrc}`}
             >
                 <FacebookIcon />
             </FacebookShareButton>
             <RedditShareButton 
                 title={title}
-                url={location.href}
+                url={`${url}${postSrc}`}
             >
                 <RedditIcon />
             </RedditShareButton>
