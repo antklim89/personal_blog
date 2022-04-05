@@ -18,7 +18,7 @@ const SocialShare: FC<SocialShareProps> = ({ title, image }) => {
     return (
         <HStack sx={{ svg: { width: 12 } }}>
             <VKShareButton 
-                image={`${location.origin}${image}`} 
+                image={`${process.env.URL || 'localhost:3000'}${image}`} 
                 title={title} 
                 url={location.href} 
             >
