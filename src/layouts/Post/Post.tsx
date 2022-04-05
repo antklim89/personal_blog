@@ -4,6 +4,8 @@ import { FC } from 'react';
 
 import { PostProps } from './types';
 
+import SocialShare from '~/components/SocialShare';
+
 
 const Post: FC<PostProps> = ({ body, frontmatter }) => {
     return (
@@ -17,7 +19,11 @@ const Post: FC<PostProps> = ({ body, frontmatter }) => {
             <Heading as="h1">
                 {frontmatter.title}
             </Heading>
-            <div className="s9-widget-wrapper" />
+            <SocialShare
+                image={frontmatter.imagePreview.childImageSharp.resize.src}
+                mailBody={body}
+                title={frontmatter.title}
+            />
             <Text mb={4}>{frontmatter.createdAt}</Text>
             <Box dangerouslySetInnerHTML={{ __html: body }} />
             
