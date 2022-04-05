@@ -14,7 +14,7 @@ import {
 import { SocialShareProps } from './types';
 
 
-const SocialShare: FC<SocialShareProps> = ({ title, mailBody, image }) => {
+const SocialShare: FC<SocialShareProps> = ({ title, image }) => {
     return (
         <HStack sx={{ svg: { width: 12 } }}>
             <VKShareButton 
@@ -25,7 +25,6 @@ const SocialShare: FC<SocialShareProps> = ({ title, mailBody, image }) => {
                 <VKIcon />
             </VKShareButton>
             <EmailShareButton 
-                body={mailBody}
                 subject={title}
                 url={location.href}
             >

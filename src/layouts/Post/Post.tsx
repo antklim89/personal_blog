@@ -21,7 +21,6 @@ const Post: FC<PostProps> = ({ body, frontmatter }) => {
             </Heading>
             <SocialShare
                 image={frontmatter.imagePreview.childImageSharp.resize.src}
-                mailBody={body}
                 title={frontmatter.title}
             />
             <Text mb={4}>{frontmatter.createdAt}</Text>
