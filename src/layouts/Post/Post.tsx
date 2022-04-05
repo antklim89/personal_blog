@@ -7,7 +7,7 @@ import { PostProps } from './types';
 import SocialShare from '~/components/SocialShare';
 
 
-const Post: FC<PostProps> = ({ id, body, frontmatter }) => {
+const Post: FC<PostProps> = ({ body, frontmatter }) => {
     return (
         <Box as="article" mb={10}>
             <Box mb={4}>
@@ -20,13 +20,11 @@ const Post: FC<PostProps> = ({ id, body, frontmatter }) => {
                 {frontmatter.title}
             </Heading>
             <SocialShare
-                imageSrc={frontmatter.imagePreview.childImageSharp.resize.src}
-                postSrc={`/posts/${id}`}
+                image={frontmatter.imagePreview.childImageSharp.resize.src}
                 title={frontmatter.title}
             />
             <Text mb={4}>{frontmatter.createdAt}</Text>
             <Box dangerouslySetInnerHTML={{ __html: body }} />
-            
         </Box>
     );
 };
