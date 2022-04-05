@@ -21,6 +21,8 @@ const SocialShare: FC<SocialShareProps> = ({ title, image }) => {
         if (location.href && !isLoad) setIsLoad(true);
     });
 
+    console.debug(': \n', isLoad, location.href, `${location.origin}${image}`);
+
     if (!isLoad) return null;
     return (
         <HStack sx={{ svg: { width: 12 } }}>
