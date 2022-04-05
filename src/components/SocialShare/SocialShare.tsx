@@ -21,9 +21,10 @@ const SocialShare: FC<SocialShareProps> = ({ title, image }) => {
         if (location.href && !isLoad) setIsLoad(true);
     });
 
-    console.debug(': \n', isLoad, location.href, `${location.origin}${image}`);
-
+    console.debug(': \n', isLoad);
+    
     if (!isLoad) return null;
+    console.debug(': \n', location.href, `${location.origin}${image}`);
     return (
         <HStack sx={{ svg: { width: 12 } }}>
             <VKShareButton 
