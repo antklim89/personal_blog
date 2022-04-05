@@ -14,6 +14,7 @@ const Header: FC = () => {
                 background="rgba(0, 0, 0, 0.4)"
                 flexShrink={0}
                 position="fixed"
+                pr={8}
                 right={0}
                 zIndex={100}
             >
