@@ -11,7 +11,7 @@ import { IPagination, IPost } from '~/types';
 const PostsPage: FC<PageProps<{ allMarkdownRemark: { nodes: IPost[] } }, IPagination>> = ({ data, pageContext }) => {
     return (
         <>
-            <Seo title="Blogs" />
+            <Seo title="Posts" />
             <Container maxW="container.lg" my={10}>
                 <Pagination {...pageContext} />
                 <PostsList posts={data.allMarkdownRemark.nodes} />

@@ -1,39 +1,17 @@
 import { Box, Container } from '@chakra-ui/react';
 import { useTheme } from '@emotion/react';
-import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { StaticImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
-import { HeroQuery } from './types';
+import background from './background.webp';
 
 
 const Hero: FC = () => {
     const { custom: { headerHeight } } = useTheme() as { custom: {headerHeight: number } };
-    const { hero } = useStaticQuery<HeroQuery>(graphql`
-        query Hero{
-            hero: markdownRemark(fileAbsolutePath: {regex: "/hero.md$/"}) {
-                frontmatter {
-                    background {
-                        childImageSharp {
-                            resize(toFormat: WEBP, quality: 90, fit: COVER, height: 470) {
-                                src
-                            }
-                        }
-                    }
-                    portrait {
-                        childImageSharp {
-                            gatsbyImageData(width: 270, height: 380, placeholder: BLURRED)
-                        }
-                    }
-                }
-                excerpt(format: HTML, pruneLength: 10000)
-            }
-        }
-    `);
 
     return (
         <Box 
-            bgImage={`URL(${hero.frontmatter.background.childImageSharp.resize.src})`} 
+            bgImage={`URL(${background})`} 
             bgPosition="center"
             bgRepeat="no-repeat"
             bgSize="cover"
@@ -48,14 +26,28 @@ const Hero: FC = () => {
                 maxWidth="container.lg"
             >
                 <Box 
-                    dangerouslySetInnerHTML={{ __html: hero.excerpt }}
                     p={4}
                     sx={{ '*': { color: 'white' } }}
-                />
+                >
+                    <h1>Hello</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Adipisci nobis cupiditate sunt ex quisquam voluptate, id 
+                        emo hic aspernatur dolorem esse veritatis molestiae magni! 
+                        Enim accusamus omnis nesciunt tempore distinctio.
+                    </p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Adipisci nobis cupiditate sunt ex quisquam voluptate, id 
+                        emo hic aspernatur dolorem esse veritatis molestiae magni! 
+                        Enim accusamus omnis nesciunt tempore distinctio.
+                    </p>                
+                </Box>
                 <Box p={4}>
-                    <GatsbyImage
+                    <StaticImage
                         alt="hero"
-                        image={hero.frontmatter.portrait.childImageSharp.gatsbyImageData}
+                        height={380}
+                        placeholder="blurred"
+                        src='./portrait.webp'
+                        width={270}
                     />
                 </Box>
             </Container>
