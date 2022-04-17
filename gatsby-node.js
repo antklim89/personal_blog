@@ -19,12 +19,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     
 
     try {
-        const { data: { allMarkdownRemark: { nodes: posts } } } = await graphql(`#graphql
+        const { data: { allGraphCmsPost: { nodes: posts } } } = await graphql(`#graphql
             query Posts {
-                allMarkdownRemark(filter: {
-                    fileAbsolutePath: { regex: "/\/posts\/.*\.md/i" },
-                    frontmatter: { hidden: { eq: false } }
-                }) {
+                allGraphCmsPost {
                     nodes {
                         id
                     }

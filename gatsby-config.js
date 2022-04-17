@@ -7,6 +7,10 @@ module.exports = {
         'gatsby-plugin-netlify',
         'gatsby-transformer-json',
         {
+            resolve: 'gatsby-source-graphcms',
+            options: { endpoint: 'https://api-eu-central-1.graphcms.com/v2/cl1n89ik01cs301xk3b6m5mtg/master' },
+        },
+        {
             resolve: 'gatsby-transformer-remark',
             options: {
                 footnotes: true,
@@ -20,26 +24,10 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-netlify-cms',
-            options: {
-                enableIdentityWidget: false,
-                manualInit: true,
-                modulePath: `${__dirname}/src/cms/index.js`,
-                publicPath: 'cms',
-            },
-        },
-        {
             resolve: '@chakra-ui/gatsby-plugin',
             options: {
                 resetCSS: true,
                 isUsingColorMode: true,
-            },
-        },
-        {
-            resolve: 'gatsby-source-filesystem',
-            options: {
-                name: 'content',
-                path: `${__dirname}/src/content`,
             },
         },
         {

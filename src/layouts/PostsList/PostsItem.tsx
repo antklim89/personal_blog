@@ -6,20 +6,22 @@ import { FC } from 'react';
 import { IPost } from '~/types';
 
 
-const PostsItem: FC<IPost> = ({ id, frontmatter, body }) => {
+const PostsItem: FC<IPost> = ({ id, title, imagePreview, createdAt, bodyPreview }) => {
     return (
         <Box as="article">
             <Box mb={4}>
                 <GatsbyImage
                     alt="post prewiew image"
-                    image={frontmatter.imagePreview.childImageSharp.gatsbyImageData}
+                    image={imagePreview.gatsbyImageData}
                 />
             </Box>
             <Heading as="h3">
-                {frontmatter.title}
+                {title}
             </Heading>
-            <Text mb={4}>{frontmatter.createdAt}</Text>
-            <Box dangerouslySetInnerHTML={{ __html: body }} mb={4} />
+            <Text mb={4}>{createdAt}</Text>
+            <Text>
+                {bodyPreview}
+            </Text>
             <Button
                 as={Link}
                 colorScheme="primary"

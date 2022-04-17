@@ -11,14 +11,14 @@ const PostPage: FC<PageProps<{post: IPost}>> = ({ data }) => {
     return (
         <>
             <Seo
-                description={data.post.body.slice(0, 400)}
+                description={data.post.bodyPreview}
                 image={{
-                    height: data.post.frontmatter.imagePreview.childImageSharp.resize.height,
-                    width: data.post.frontmatter.imagePreview.childImageSharp.resize.width,
-                    src: data.post.frontmatter.imagePreview.childImageSharp.resize.src,
+                    height: data.post.imagePreview.height,
+                    width: data.post.imagePreview.width,
+                    src: data.post.imagePreview.url,
                     type: 'image/png',
                 }}
-                title={data.post.frontmatter.title}
+                title={data.post.title}
             />
             <Container maxWidth="container.lg"> 
                 <Post {...data.post} />
@@ -31,9 +31,12 @@ export default PostPage;
 
 export const query = graphql`
     query PostPage($id: String!) {
-        post: markdownRemark(id: {eq: $id}) {
+        post: graphCmsPost(id: {eq: $id}) {
             ...PostFragment
-            body: excerpt(format: HTML, pruneLength: 30000)
+            body {
+                html
+            }
+            bodyPreview
         }
     }
 `;

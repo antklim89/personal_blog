@@ -1,16 +1,12 @@
-import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 
 export interface SocialQuery {
-    social: {
-        icons: Array<{
+    allGraphCmsSocialButton: {
+        nodes: Array<{
             name: string
             link: string
             icon: {
-                childImageSharp?: {
-                    gatsbyImageData: IGatsbyImageData
-                }
-                publicURL: string
+                url: string
             }
         }>
     }

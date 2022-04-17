@@ -7,24 +7,24 @@ import { PostProps } from './types';
 import SocialShare from '~/components/SocialShare';
 
 
-const Post: FC<PostProps> = ({ body, frontmatter }) => {
+const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
     return (
         <Box as="article" mb={10}>
             <Box mb={4}>
                 <GatsbyImage
                     alt="post prewiew image"
-                    image={frontmatter.imagePreview.childImageSharp.gatsbyImageData}
+                    image={imagePreview.gatsbyImageData}
                 />
             </Box>
             <Heading as="h1">
-                {frontmatter.title}
+                {title}
             </Heading>
             <SocialShare
-                image={frontmatter.imagePreview.childImageSharp.resize.src}
-                title={frontmatter.title}
+                image={imagePreview.url}
+                title={title}
             />
-            <Text mb={4}>{frontmatter.createdAt}</Text>
-            <Box dangerouslySetInnerHTML={{ __html: body }} />
+            <Text mb={4}>{createdAt}</Text>
+            <Box dangerouslySetInnerHTML={{ __html: body.html }} />
         </Box>
     );
 };
