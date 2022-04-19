@@ -48,5 +48,10 @@ fragment ScheduledOperation on ScheduledOperation {
       remoteId: id
       stage
     }
+    ... on SocialButton {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
   }
 }
