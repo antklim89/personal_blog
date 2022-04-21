@@ -27,7 +27,7 @@ const Hero: FC = () => {
             >
                 <Box 
                     p={4}
-                    sx={{ '*': { color: 'white' } }}
+                    sx={{ '*': { color: 'white', textShadow: '0 0 5px 0 black' } }}
                 >
                     <h1>Hello</h1>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -41,9 +41,10 @@ const Hero: FC = () => {
                         Enim accusamus omnis nesciunt tempore distinctio.
                     </p>                
                 </Box>
-                <Box p={4}>
+                <Box p={4} sx={{ '.hero-portrait': { shadow: '0 0 20px 0 white' }, '& *': { borderRadius: '5%' } }}>
                     <StaticImage
                         alt="hero"
+                        className='hero-portrait'
                         height={380}
                         placeholder="blurred"
                         src='./portrait.webp'
