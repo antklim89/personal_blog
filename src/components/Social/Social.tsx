@@ -33,6 +33,7 @@ const Social: FC = () => {
                         <IconButton
                             aria-label="vkontakte"
                             as="a"
+                            borderRadius={0}
                             href={item.link}
                             size="sm"
                             target="_blank"
