@@ -6,9 +6,7 @@
   "author": "Me",
   "scripts": {
     "build": "gatsby build",
-    "dev": "run-p dev:**",
-    "dev:gatsby": "gatsby develop -p 3000 -H 0.0.0.0",
-    "dev:cms-proxy": "netlify-cms-proxy-server",
+    "dev": "gatsby develop -p 3000 -H 0.0.0.0",
     "serve": "gatsby serve -p 3000 -H 0.0.0.0",
     "clean": "gatsby clean"
   },
@@ -28,7 +26,6 @@
     "gatsby-plugin-image": "^2.10.0",
     "gatsby-plugin-manifest": "^4.10.1",
     "gatsby-plugin-netlify": "^4.1.0",
-    "gatsby-plugin-netlify-cms": "^6.10.0",
     "gatsby-plugin-offline": "^5.10.1",
     "gatsby-plugin-react-helmet": "^5.10.0",
     "gatsby-plugin-sass": "^5.10.1",
@@ -40,8 +37,6 @@
     "gatsby-transformer-remark": "^5.10.1",
     "gatsby-transformer-sharp": "^4.10.0",
     "lodash": "^4.17.21",
-    "netlify-cms-app": "^2.15.69",
-    "netlify-cms-proxy-server": "^1.3.23",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
