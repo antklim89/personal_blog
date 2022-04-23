@@ -17,6 +17,7 @@ const Hero: FC = () => {
             bgSize="cover"
             display="flex"
             marginTop={`-${headerHeight}`}
+            pb={12}
             width="100%"
         >
             <Container
@@ -27,7 +28,7 @@ const Hero: FC = () => {
             >
                 <Box 
                     p={4}
-                    sx={{ '*': { color: 'white', textShadow: '0 0 5px 0 black' } }}
+                    sx={{ '*': { color: 'white', lineHeight: 1.7 }, 'h1': { fontSize: '4rem' } }}
                 >
                     <h1>Hello</h1>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.

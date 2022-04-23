@@ -9,7 +9,7 @@ const Footer: FC = () => {
         <Box as="footer" bgColor="black" color="white">
             <Container maxWidth='container.lg'>
                 <HStack justifyContent="space-between">
-                    <span>&copy; 2021-{new Date().getFullYear()}</span>
+                    <span>&copy; {new Date().getFullYear()} Personal Blog</span>
                     <Social />
                 </HStack>
             </Container>

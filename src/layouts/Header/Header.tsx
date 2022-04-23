@@ -15,7 +15,7 @@ const Header: FC = () => {
                 flexShrink={0}
                 position="fixed"
                 pr={8}
-                right={0}
+                right={10}
                 zIndex={100}
             >
                 <Stack
