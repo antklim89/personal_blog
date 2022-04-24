@@ -27,22 +27,20 @@ const Hero: FC = () => {
                 maxWidth="container.lg"
             >
                 <Box 
-                    p={4}
-                    sx={{ '*': { color: 'white', lineHeight: 1.7 }, 'h1': { fontSize: '4rem' } }}
+                    py={4}
+                    sx={{ '*': { color: 'white' }, 'h1': { fontSize: '4rem', mb: 10 }, 'p': { lineHeight: 1.7 } }}
                 >
-                    <h1>Hello</h1>
+                    <h1>Hello my name is John</h1>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                         Adipisci nobis cupiditate sunt ex quisquam voluptate, id 
                         emo hic aspernatur dolorem esse veritatis molestiae magni! 
                         Enim accusamus omnis nesciunt tempore distinctio.
                     </p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                        Adipisci nobis cupiditate sunt ex quisquam voluptate, id 
-                        emo hic aspernatur dolorem esse veritatis molestiae magni! 
+                    <p>
                         Enim accusamus omnis nesciunt tempore distinctio.
                     </p>                
                 </Box>
-                <Box p={4} sx={{ '.hero-portrait': { shadow: '0 0 20px 0 white' }, '& *': { borderRadius: '5%' } }}>
+                <Box ml={10} p={4} sx={{ '.hero-portrait': { shadow: '0 0 20px 0 white' }, '& *': { borderRadius: '5%' } }}>
                     <StaticImage
                         alt="hero"
                         className='hero-portrait'

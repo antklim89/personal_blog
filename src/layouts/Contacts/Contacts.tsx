@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Input, Textarea } from '@chakra-ui/react';
+import { Box, Button, Input, Text, Textarea } from '@chakra-ui/react';
 import { FC } from 'react';
 
 
@@ -6,9 +6,9 @@ const Contacts: FC = () => {
 
     return (
         <Box as="section">
-            <Heading as="h1" my={4}>
-                Contact me
-            </Heading>
+            <Text fontSize='5xl' textAlign="center">
+                Have a question?<br />Send me a message.
+            </Text>
             <Box
                 action='/contacts/success'
                 as="form"
