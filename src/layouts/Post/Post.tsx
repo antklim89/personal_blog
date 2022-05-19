@@ -36,7 +36,7 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
                 title={title}
             />
             <Text mb={4}>{createdAt}</Text>
-            <Box dangerouslySetInnerHTML={{ __html: body.html }} />
+            <Box dangerouslySetInnerHTML={{ __html: body.html }} sx={{ 'li': { ml: 4 } }} />
         </Box>
     );
 };

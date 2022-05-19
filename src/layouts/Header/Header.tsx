@@ -13,14 +13,16 @@ const Header: FC = () => {
                 backdropFilter="blur(2px)"
                 background="rgba(0, 0, 0, 0.4)"
                 flexShrink={0}
+                height={headerHeight}
                 position="fixed"
-                pr={8}
-                right={10}
+                px={4}
+                right={0}
                 zIndex={100}
             >
                 <Stack
                     alignItems="center"
                     direction="row"
+                    h="100%"
                     justifyContent="flex-end"
                 >
                     <HeaderDrawer />

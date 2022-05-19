@@ -18,7 +18,7 @@ const LINKS = [
     },
 ];
 
-const HeaderLinks: FC = () => {
+const HeaderLinks: FC<{onClose?: () => void}> = ({ onClose }) => {
     return (
         <>
             {LINKS.map(({ to, name }) => (
@@ -31,6 +31,7 @@ const HeaderLinks: FC = () => {
                         textTransform="uppercase"
                         to={to}
                         variant="link"
+                        onClick={onClose}
                     >
                         {name}
                     </Button>

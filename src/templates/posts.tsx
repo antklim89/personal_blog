@@ -12,7 +12,7 @@ const PostsPage: FC<PageProps<{ allGraphCmsPost: { nodes: IPost[] } }, IPaginati
     return (
         <>
             <Seo title="Posts" />
-            <Container maxW="container.lg" my={10}>
+            <Container maxW="container.lg" mb={10} mt={4}>
                 <Pagination {...pageContext} />
                 <PostsList posts={data.allGraphCmsPost.nodes} />
                 <Pagination {...pageContext} />

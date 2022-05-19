@@ -14,10 +14,10 @@ const HeaderDrawer: FC = () => {
     const { isOpen, onClose, onToggle } = useDisclosure();
     const btnRef = useRef<HTMLButtonElement>(null);
     const { breakpoints } = useTheme() as {breakpoints: {sm: string}};
-    const [isLargerThenMd] = useMediaQuery(`(min-width: ${breakpoints.sm})`);
+    const [isLargerThen] = useMediaQuery(`(min-width: ${breakpoints.sm})`);
     const { custom: { headerHeight } } = useTheme() as { custom: {headerHeight: number } };
 
-    if (isLargerThenMd) return (
+    if (isLargerThen) return (
         <>
             <Stack as="ul" direction="row" listStyleType="none">
                 <HeaderLinks />
@@ -32,10 +32,9 @@ const HeaderDrawer: FC = () => {
             <Button 
                 color="white" 
                 height={headerHeight}
-                pl={4}
-                pr={4}
                 ref={btnRef}
-                variant="link" onClick={onToggle}
+                variant="link"
+                onClick={onToggle}
             >
                 <HamburgerIcon />
             </Button>
@@ -49,12 +48,16 @@ const HeaderDrawer: FC = () => {
                 <DrawerContent>
                     <DrawerBody sx={{ 'a': { color: 'primary.text' } }}>
                         <Stack
+                            alignItems="flex-start" 
                             as="ul" 
-                            direction="column" 
+                            direction="column"
                             listStyleType="none"
-                            mt={headerHeight}
+                            mb={12}
+                            mr={0}
+                            mt={`calc(${headerHeight} + 12px)`}
+                            sx={{ 'a': { py: 2, w: '100%' } }}
                         >
-                            <HeaderLinks />
+                            <HeaderLinks onClose={onClose} />
                         </Stack>
                         <Social />
                     </DrawerBody>
