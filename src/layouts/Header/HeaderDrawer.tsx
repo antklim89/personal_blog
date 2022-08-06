@@ -1,6 +1,6 @@
 import { HamburgerIcon } from '@chakra-ui/icons';
 import {
-    Button, Stack, Drawer, DrawerOverlay, DrawerContent, DrawerBody, useMediaQuery,  useDisclosure,
+    Button, Stack, Drawer, DrawerOverlay, DrawerContent, DrawerBody, useMediaQuery, useDisclosure,
 } from '@chakra-ui/react';
 import { useTheme } from '@emotion/react';
 import { FC, useRef } from 'react';
@@ -13,9 +13,8 @@ import Social from '~/components/Social';
 const HeaderDrawer: FC = () => {
     const { isOpen, onClose, onToggle } = useDisclosure();
     const btnRef = useRef<HTMLButtonElement>(null);
-    const { breakpoints } = useTheme() as {breakpoints: {sm: string}};
+    const { breakpoints } = useTheme() as { breakpoints: { sm: string } };
     const [isLargerThen] = useMediaQuery(`(min-width: ${breakpoints.sm})`);
-    const { custom: { headerHeight } } = useTheme() as { custom: {headerHeight: number } };
 
     if (isLargerThen) return (
         <>
@@ -29,9 +28,9 @@ const HeaderDrawer: FC = () => {
     );
     return (
         <>
-            <Button 
-                color="white" 
-                height={headerHeight}
+            <Button
+                color="white"
+                p={4}
                 ref={btnRef}
                 variant="link"
                 onClick={onToggle}
@@ -48,13 +47,12 @@ const HeaderDrawer: FC = () => {
                 <DrawerContent>
                     <DrawerBody sx={{ 'a': { color: 'primary.text' } }}>
                         <Stack
-                            alignItems="flex-start" 
-                            as="ul" 
+                            alignItems="flex-start"
+                            as="ul"
                             direction="column"
                             listStyleType="none"
                             mb={12}
                             mr={0}
-                            mt={`calc(${headerHeight} + 12px)`}
                             sx={{ 'a': { py: 2, w: '100%' } }}
                         >
                             <HeaderLinks onClose={onClose} />
