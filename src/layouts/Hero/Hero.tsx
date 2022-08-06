@@ -14,28 +14,31 @@ const Hero: FC = () => {
             bgSize="cover"
             display="flex"
             marginTop="calc(var(--header-height) * -1)"
-            pb={12}
+            py={[4, 4, 12]}
             width="100%"
         >
             <Container
-                display="grid"
-                gridTemplateColumns={['1fr', null, '1fr 1fr']}
+                display="flex"
+                flexDirection={['column', 'row']}
                 marginTop="var(--header-height)"
             >
-                <Box
-                    py={4}
-                    sx={{ '*': { color: 'white' }, 'h1': { fontSize: '4rem', mb: 10 }, 'p': { lineHeight: 1.7 } }}
-                >
-                    <Heading as="h1">Hello my name is John</Heading>
-                    <Text>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                <Box flex="2 1 200px">
+                    <Heading as="h1" color="primary.textLight">Hello my name is John</Heading>
+                    <Text color="primary.textLight">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                         Adipisci nobis cupiditate sunt ex quisquam voluptate, id
                         emo hic aspernatur dolorem esse veritatis molestiae magni!
                     </Text>
-                    <Text>
+                    <Text color="primary.textLight">
                         Enim accusamus omnis nesciunt tempore distinctio.
                     </Text>
                 </Box>
-                <Box ml={10} p={4} sx={{ '.hero-portrait': { shadow: '0 0 20px 0 white' }, '& *': { borderRadius: '5%' } }}>
+                <Box
+                    display="flex"
+                    flex="1 1 200px"
+                    justifyContent="center"
+                    ml={[0, 10]}
+                    sx={{ '.hero-portrait': { shadow: '0 0 20px 0 white' }, '& *': { borderRadius: '5%' } }}
+                >
                     <StaticImage
                         alt="hero"
                         className='hero-portrait'
