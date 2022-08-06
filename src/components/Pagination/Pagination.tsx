@@ -2,10 +2,10 @@ import { Box, Button, Text } from '@chakra-ui/react';
 import { Link } from 'gatsby';
 import { FC } from 'react';
 
-import { PaginationPropTypes } from './types';
+import { IPagination } from '~/types';
 
 
-export const Pagination: FC<PaginationPropTypes> = ({
+export const Pagination: FC<IPagination> = ({
     previousPagePath,
     nextPagePath,
     humanPageNumber,
@@ -30,13 +30,13 @@ export const Pagination: FC<PaginationPropTypes> = ({
                     </Button>
                 )}
             <Text
-                as="span" 
+                as="span"
                 color='primary.600'
                 fontSize="xl"
                 px={10}
             >
                 {humanPageNumber}
-            </Text>  
+            </Text>
             {nextPagePath.length === 0
                 ? (
                     <Button disabled colorScheme="primary">

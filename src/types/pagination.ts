@@ -2,10 +2,7 @@
 
 export interface IPagination {
     humanPageNumber: number
-    limit: number
-    nextPagePath: string
     numberOfPages: number
-    pageNumber: number
+    nextPagePath: string
     previousPagePath: string
-    skip: number
 }
