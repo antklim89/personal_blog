@@ -13,6 +13,7 @@ const Header: FC = () => {
             background="rgba(0, 0, 0, 0.4)"
             justifyContent="flex-end"
             px={4}
+            zIndex={100}
         >
             <HeaderDrawer />
         </HStack>

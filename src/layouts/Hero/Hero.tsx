@@ -1,5 +1,4 @@
 import { Box, Container, Heading, Text } from '@chakra-ui/react';
-import { useTheme } from '@emotion/react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
@@ -7,8 +6,6 @@ import background from './background.webp';
 
 
 const Hero: FC = () => {
-    const { custom: { headerHeight } } = useTheme() as { custom: { headerHeight: number } };
-
     return (
         <Box
             bgImage={`URL(${background})`}
@@ -16,14 +13,14 @@ const Hero: FC = () => {
             bgRepeat="no-repeat"
             bgSize="cover"
             display="flex"
-            marginTop={`-${headerHeight}`}
+            marginTop="calc(var(--header-height) * -1)"
             pb={12}
             width="100%"
         >
             <Container
                 display="grid"
                 gridTemplateColumns={['1fr', null, '1fr 1fr']}
-                marginTop={headerHeight}
+                marginTop="var(--header-height)"
             >
                 <Box
                     py={4}
