@@ -7,7 +7,7 @@ import Social from '~/components/Social';
 const Footer: FC = () => {
     return (
         <Box as="footer" bgColor="black" color="white">
-            <Container maxWidth='container.lg'>
+            <Container>
                 <HStack justifyContent="space-between">
                     <span>&copy; {new Date().getFullYear()} Personal Blog</span>
                     <Social />

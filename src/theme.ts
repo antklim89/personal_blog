@@ -31,4 +31,8 @@ export default extendTheme({
         },
     },
     custom: { headerHeight: '64px' },
+    components: {
+        Button: { baseStyle: { cursor: 'pointer' } },
+        Container: { baseStyle: { maxWidth: 'container.lg' } },
+    },
 });

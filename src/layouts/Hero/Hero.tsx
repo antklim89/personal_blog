@@ -24,7 +24,6 @@ const Hero: FC = () => {
                 display="grid"
                 gridTemplateColumns={['1fr', null, '1fr 1fr']}
                 marginTop={headerHeight}
-                maxWidth="container.lg"
             >
                 <Box
                     py={4}

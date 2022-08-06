@@ -9,7 +9,7 @@ const ContactSuccessPage: FC = () => {
     return (
         <>
             <Seo title="The message was sent successfully" />
-            <Container display="flex" flexDirection="column" maxWidth="container.lg">
+            <Container display="flex" flexDirection="column">
                 <Heading mt={20} textAlign="center">
                     The message was sent successfully!
                 </Heading>

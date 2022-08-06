@@ -10,7 +10,7 @@ const ContactsPage: FC<PageProps> = () => {
     return (
         <>
             <Seo title="Contacts" />
-            <Container maxWidth="container.lg">
+            <Container>
                 <Contacts />
             </Container>
         </>

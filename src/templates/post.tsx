@@ -7,7 +7,7 @@ import Post from '~/layouts/Post';
 import { IPost } from '~/types';
 
 
-const PostPage: FC<PageProps<{post: IPost}>> = ({ data }) => {
+const PostPage: FC<PageProps<{ post: IPost }>> = ({ data }) => {
     return (
         <>
             <Seo
@@ -20,7 +20,7 @@ const PostPage: FC<PageProps<{post: IPost}>> = ({ data }) => {
                 }}
                 title={data.post.title}
             />
-            <Container maxWidth="container.lg"> 
+            <Container>
                 <Post {...data.post} />
             </Container>
         </>
