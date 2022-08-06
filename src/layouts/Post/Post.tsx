@@ -1,6 +1,7 @@
-import { Box, Container, Heading, Text } from '@chakra-ui/react';
+import { ArrowBackIcon, ChevronUpIcon } from '@chakra-ui/icons';
+import { Box, Button, Container, Heading, Text } from '@chakra-ui/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { FC, useEffect } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 
 import { PostProps } from './types';
 
@@ -8,9 +9,9 @@ import SocialShare from '~/components/SocialShare';
 
 
 const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
-    useEffect(() => {
-        document.body.scrollTop = 0;
-    }, []);
+    const goBack = useCallback(() => history.back(), []);
+    const goTop = useCallback(() => { document.body.scrollTop = 0; }, []);
+    useEffect(() => goTop, []);
 
     return (
         <article>
@@ -26,6 +27,9 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
                 />
             </Box>
             <Container as="article" mb={10}>
+                <Button colorScheme="primary" marginTop="-58px" onClick={goBack}>
+                    <ArrowBackIcon />&ensp;BACK
+                </Button>
                 <Heading as="h1">
                     {title}
                 </Heading>
@@ -35,6 +39,11 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
                 />
                 <Text mb={4}>{createdAt}</Text>
                 <Box dangerouslySetInnerHTML={{ __html: body.html }} sx={{ 'li': { ml: 4 } }} />
+                <Box display="flex" justifyContent="center">
+                    <Button colorScheme="primary" px={8} onClick={goTop}>
+                        <ChevronUpIcon />
+                    </Button>
+                </Box>
             </Container>
         </article>
     );
