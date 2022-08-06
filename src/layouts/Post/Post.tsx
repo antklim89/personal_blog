@@ -9,8 +9,7 @@ import SocialShare from '~/components/SocialShare';
 
 const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
     useEffect(() => {
-        const bodyEl = document.querySelector('body');
-        if (bodyEl) bodyEl.scrollTop = 0;
+        document.body.scrollTop = 0;
     }, []);
 
     return (
