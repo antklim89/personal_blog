@@ -37,6 +37,7 @@ const HeaderDrawer: FC = () => {
             >
                 <HamburgerIcon />
             </Button>
+
             <Drawer
                 finalFocusRef={btnRef}
                 isOpen={isOpen}
@@ -45,7 +46,7 @@ const HeaderDrawer: FC = () => {
             >
                 <DrawerOverlay onClick={onClose} />
                 <DrawerContent>
-                    <DrawerBody sx={{ 'a': { color: 'primary.text' } }}>
+                    <DrawerBody mt="var(--header-height)" sx={{ 'a': { color: 'primary.text' } }}>
                         <Stack
                             alignItems="flex-start"
                             as="ul"
