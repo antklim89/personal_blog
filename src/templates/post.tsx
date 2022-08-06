@@ -1,4 +1,3 @@
-import { Container } from '@chakra-ui/react';
 import { graphql, PageProps } from 'gatsby';
 import { FC } from 'react';
 
@@ -20,9 +19,7 @@ const PostPage: FC<PageProps<{ post: IPost }>> = ({ data }) => {
                 }}
                 title={data.post.title}
             />
-            <Container>
-                <Post {...data.post} />
-            </Container>
+            <Post {...data.post} />
         </>
     );
 };

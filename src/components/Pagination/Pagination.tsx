@@ -13,10 +13,13 @@ export const Pagination: FC<IPagination> = ({
 }) => {
     if (numberOfPages === 1) return null;
     return (
-        <Box display="flex" justifyContent="center" mb={4}>
+        <Box display="flex" justifyContent="center" my={4}>
             {previousPagePath.length === 0
                 ? (
-                    <Button disabled colorScheme="primary">
+                    <Button
+                        disabled
+                        colorScheme="primary"
+                    >
                         Previous
                     </Button>
                 )
@@ -39,7 +42,10 @@ export const Pagination: FC<IPagination> = ({
             </Text>
             {nextPagePath.length === 0
                 ? (
-                    <Button disabled colorScheme="primary">
+                    <Button
+                        disabled
+                        colorScheme="primary"
+                    >
                         Next
                     </Button>
                 )

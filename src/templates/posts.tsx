@@ -1,4 +1,3 @@
-import { Container } from '@chakra-ui/react';
 import { graphql, PageProps } from 'gatsby';
 import { FC } from 'react';
 
@@ -12,11 +11,9 @@ const PostsPage: FC<PageProps<{ allGraphCmsPost: { nodes: IPost[] } }, IPaginati
     return (
         <>
             <Seo title="Posts" />
-            <Container mb={10} mt={4}>
-                <Pagination {...pageContext} />
-                <PostsList posts={data.allGraphCmsPost.nodes} />
-                <Pagination {...pageContext} />
-            </Container>
+            <Pagination {...pageContext} />
+            <PostsList posts={data.allGraphCmsPost.nodes} />
+            <Pagination {...pageContext} />
         </>
     );
 };

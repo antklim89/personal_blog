@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Box, Container, Heading, Text } from '@chakra-ui/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC, useEffect } from 'react';
 
@@ -14,30 +14,30 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
     }, []);
 
     return (
-        <Box as="article" mb={10}>
+        <article>
             <Box
-                left={0}
+                marginTop="calc(var(--header-height) * -1)"
                 mb={4}
-                position="absolute"
-                right={0}
-                sx={{ '& *': { width: '100%', height: 270 } }}
-                top={0}
+                sx={{ '*': { width: '100%' } }}
+                width="100%"
             >
                 <GatsbyImage
                     alt="post prewiew image"
                     image={imagePreview.gatsbyImageData}
                 />
             </Box>
-            <Heading as="h1" marginTop={270}>
-                {title}
-            </Heading>
-            <SocialShare
-                image={imagePreview.url}
-                title={title}
-            />
-            <Text mb={4}>{createdAt}</Text>
-            <Box dangerouslySetInnerHTML={{ __html: body.html }} sx={{ 'li': { ml: 4 } }} />
-        </Box>
+            <Container as="article" mb={10}>
+                <Heading as="h1">
+                    {title}
+                </Heading>
+                <SocialShare
+                    image={imagePreview.url}
+                    title={title}
+                />
+                <Text mb={4}>{createdAt}</Text>
+                <Box dangerouslySetInnerHTML={{ __html: body.html }} sx={{ 'li': { ml: 4 } }} />
+            </Container>
+        </article>
     );
 };
 
