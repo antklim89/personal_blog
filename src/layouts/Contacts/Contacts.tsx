@@ -7,13 +7,13 @@ const Contacts: FC = () => {
     return (
         <Box as="section">
             <Text fontSize='5xl' textAlign="center">
-                Have a question?<br />Send me a message.
+                Have a question?<br />Contact me.
             </Text>
             <Box
                 action='/contacts/success'
                 as="form"
                 data-netlify="true"
-                display="flex" 
+                display="flex"
                 flexDir="column"
                 method="post"
                 name="contact"
