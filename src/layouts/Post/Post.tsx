@@ -11,7 +11,7 @@ import SocialShare from '~/components/SocialShare';
 const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
     const goBack = useCallback(() => history.back(), []);
     const goTop = useCallback(() => { document.body.scrollTop = 0; }, []);
-    useEffect(() => goTop, []);
+    useEffect(goTop, []);
 
     return (
         <article>
