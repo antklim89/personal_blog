@@ -52,6 +52,7 @@ const Contacts: FC = () => {
                         Don’t fill this out if you’re human: <input name="bot-field" />
                     </Box>
                     <Input
+                        required
                         maxLength={100}
                         mb={4}
                         minLength={3}
@@ -60,6 +61,7 @@ const Contacts: FC = () => {
                         type="text"
                     />
                     <Input
+                        required
                         maxLength={200}
                         mb={4}
                         minLength={3}
@@ -68,6 +70,7 @@ const Contacts: FC = () => {
                         type="subject"
                     />
                     <Textarea
+                        required
                         maxLength={2000}
                         mb={4}
                         minLength={10}
