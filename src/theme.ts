@@ -17,7 +17,6 @@ export default extendTheme({
             text: 'black',
             textLight: 'white',
         },
-        secondary: { 600: 'green' },
     },
     styles: {
         global: {
@@ -30,7 +29,6 @@ export default extendTheme({
             p: { overflowWrap: 'break-word', pb: 6, lineHeight: 1.5, color: '#333' },
         },
     },
-    custom: { headerHeight: '64px' },
     components: {
         Button: { baseStyle: { cursor: 'pointer' } },
         Container: { baseStyle: { maxWidth: 'container.lg' } },
