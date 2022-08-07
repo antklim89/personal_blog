@@ -8,10 +8,8 @@ import background from './background.webp';
 const Hero: FC = () => {
     return (
         <Box
-            bgImage={`URL(${background})`}
-            bgPosition="center"
-            bgRepeat="no-repeat"
-            bgSize="cover"
+            background={`linear-gradient(356deg, white 22%, transparent 22%), URL(${background})`}
+            backgroundSize="auto auto, cover"
             display="flex"
             marginTop="calc(var(--header-height) * -1)"
             py={[4, 4, 12]}
