@@ -1,5 +1,7 @@
 import { ArrowBackIcon, ChevronUpIcon } from '@chakra-ui/icons';
-import { Box, Button, Container, Heading, Text } from '@chakra-ui/react';
+import {
+    Box, Button, Container, Flex, Heading, Text, 
+} from '@chakra-ui/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC, useCallback, useEffect } from 'react';
 
@@ -12,6 +14,7 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
     const goBack = useCallback(() => history.back(), []);
     const goTop = useCallback(() => { document.body.scrollTop = 0; }, []);
     useEffect(goTop, []);
+    
 
     return (
         <article>
@@ -26,7 +29,14 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
                     image={imagePreview.gatsbyImageData}
                 />
             </Box>
-            <Container as="article" mb={10}>
+            <Container
+                alignItems="flex-start" 
+                as="article" 
+                display="flex"
+                flexDirection="column"
+                height="100%" 
+                mb={10}
+            >
                 <Button colorScheme="primary" marginTop="-58px" onClick={goBack}>
                     <ArrowBackIcon />&ensp;BACK
                 </Button>
@@ -38,12 +48,12 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
                     title={title}
                 />
                 <Text mb={4}>{createdAt}</Text>
-                <Box dangerouslySetInnerHTML={{ __html: body.html }} sx={{ 'li': { ml: 4 } }} />
-                <Box display="flex" justifyContent="center">
+                <Box dangerouslySetInnerHTML={{ __html: body }} sx={{ 'li': { ml: 4 } }} />
+                <Flex alignSelf="center" mt={50}>
                     <Button colorScheme="primary" px={8} onClick={goTop}>
                         <ChevronUpIcon />
                     </Button>
-                </Box>
+                </Flex>
             </Container>
         </article>
     );
