@@ -9,10 +9,6 @@ const LINKS = [
         name: 'home',
     },
     {
-        to: '/posts',
-        name: 'posts',
-    },
-    {
         to: '/contacts',
         name: 'contacts',
     },

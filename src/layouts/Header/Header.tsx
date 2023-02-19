@@ -7,12 +7,12 @@ import HeaderDrawer from './HeaderDrawer';
 const Header: FC = () => {
     return (
         <HStack
-            alignItems="center"
             as="header"
-            backdropFilter="blur(2px)"
-            background="rgba(0, 0, 0, 0.4)"
+            backdropFilter="blur(5px)"
+            background="linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0))"
             justifyContent="flex-end"
-            px={4}
+            px={32}
+            py={4}
             zIndex={100}
         >
             <HeaderDrawer />
