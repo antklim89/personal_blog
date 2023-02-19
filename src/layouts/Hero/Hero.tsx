@@ -1,5 +1,5 @@
-import { Box, Container, Heading, Text } from '@chakra-ui/react';
-import { StaticImage } from 'gatsby-plugin-image';
+import { Box, Button, Container, Heading, Text } from '@chakra-ui/react';
+import { Link } from 'gatsby';
 import { FC } from 'react';
 
 import background from './background.webp';
@@ -8,44 +8,38 @@ import background from './background.webp';
 const Hero: FC = () => {
     return (
         <Box
-            background={`linear-gradient(356deg, white 22%, transparent 22%), URL(${background})`}
+            background={`linear-gradient(358deg, white 22%, transparent 22%), URL(${background})`}
             backgroundSize="auto auto, cover"
             display="flex"
             marginTop="calc(var(--header-height) * -1)"
-            py={[4, 4, 12]}
+            minHeight={500}
             width="100%"
         >
             <Container
+                alignItems="flex-start"
                 display="flex"
-                flexDirection={['column', 'row']}
-                marginTop="var(--header-height)"
+                flexDirection="column"
+                justifyContent="center"
             >
-                <Box flex="2 1 200px">
-                    <Heading as="h1" color="primary.textLight">Hello my name is John</Heading>
-                    <Text color="primary.textLight">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                        Adipisci nobis cupiditate sunt ex quisquam voluptate, id
-                        emo hic aspernatur dolorem esse veritatis molestiae magni!
-                    </Text>
-                    <Text color="primary.textLight">
-                        Enim accusamus omnis nesciunt tempore distinctio.
-                    </Text>
-                </Box>
-                <Box
-                    display="flex"
-                    flex="1 1 200px"
-                    justifyContent="center"
-                    ml={[0, 10]}
-                    sx={{ '.hero-portrait': { shadow: '0 0 20px 0 white' }, '& *': { borderRadius: '5%' } }}
-                >
-                    <StaticImage
-                        alt="hero"
-                        className='hero-portrait'
-                        height={380}
-                        placeholder="blurred"
-                        src='./portrait.webp'
-                        width={270}
-                    />
-                </Box>
+                <Heading as="h1" color="primary.textLight">Hello my name is John</Heading>
+                <Text color="primary.textLight">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Adipisci nobis cupiditate sunt ex quisquam voluptate, id
+                    emo hic aspernatur dolorem esse veritatis molestiae magni!
+                </Text>
+                <Text color="primary.textLight">
+                    Enim accusamus omnis nesciunt tempore distinctio.
+                </Text>
+                <Button
+                    alignSelf="flex-end" 
+                    as={Link} 
+                    className='left-line'
+                    color="white"
+                    size="lg"
+                    to="/posts"
+                    variant="link"
+                > 
+                    Read
+                </Button>
             </Container>
         </Box>
     );
