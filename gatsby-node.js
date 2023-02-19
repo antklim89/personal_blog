@@ -19,12 +19,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     
 
     try {
-        const { data: { allGraphCmsPost: { nodes: posts } } } = await graphql(`#graphql
+        const { data: { allPrismicPost: { nodes: posts } } } = await graphql(`#graphql
             query Posts {
-                allGraphCmsPost {
-                    nodes {
-                        id
-                    }
+                allPrismicPost {
+                  nodes {
+                    id
+                  }
                 }
             }
         `);

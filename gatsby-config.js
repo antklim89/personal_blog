@@ -1,3 +1,6 @@
+require('dotenv').config();
+
+
 module.exports = {
     siteMetadata: {},
     plugins: [
@@ -7,8 +10,19 @@ module.exports = {
         'gatsby-plugin-netlify',
         'gatsby-transformer-json',
         {
-            resolve: 'gatsby-source-graphcms',
-            options: { endpoint: 'https://api-eu-central-1.graphcms.com/v2/cl1n89ik01cs301xk3b6m5mtg/master' },
+            resolve: 'gatsby-plugin-typegen',
+            options: {
+                emitSchema: { 'src/__generated__/gatsby-introspection.json': true },
+                emitPluginDocument: { 'src/__generated__/gatsby-plugin-documents.graphql': true },
+            },
+        },
+        {
+            resolve: 'gatsby-source-prismic',
+            options: {
+                repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+                accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+                customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
+            },
         },
         {
             resolve: 'gatsby-transformer-remark',

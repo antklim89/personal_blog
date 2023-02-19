@@ -5,17 +5,19 @@ import { FC } from 'react';
 import { Seo } from '~/components/Seo';
 import Hero from '~/layouts/Hero';
 import PostsList from '~/layouts/PostsList';
-import { IPost } from '~/types';
+import { IPost, DeepRequired } from '~/types';
+import { postTransform } from '~/utils';
 
 
-const HomePage: FC<PageProps<{ allGraphCmsPost: { nodes: IPost[] } }>> = ({ data }) => {
+const HomePage: FC<PageProps<DeepRequired<GatsbyTypes.HomePostsListQuery>>> = ({ data }) => {
+    const posts: IPost[] = data.allPrismicPost.nodes.map(postTransform);
 
     return (
         <>
             <Seo title="Home" />
             <Hero />
             <Container my={10}>
-                <PostsList posts={data.allGraphCmsPost.nodes} />
+                <PostsList posts={posts} />
                 <Button
                     as={Link}
                     colorScheme="primary"
@@ -34,31 +36,31 @@ export default HomePage;
 
 export const query = graphql`
     query HomePostsList{
-        allGraphCmsPost(
-            sort: { fields: createdAt, order: DESC }
-            limit: 10,
-        ) {
-            nodes {
-                ...PostFragment
-                bodyPreview
-            }
-        }
-    }
+  allPrismicPost {
+      nodes {
+        ...Post
+      }
+  }
+}
 
-
-    fragment PostFragment on GraphCMS_Post {
+fragment Post on PrismicPost {
         id
-        title
-        imagePreview {
-            gatsbyImageData(
-                width: 900
-                height: 270
-                placeholder: BLURRED
-                layout: CONSTRAINED
-            )
+        data {
+          createdat
+          body {
+            html
+          }
+          imagepreview {
+            dimensions {
+              width
+              height
+            }
             url
-            width
-            height
+            gatsbyImageData
+          }
+          title {
+            text
+          }
         }
-    }
+}
 `;

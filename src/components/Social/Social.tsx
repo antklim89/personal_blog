@@ -1,21 +1,26 @@
-import { Box, IconButton, Image } from '@chakra-ui/react';
+import { Box, IconButton } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
-import { SocialQuery } from './types';
+import { DeepRequired } from '~/types';
 
 
 const Social: FC = () => {
-    const { allGraphCmsSocialButton: { nodes: icons } } = useStaticQuery<SocialQuery>(graphql`
+    const { allPrismicSocials: { nodes } } = useStaticQuery<DeepRequired<GatsbyTypes.SocialButtonsQuery>>(graphql`
         query SocialButtons {
-            allGraphCmsSocialButton {
-                nodes {
-                    name
-                    link
+            allPrismicSocials {
+              nodes {
+                data {
                     icon {
+                        gatsbyImageData
+                    }
+                    link {
                         url
                     }
+                    title
                 }
+              }
             }
 }
     `);
@@ -28,22 +33,20 @@ const Social: FC = () => {
                 listStyleType="none"
                 my={2}
             >
-                {icons.map((item) => (
-                    <Box as="li" key={item.link} mx={1}>
+                {nodes.map(({ data }) => (
+                    <Box as="li" key={data.link.url} mx={1}>
                         <IconButton
                             aria-label="vkontakte"
                             as="a"
                             borderRadius={0}
-                            href={item.link}
+                            href={data.link.url}
                             size="sm"
                             target="_blank"
                             variant="solid"
                         >
-                            <Image
-                                alt={item.name}
-                                h="24px"
-                                src={item.icon.url}
-                                w="24px"
+                            <GatsbyImage
+                                alt={data.title}
+                                image={data.icon.gatsbyImageData as unknown as IGatsbyImageData}
                             />
                         </IconButton>
                     </Box>

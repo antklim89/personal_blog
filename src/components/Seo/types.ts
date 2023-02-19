@@ -11,8 +11,8 @@ export interface SeoProps {
     image?: {
         src: string
         type: string
-        width: string
-        height: string
+        width: number
+        height: number
     }
 }
 

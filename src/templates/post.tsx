@@ -3,23 +3,26 @@ import { FC } from 'react';
 
 import { Seo } from '~/components/Seo';
 import Post from '~/layouts/Post';
-import { IPost } from '~/types';
+import { DeepRequired } from '~/types';
+import { postTransform } from '~/utils';
 
 
-const PostPage: FC<PageProps<{ post: IPost }>> = ({ data }) => {
+const PostPage: FC<PageProps<DeepRequired<GatsbyTypes.PostPageQuery>>> = ({ data }) => {
+    const post = postTransform(data.prismicPost);
+
     return (
         <>
             <Seo
-                description={data.post.bodyPreview}
+                description={post.body}
                 image={{
-                    height: data.post.imagePreview.height,
-                    width: data.post.imagePreview.width,
-                    src: data.post.imagePreview.url,
+                    height: post.imagePreview.height,
+                    width: post.imagePreview.width,
+                    src: post.imagePreview.url,
                     type: 'image/png',
                 }}
-                title={data.post.title}
+                title={post.title}
             />
-            <Post {...data.post} />
+            <Post {...post} />
         </>
     );
 };
@@ -28,12 +31,8 @@ export default PostPage;
 
 export const query = graphql`
     query PostPage($id: String!) {
-        post: graphCmsPost(id: {eq: $id}) {
-            ...PostFragment
-            body {
-                html
-            }
-            bodyPreview
+        prismicPost(id: {eq: $id}) {
+            ...Post
         }
     }
 `;

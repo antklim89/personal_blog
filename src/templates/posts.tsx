@@ -4,15 +4,18 @@ import { FC } from 'react';
 import { Pagination } from '~/components/Pagination';
 import { Seo } from '~/components/Seo';
 import PostsList from '~/layouts/PostsList';
-import { IPagination, IPost } from '~/types';
+import { DeepRequired, IPagination } from '~/types';
+import { postTransform } from '~/utils';
 
 
-const PostsPage: FC<PageProps<{ allGraphCmsPost: { nodes: IPost[] } }, IPagination>> = ({ data, pageContext }) => {
+const PostsPage: FC<PageProps<DeepRequired<GatsbyTypes.PostsPageQuery>, IPagination>> = ({ data, pageContext }) => {
+    const posts = data.allPrismicPost.nodes.map(postTransform);
+
     return (
         <>
             <Seo title="Posts" />
             <Pagination {...pageContext} />
-            <PostsList posts={data.allGraphCmsPost.nodes} />
+            <PostsList posts={posts} />
             <Pagination {...pageContext} />
         </>
     );
@@ -21,15 +24,14 @@ const PostsPage: FC<PageProps<{ allGraphCmsPost: { nodes: IPost[] } }, IPaginati
 export default PostsPage;
 
 export const query = graphql`
-    query PostsList ($skip: Int!, $limit: Int!) {
-        allGraphCmsPost(
-            sort: { fields: createdAt, order: DESC }
+    query PostsPage ($skip: Int!, $limit: Int!) {
+        allPrismicPost (
+            sort: { fields: first_publication_date, order: DESC }
             skip: $skip
             limit: $limit
         ) {
             nodes {
-                ...PostFragment
-                bodyPreview
+                ...Post
             }
         }
     }

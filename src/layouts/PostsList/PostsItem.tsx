@@ -6,7 +6,7 @@ import { FC } from 'react';
 import { IPost } from '~/types';
 
 
-const PostsItem: FC<IPost> = ({ id, title, imagePreview, createdAt, bodyPreview }) => {
+const PostsItem: FC<IPost> = ({ id, title, imagePreview, createdAt, body }) => {
     return (
         <Box as="article">
             <Box mb={4}>
@@ -19,9 +19,7 @@ const PostsItem: FC<IPost> = ({ id, title, imagePreview, createdAt, bodyPreview 
                 {title}
             </Heading>
             <Text mb={4}>{createdAt}</Text>
-            <Text>
-                {bodyPreview}
-            </Text>
+            <Text dangerouslySetInnerHTML={{ __html: body }} />
             <Button
                 as={Link}
                 colorScheme="primary"
