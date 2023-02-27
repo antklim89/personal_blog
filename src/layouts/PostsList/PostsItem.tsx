@@ -23,6 +23,7 @@ const PostsItem: FC<IPost> = ({ id, title, imagePreview, createdAt, body }) => {
             <Button
                 as={Link}
                 colorScheme="primary"
+                marginLeft="auto"
                 to={`/posts/${id}`}
                 variant="outline"
             >
