@@ -14,6 +14,6 @@ export function postTransform(post: DeepRequired<GatsbyTypes.HomePostsListQuery[
             url: post.data.imagepreview.url,
         },
         id: post.id,
-        createdAt: post.data.createdat,
+        createdAt: post.createdAt,
     };
 }

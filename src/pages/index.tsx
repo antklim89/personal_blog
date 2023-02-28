@@ -35,32 +35,32 @@ export default HomePage;
 
 
 export const query = graphql`
-    query HomePostsList{
-  allPrismicPost {
+  query HomePostsList{
+    allPrismicPost {
       nodes {
         ...Post
       }
+    }
   }
-}
 
-fragment Post on PrismicPost {
-        id
-        data {
-          createdat
-          body {
-            html
-          }
-          imagepreview {
-            dimensions {
-              width
-              height
-            }
-            url
-            gatsbyImageData
-          }
-          title {
-            text
-          }
+  fragment Post on PrismicPost {
+    id
+    createdAt: first_publication_date
+    data {
+      body {
+        html
+      }
+      imagepreview {
+        dimensions {
+          width
+          height
         }
-}
+        url
+        gatsbyImageData
+      }
+      title {
+        text
+      }
+    }
+  }
 `;

@@ -5239,19 +5239,19 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
-type PostFragment = { readonly id: string, readonly data: { readonly createdat: string | null, readonly body: { readonly html: string | null } | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } };
+type PostFragment = { readonly id: string, readonly createdAt: string, readonly data: { readonly body: { readonly html: string | null } | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } };
 
 type HomePostsListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HomePostsListQuery = { readonly allPrismicPost: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly data: { readonly createdat: string | null, readonly body: { readonly html: string | null } | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } }> } };
+type HomePostsListQuery = { readonly allPrismicPost: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly createdAt: string, readonly data: { readonly body: { readonly html: string | null } | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } }> } };
 
 type PostPageQueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-type PostPageQuery = { readonly prismicPost: { readonly id: string, readonly data: { readonly createdat: string | null, readonly body: { readonly html: string | null } | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } } | null };
+type PostPageQuery = { readonly prismicPost: { readonly id: string, readonly createdAt: string, readonly data: { readonly body: { readonly html: string | null } | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } } | null };
 
 type PostsPageQueryVariables = Exact<{
   skip: Scalars['Int'];
@@ -5259,7 +5259,7 @@ type PostsPageQueryVariables = Exact<{
 }>;
 
 
-type PostsPageQuery = { readonly allPrismicPost: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly data: { readonly createdat: string | null, readonly body: { readonly html: string | null } | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } }> } };
+type PostsPageQuery = { readonly allPrismicPost: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly createdAt: string, readonly data: { readonly body: { readonly html: string | null } | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } }> } };
 
 type SocialButtonsQueryVariables = Exact<{ [key: string]: never; }>;
 
