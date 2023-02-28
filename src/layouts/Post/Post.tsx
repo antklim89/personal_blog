@@ -1,5 +1,5 @@
 import { ArrowBackIcon } from '@chakra-ui/icons';
-import { Box, Button, Container, Heading, Text } from '@chakra-ui/react';
+import { Button, Container, Heading, Text } from '@chakra-ui/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC, useCallback, useEffect } from 'react';
 
@@ -17,26 +17,22 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
 
     return (
         <article>
-            <Box
-                mb={4}
-                sx={{ '*': { width: '100%' } }}
-                width="100%"
-            >
-                <GatsbyImage
-                    alt="post prewiew image"
-                    image={imagePreview.gatsbyImageData}
-                />
-            </Box>
+            <Container p={0} sx={{ '*': { width: '100%' } }}>
+                <GatsbyImage alt="post prewiew image" image={imagePreview.gatsbyImageData} />
+            </Container>
             <Container
                 alignItems="flex-start" 
                 as="article" 
                 display="flex"
                 flexDirection="column"
-                height="100%" 
-                mb={10}
+                my={8}
+                position="relative"
             >
                 <Button
-                    colorScheme="primary" marginTop="-58px"
+                    colorScheme="primary"
+                    position="absolute"
+                    size="xs"
+                    top="-4rem"
                     onClick={goBack}
                 >
                     <ArrowBackIcon />&ensp;BACK
@@ -49,7 +45,7 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
                     title={title}
                 />
                 <Text mb={4}>{createdAt}</Text>
-                <Box dangerouslySetInnerHTML={{ __html: body }} sx={{ 'li': { ml: 4 } }} />
+                <Text dangerouslySetInnerHTML={{ __html: body }} sx={{ 'li': { ml: 4 } }} />
                 <GoTopButton />
             </Container>
         </article>

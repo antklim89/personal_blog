@@ -16,7 +16,11 @@ const LINKS = [
 
 const HeaderLinks: FC<{onClose?: () => void}> = ({ onClose }) => {
     return (
-        <HStack as="ul" listStyleType="none">
+        <HStack
+            as="ul"
+            justifyContent="flex-end"
+            listStyleType="none"
+        >
             {LINKS.map(({ to, name }) => (
                 <li key={name}>
                     <Button
