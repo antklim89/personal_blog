@@ -39,11 +39,3 @@ a {
 .activeLink {
     text-decoration: underline;
 }
-
-.left-line::before {
-    content: "";
-    width: 200px;
-    height: 1px;
-    background: white;
-    transform: translateX(-10px);
-}

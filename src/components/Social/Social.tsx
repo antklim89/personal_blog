@@ -22,7 +22,7 @@ const Social: FC<BoxProps> = (props) => {
                 }
               }
             }
-}
+        }
     `);
 
     return (
@@ -37,13 +37,13 @@ const Social: FC<BoxProps> = (props) => {
                 {nodes.map(({ data }) => (
                     <Box as="li" key={data.link.url} mx={1}>
                         <IconButton
-                            aria-label="vkontakte"
+                            aria-label={data.title}
                             as="a"
                             borderRadius={0}
                             href={data.link.url}
                             size="sm"
                             target="_blank"
-                            variant="solid"
+                            variant="ghost"
                         >
                             <GatsbyImage
                                 alt={data.title}
