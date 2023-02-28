@@ -11,7 +11,7 @@ const Hero: FC = () => {
             background={`linear-gradient(358deg, white 22%, transparent 22%), URL(${background})`}
             backgroundSize="auto auto, cover"
             display="flex"
-            marginTop="calc(var(--header-height) * -1)"
+            // marginTop="calc(var(--header-height) * -1)"
             minHeight={500}
             width="100%"
         >

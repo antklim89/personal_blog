@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react';
+import { Button, HStack } from '@chakra-ui/react';
 import { Link } from 'gatsby';
 import { FC } from 'react';
 
@@ -16,7 +16,7 @@ const LINKS = [
 
 const HeaderLinks: FC<{onClose?: () => void}> = ({ onClose }) => {
     return (
-        <>
+        <HStack as="ul" listStyleType="none">
             {LINKS.map(({ to, name }) => (
                 <li key={name}>
                     <Button
@@ -33,7 +33,7 @@ const HeaderLinks: FC<{onClose?: () => void}> = ({ onClose }) => {
                     </Button>
                 </li>
             ))}
-        </>
+        </HStack>
     );
 };
 

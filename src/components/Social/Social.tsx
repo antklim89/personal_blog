@@ -1,4 +1,4 @@
-import { Box, IconButton } from '@chakra-ui/react';
+import { Box, BoxProps, IconButton } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { FC } from 'react';
@@ -6,7 +6,7 @@ import { FC } from 'react';
 import { DeepRequired } from '~/types';
 
 
-const Social: FC = () => {
+const Social: FC<BoxProps> = (props) => {
     const { allPrismicSocials: { nodes } } = useStaticQuery<DeepRequired<GatsbyTypes.SocialButtonsQuery>>(graphql`
         query SocialButtons {
             allPrismicSocials {
@@ -29,6 +29,7 @@ const Social: FC = () => {
         <nav>
             <Box
                 as="ul" 
+                {...props}
                 display="flex" 
                 listStyleType="none"
                 my={2}
