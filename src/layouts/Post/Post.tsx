@@ -5,6 +5,7 @@ import { FC, useCallback, useEffect } from 'react';
 
 import { PostProps } from './types';
 
+import FromNow from '~/components/FromNow';
 import { GoTopButton } from '~/components/GoTopButton';
 import SocialShare from '~/components/SocialShare';
 
@@ -44,7 +45,7 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
                     image={imagePreview.url}
                     title={title}
                 />
-                <Text mb={4}>{createdAt}</Text>
+                <FromNow date={createdAt} mb={4} />
                 <Text dangerouslySetInnerHTML={{ __html: body }} sx={{ 'li': { ml: 4 } }} />
                 <GoTopButton />
             </Container>

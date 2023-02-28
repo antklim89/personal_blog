@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
+import FromNow from '~/components/FromNow';
 import { IPost } from '~/types';
 
 
@@ -18,7 +19,7 @@ const PostsItem: FC<IPost> = ({ id, title, imagePreview, createdAt, body }) => {
             <Heading as="h3">
                 {title}
             </Heading>
-            <Text mb={4}>{createdAt}</Text>
+            <FromNow date={createdAt} mb={4} />
             <Text dangerouslySetInnerHTML={{ __html: body }} />
             <Button
                 as={Link}
