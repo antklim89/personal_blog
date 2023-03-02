@@ -9,7 +9,7 @@ const Layout: FC = ({ children }) => {
     return (
         <div className="root">
             <Header />
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence mode='wait'>
                 <motion.main
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}

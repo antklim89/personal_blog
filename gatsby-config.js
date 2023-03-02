@@ -42,6 +42,7 @@ module.exports = {
             options: {
                 resetCSS: true,
                 isUsingColorMode: true,
+                isBaseProvider: true,
             },
         },
         {
