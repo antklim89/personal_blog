@@ -4,11 +4,11 @@ import { FC } from 'react';
 import { Pagination } from '~/components/Pagination';
 import { Seo } from '~/components/Seo';
 import PostsList from '~/layouts/PostsList';
-import { DeepRequired, IPagination } from '~/types';
+import { IPagination } from '~/types';
 import { postTransform } from '~/utils';
 
 
-const PostsPage: FC<PageProps<DeepRequired<GatsbyTypes.PostsPageQuery>, IPagination>> = ({ data, pageContext }) => {
+const PostsPage: FC<PageProps<GatsbyTypes.PostsPageQuery, IPagination>> = ({ data, pageContext }) => {
     const posts = data.allPrismicPost.nodes.map(postTransform);
 
     return (

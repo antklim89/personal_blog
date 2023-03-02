@@ -5,11 +5,10 @@ import { FC } from 'react';
 import { Seo } from '~/components/Seo';
 import Hero from '~/layouts/Hero';
 import PostsList from '~/layouts/PostsList';
-import { IPost, DeepRequired } from '~/types';
 import { postTransform } from '~/utils';
 
 
-const HomePage: FC<PageProps<DeepRequired<GatsbyTypes.HomePostsListQuery>>> = ({ data }) => {
+const HomePage: FC<PageProps<GatsbyTypes.HomePostsListQuery>> = ({ data }) => {
     const posts = data.allPrismicPost.nodes.map(postTransform);
 
     return (

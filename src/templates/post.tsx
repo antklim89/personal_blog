@@ -3,11 +3,10 @@ import { FC } from 'react';
 
 import { Seo } from '~/components/Seo';
 import Post from '~/layouts/Post';
-import { DeepRequired } from '~/types';
 import { postTransform } from '~/utils';
 
 
-const PostPage: FC<PageProps<DeepRequired<GatsbyTypes.PostPageQuery>>> = ({ data }) => {
+const PostPage: FC<PageProps<GatsbyTypes.PostPageQuery>> = ({ data }) => {
     const post = postTransform(data.prismicPost || {});
 
     return (
