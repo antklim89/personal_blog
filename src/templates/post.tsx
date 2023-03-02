@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import { Seo } from '~/components/Seo';
 import Post from '~/layouts/Post';
-import { postTransform } from '~/utils';
+import { postTransform } from '~/transforms';
 
 
 const PostPage: FC<PageProps<GatsbyTypes.PostPageQuery>> = ({ data }) => {
@@ -31,7 +31,12 @@ export default PostPage;
 export const query = graphql`
     query PostPage($id: String!) {
         prismicPost(id: {eq: $id}) {
-            ...Post
+        ...BasePost
+            data {
+                body {
+                    html
+                }
+            }
         }
     }
 `;

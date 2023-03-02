@@ -4,12 +4,12 @@ import { FC } from 'react';
 import { Pagination } from '~/components/Pagination';
 import { Seo } from '~/components/Seo';
 import PostsList from '~/layouts/PostsList';
+import { postPreviewsTransform } from '~/transforms';
 import { IPagination } from '~/types';
-import { postTransform } from '~/utils';
 
 
 const PostsPage: FC<PageProps<GatsbyTypes.PostsPageQuery, IPagination>> = ({ data, pageContext }) => {
-    const posts = data.allPrismicPost.nodes.map(postTransform);
+    const posts = postPreviewsTransform(data.allPrismicPost.nodes);
 
     return (
         <>
@@ -31,7 +31,10 @@ export const query = graphql`
             limit: $limit
         ) {
             nodes {
-                ...Post
+                ...BasePost
+                data {
+                    bodypreview
+                }
             }
         }
     }

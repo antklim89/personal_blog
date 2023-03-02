@@ -5,11 +5,11 @@ import { FC } from 'react';
 import { Seo } from '~/components/Seo';
 import Hero from '~/layouts/Hero';
 import PostsList from '~/layouts/PostsList';
-import { postTransform } from '~/utils';
+import { postPreviewsTransform } from '~/transforms';
 
 
 const HomePage: FC<PageProps<GatsbyTypes.HomePostsListQuery>> = ({ data }) => {
-    const posts = data.allPrismicPost.nodes.map(postTransform);
+    const posts = postPreviewsTransform(data.allPrismicPost.nodes);
 
     return (
         <>
@@ -34,32 +34,32 @@ export default HomePage;
 
 
 export const query = graphql`
-  query HomePostsList{
-    allPrismicPost {
-      nodes {
-        ...Post
-      }
-    }
-  }
-
-  fragment Post on PrismicPost {
-    id
-    createdAt: first_publication_date
-    data {
-      body {
-        html
-      }
-      imagepreview {
-        dimensions {
-          width
-          height
+    query HomePostsList {
+        allPrismicPost {
+            nodes {
+                ...BasePost
+                data {
+                    bodypreview
+                }
+            }
         }
-        url
-        gatsbyImageData
-      }
-      title {
-        text
-      }
     }
-  }
+
+    fragment BasePost on PrismicPost {
+        id
+        first_publication_date
+        data {
+            imagepreview {
+                dimensions {
+                    width
+                    height
+                }
+                url
+                gatsbyImageData
+            }
+            title {
+                text
+            }
+        }
+    }
 `;

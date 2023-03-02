@@ -1,13 +1,13 @@
 import { Box, BoxProps, IconButton } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import { FC } from 'react';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { FC, useMemo } from 'react';
 
-import { DeepRequired } from '~/types';
+import { socialsTransform } from '~/transforms';
 
 
 const Social: FC<BoxProps> = (props) => {
-    const { allPrismicSocials: { nodes } } = useStaticQuery<DeepRequired<GatsbyTypes.SocialButtonsQuery>>(graphql`
+    const data = useStaticQuery<GatsbyTypes.SocialButtonsQuery>(graphql`
         query SocialButtons {
             allPrismicSocials {
               nodes {
@@ -25,6 +25,8 @@ const Social: FC<BoxProps> = (props) => {
         }
     `);
 
+    const socials = useMemo(() => socialsTransform(data.allPrismicSocials.nodes), []);
+
     return (
         <nav>
             <Box
@@ -34,20 +36,20 @@ const Social: FC<BoxProps> = (props) => {
                 listStyleType="none"
                 my={2}
             >
-                {nodes.map(({ data }) => (
-                    <Box as="li" key={data.link?.url} mx={1}>
+                {socials.map(({ icon, link, title }) => (
+                    <Box as="li" key={link} mx={1}>
                         <IconButton
-                            aria-label={data.title || 'social biutton'}
+                            aria-label={title}
                             as="a"
                             borderRadius={0}
-                            href={data.link?.url || '/'}
+                            href={link}
                             size="sm"
                             target="_blank"
                             variant="ghost"
                         >
                             <GatsbyImage
-                                alt={data.title || 'social biutton'}
-                                image={data.icon?.gatsbyImageData as unknown as IGatsbyImageData}
+                                alt={title}
+                                image={icon}
                             />
                         </IconButton>
                     </Box>

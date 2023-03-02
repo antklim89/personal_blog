@@ -4,10 +4,10 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
 
 import FromNow from '~/components/FromNow';
-import { IPost } from '~/types';
+import { IPostPreview } from '~/types';
 
 
-const PostsItem: FC<IPost> = ({ id, title, imagePreview, createdAt, body }) => {
+const PostsItem: FC<IPostPreview> = ({ id, title, imagePreview, createdAt, bodyPreview }) => {
     return (
         <Box as="article">
             <Box mb={4}>
@@ -20,7 +20,7 @@ const PostsItem: FC<IPost> = ({ id, title, imagePreview, createdAt, body }) => {
                 {title}
             </Heading>
             <FromNow date={createdAt} mb={4} />
-            <Text dangerouslySetInnerHTML={{ __html: body }} />
+            <Text dangerouslySetInnerHTML={{ __html: bodyPreview }} />
             <Button
                 as={Link}
                 colorScheme="primary"
