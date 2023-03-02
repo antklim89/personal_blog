@@ -35,19 +35,19 @@ const Social: FC<BoxProps> = (props) => {
                 my={2}
             >
                 {nodes.map(({ data }) => (
-                    <Box as="li" key={data.link.url} mx={1}>
+                    <Box as="li" key={data.link?.url} mx={1}>
                         <IconButton
-                            aria-label={data.title}
+                            aria-label={data.title || 'social biutton'}
                             as="a"
                             borderRadius={0}
-                            href={data.link.url}
+                            href={data.link?.url || '/'}
                             size="sm"
                             target="_blank"
                             variant="ghost"
                         >
                             <GatsbyImage
-                                alt={data.title}
-                                image={data.icon.gatsbyImageData as unknown as IGatsbyImageData}
+                                alt={data.title || 'social biutton'}
+                                image={data.icon?.gatsbyImageData as unknown as IGatsbyImageData}
                             />
                         </IconButton>
                     </Box>

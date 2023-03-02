@@ -1,15 +1,6 @@
-import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { z } from 'zod';
+
+import { postSchema } from '~/schemas';
 
 
-export interface IPost {
-    id: string
-    body: string
-    title: string
-    createdAt: string
-    imagePreview: {
-        gatsbyImageData: IGatsbyImageData;
-        url: string
-        width: number
-        height: number
-    }
-}
+export type IPost = z.infer<typeof postSchema>

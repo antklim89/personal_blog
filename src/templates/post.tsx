@@ -8,7 +8,7 @@ import { postTransform } from '~/utils';
 
 
 const PostPage: FC<PageProps<DeepRequired<GatsbyTypes.PostPageQuery>>> = ({ data }) => {
-    const post = postTransform(data.prismicPost);
+    const post = postTransform(data.prismicPost || {});
 
     return (
         <>

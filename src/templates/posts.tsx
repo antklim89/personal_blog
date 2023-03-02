@@ -26,7 +26,7 @@ export default PostsPage;
 export const query = graphql`
     query PostsPage ($skip: Int!, $limit: Int!) {
         allPrismicPost (
-            sort: { fields: first_publication_date, order: DESC }
+            sort: { first_publication_date: DESC }
             skip: $skip
             limit: $limit
         ) {

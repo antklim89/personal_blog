@@ -10,7 +10,7 @@ import { postTransform } from '~/utils';
 
 
 const HomePage: FC<PageProps<DeepRequired<GatsbyTypes.HomePostsListQuery>>> = ({ data }) => {
-    const posts: IPost[] = data.allPrismicPost.nodes.map(postTransform);
+    const posts = data.allPrismicPost.nodes.map(postTransform);
 
     return (
         <>
