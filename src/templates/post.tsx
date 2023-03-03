@@ -6,8 +6,8 @@ import Post from '~/layouts/Post';
 import { postTransform } from '~/transforms';
 
 
-const PostPage: FC<PageProps<GatsbyTypes.PostPageQuery>> = ({ data }) => {
-    const post = postTransform(data.prismicPost || {});
+const PostPage: FC<PageProps<DeepRequired<GatsbyTypes.PostPageQuery>>> = ({ data }) => {
+    const post = postTransform(data.prismicPost);
 
     return (
         <>
@@ -31,12 +31,7 @@ export default PostPage;
 export const query = graphql`
     query PostPage($id: String!) {
         prismicPost(id: {eq: $id}) {
-        ...BasePost
-            data {
-                body {
-                    html
-                }
-            }
+            ...Post
         }
     }
 `;

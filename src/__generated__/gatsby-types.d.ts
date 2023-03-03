@@ -4518,12 +4518,14 @@ type SiteFieldSelector = {
   readonly buildTime: InputMaybe<FieldSelectorEnum>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly graphqlTypegen: InputMaybe<FieldSelectorEnum>;
+  readonly host: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly jsxRuntime: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly pathPrefix: InputMaybe<FieldSelectorEnum>;
   readonly polyfill: InputMaybe<FieldSelectorEnum>;
+  readonly port: InputMaybe<FieldSelectorEnum>;
   readonly siteMetadata: InputMaybe<SiteSiteMetadataFieldSelector>;
   readonly trailingSlash: InputMaybe<FieldSelectorEnum>;
 };
@@ -5041,12 +5043,14 @@ type SiteSortInput = {
   readonly buildTime: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly graphqlTypegen: InputMaybe<SortOrderEnum>;
+  readonly host: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly jsxRuntime: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
   readonly pathPrefix: InputMaybe<SortOrderEnum>;
   readonly polyfill: InputMaybe<SortOrderEnum>;
+  readonly port: InputMaybe<SortOrderEnum>;
   readonly siteMetadata: InputMaybe<SiteSiteMetadataSortInput>;
   readonly trailingSlash: InputMaybe<SortOrderEnum>;
 };
@@ -5077,7 +5081,11 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
+type PostPreviewFragment = { readonly id: string, readonly first_publication_date: string, readonly data: { readonly bodypreview: string | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } };
+
 type BasePostFragment = { readonly id: string, readonly first_publication_date: string, readonly data: { readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } };
+
+type PostFragment = { readonly id: string, readonly first_publication_date: string, readonly data: { readonly body: { readonly html: string | null } | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } };
 
 type HomePostsListQueryVariables = Exact<{ [key: string]: never; }>;
 

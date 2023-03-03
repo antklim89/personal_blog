@@ -8,7 +8,7 @@ import PostsList from '~/layouts/PostsList';
 import { postPreviewsTransform } from '~/transforms';
 
 
-const HomePage: FC<PageProps<GatsbyTypes.HomePostsListQuery>> = ({ data }) => {
+const HomePage: FC<PageProps<DeepRequired<GatsbyTypes.HomePostsListQuery>>> = ({ data }) => {
     const posts = postPreviewsTransform(data.allPrismicPost.nodes);
 
     return (
@@ -37,10 +37,7 @@ export const query = graphql`
     query HomePostsList {
         allPrismicPost {
             nodes {
-                ...BasePost
-                data {
-                    bodypreview
-                }
+                ...PostPreview
             }
         }
     }
@@ -59,6 +56,22 @@ export const query = graphql`
             }
             title {
                 text
+            }
+        }
+    }
+
+    fragment PostPreview on PrismicPost {
+        ...BasePost
+        data {
+            bodypreview
+        }
+    }
+
+    fragment Post on PrismicPost {
+        ...BasePost
+        data {
+            body {
+                html
             }
         }
     }

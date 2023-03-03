@@ -7,7 +7,7 @@ import { socialsTransform } from '~/transforms';
 
 
 const Social: FC<BoxProps> = (props) => {
-    const data = useStaticQuery<GatsbyTypes.SocialButtonsQuery>(graphql`
+    const data = useStaticQuery<DeepRequired<GatsbyTypes.SocialButtonsQuery>>(graphql`
         query SocialButtons {
             allPrismicSocials {
               nodes {
@@ -25,7 +25,7 @@ const Social: FC<BoxProps> = (props) => {
         }
     `);
 
-    const socials = useMemo(() => socialsTransform(data.allPrismicSocials.nodes), []);
+    const socials = useMemo(() => socialsTransform(data), []);
 
     return (
         <nav>

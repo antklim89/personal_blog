@@ -1,7 +1,5 @@
-import { z } from 'zod';
-
-import { postPreviewSchema, postSchema } from '~/transforms';
+import { postTransform, postPreviewTransform } from '~/transforms';
 
 
-export type IPostPreview = z.infer<typeof postPreviewSchema>
-export type IPost = z.infer<typeof postSchema>
+export type IPostPreview = ReturnType<typeof postPreviewTransform>
+export type IPost = ReturnType<typeof postTransform>

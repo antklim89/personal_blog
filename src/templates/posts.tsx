@@ -8,7 +8,7 @@ import { postPreviewsTransform } from '~/transforms';
 import { IPagination } from '~/types';
 
 
-const PostsPage: FC<PageProps<GatsbyTypes.PostsPageQuery, IPagination>> = ({ data, pageContext }) => {
+const PostsPage: FC<PageProps<DeepRequired<GatsbyTypes.HomePostsListQuery>, IPagination>> = ({ data, pageContext }) => {
     const posts = postPreviewsTransform(data.allPrismicPost.nodes);
 
     return (
@@ -31,10 +31,7 @@ export const query = graphql`
             limit: $limit
         ) {
             nodes {
-                ...BasePost
-                data {
-                    bodypreview
-                }
+                ...PostPreview
             }
         }
     }

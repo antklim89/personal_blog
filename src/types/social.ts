@@ -1,6 +1,4 @@
-import { z } from 'zod';
-
-import { socialSchema } from '~/transforms';
+import { socialsTransform } from '~/transforms';
 
 
-export type ISocial = z.infer<typeof socialSchema>
+export type ISocial = ReturnType<typeof socialsTransform>
