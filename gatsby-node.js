@@ -1,6 +1,9 @@
+
+
 const path = require('path');
 
 const { paginate } = require('gatsby-awesome-pagination');
+const { z } = require('zod');
 
 
 exports.onCreateBabelConfig = ({ actions }) => {
@@ -49,5 +52,37 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         console.error(error);
         reporter.panicOnBuild('Error while running GraphQL query.');
         return;
+    }
+};
+
+
+const socialSchema = z.object({
+    icon: z.any(),
+    link: z.object({ url: z.string() }),
+    title: z.string(),
+});
+
+const basePostSchema = z.object({
+    title: z.array(z.object({ text: z.string() })),
+    imagepreview: z.object({
+        gatsbyImageData: z.any(),
+        url: z.string(),
+        dimensions: z.object({ width: z.number(), height: z.number() }),
+    }),
+    // bodypreview: z.string(),
+    body: z.array(z.object({ type: z.string() })),
+});
+
+/**
+ * 
+ * @param {import('gatsby').CreateNodeArgs} 
+ */
+exports.onCreateNode = ({ node }) => {
+    if(node.internal?.type === 'PrismicSocials') {
+        socialSchema.parse(node.data);
+    }
+    
+    if(node.internal?.type === 'PrismicPost') {
+        basePostSchema.parse(node.data);
     }
 };
