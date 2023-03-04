@@ -1,7 +1,7 @@
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { Button, Container, Heading, Text } from '@chakra-ui/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { FC, useCallback, useEffect } from 'react';
+import { FC, useCallback } from 'react';
 
 import { PostProps } from './types';
 
@@ -12,9 +12,6 @@ import SocialShare from '~/components/SocialShare';
 
 const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
     const goBack = useCallback(() => history.back(), []);
-    const goTop = useCallback(() => { document.body.scrollTop = 0; }, []);
-    useEffect(goTop, []);
-    
 
     return (
         <article>
