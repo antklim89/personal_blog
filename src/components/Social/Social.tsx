@@ -13,7 +13,7 @@ const Social: FC<BoxProps> = (props) => {
               nodes {
                 data {
                     icon {
-                        gatsbyImageData
+                        gatsbyImageData(width: 32, height: 32)
                     }
                     link {
                         url
@@ -37,7 +37,7 @@ const Social: FC<BoxProps> = (props) => {
                 my={2}
             >
                 {socials.map(({ icon, link, title }) => (
-                    <Box as="li" key={link} mx={1}>
+                    <Box as="li" key={link} m={1}>
                         <IconButton
                             aria-label={title}
                             as="a"
@@ -45,7 +45,7 @@ const Social: FC<BoxProps> = (props) => {
                             href={link}
                             size="sm"
                             target="_blank"
-                            variant="ghost"
+                            variant="unstyled"
                         >
                             <GatsbyImage
                                 alt={title}
