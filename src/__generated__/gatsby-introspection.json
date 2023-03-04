@@ -25166,22 +25166,6 @@
             "deprecationReason": null
           },
           {
-            "name": "uid",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "url",
             "description": null,
             "args": [],
@@ -26285,8 +26269,8 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "OBJECT",
-              "name": "PrismicStructuredTextType",
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -26345,8 +26329,8 @@
             "name": "title",
             "description": null,
             "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "PrismicStructuredTextTypeFieldSelector",
+              "kind": "ENUM",
+              "name": "FieldSelectorEnum",
               "ofType": null
             },
             "defaultValue": null,
@@ -26406,7 +26390,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "PrismicStructuredTextTypeFilterInput",
+              "name": "StringQueryOperatorInput",
               "ofType": null
             },
             "defaultValue": null,
@@ -26465,8 +26449,8 @@
             "name": "title",
             "description": null,
             "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "PrismicStructuredTextTypeSortInput",
+              "kind": "ENUM",
+              "name": "SortOrderEnum",
               "ofType": null
             },
             "defaultValue": null,
@@ -26718,18 +26702,6 @@
             "deprecationReason": null
           },
           {
-            "name": "uid",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "FieldSelectorEnum",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "url",
             "description": null,
             "type": {
@@ -26923,18 +26895,6 @@
           },
           {
             "name": "type",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "uid",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -27452,18 +27412,6 @@
           },
           {
             "name": "type",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "SortOrderEnum",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "uid",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -36412,18 +36360,6 @@
               },
               {
                 "name": "type",
-                "description": null,
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "StringQueryOperatorInput",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "uid",
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",

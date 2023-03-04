@@ -3,7 +3,7 @@
 const path = require('path');
 
 const { paginate } = require('gatsby-awesome-pagination');
-const { z } = require('zod');
+const { z, ZodError } = require('zod');
 
 
 exports.onCreateBabelConfig = ({ actions }) => {
@@ -63,13 +63,13 @@ const socialSchema = z.object({
 });
 
 const basePostSchema = z.object({
-    title: z.array(z.object({ text: z.string() })),
+    title: z.string(),
     imagepreview: z.object({
         gatsbyImageData: z.any(),
         url: z.string(),
         dimensions: z.object({ width: z.number(), height: z.number() }),
     }),
-    // bodypreview: z.string(),
+    bodypreview: z.string(),
     body: z.array(z.object({ type: z.string() })),
 });
 
@@ -78,11 +78,16 @@ const basePostSchema = z.object({
  * @param {import('gatsby').CreateNodeArgs} 
  */
 exports.onCreateNode = ({ node }) => {
-    if(node.internal?.type === 'PrismicSocials') {
-        socialSchema.parse(node.data);
-    }
-    
-    if(node.internal?.type === 'PrismicPost') {
-        basePostSchema.parse(node.data);
+    try {
+        if(node.internal?.type === 'PrismicSocials') {
+            socialSchema.parse(node.data);
+        }
+        
+        if(node.internal?.type === 'PrismicPost') {
+            basePostSchema.parse(node.data);
+        }
+    } catch (error) {
+        if (error instanceof ZodError) console.error(error.flatten());
+        process.exit(1);
     }
 };

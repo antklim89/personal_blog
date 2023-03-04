@@ -54,9 +54,7 @@ export const query = graphql`
                 url
                 gatsbyImageData
             }
-            title {
-                text
-            }
+            title
         }
     }
 

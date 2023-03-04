@@ -2901,7 +2901,6 @@ type PrismicPost = Node & {
   readonly prismicId: Scalars['ID'];
   readonly tags: ReadonlyArray<Scalars['String']>;
   readonly type: Scalars['String'];
-  readonly uid: Scalars['String'];
   readonly url: Maybe<Scalars['String']>;
 };
 
@@ -3052,28 +3051,28 @@ type PrismicPostDataType = {
   readonly body: Maybe<PrismicStructuredTextType>;
   readonly bodypreview: Maybe<Scalars['String']>;
   readonly imagepreview: Maybe<PrismicPostDataImagepreviewImageType>;
-  readonly title: Maybe<PrismicStructuredTextType>;
+  readonly title: Maybe<Scalars['String']>;
 };
 
 type PrismicPostDataTypeFieldSelector = {
   readonly body: InputMaybe<PrismicStructuredTextTypeFieldSelector>;
   readonly bodypreview: InputMaybe<FieldSelectorEnum>;
   readonly imagepreview: InputMaybe<PrismicPostDataImagepreviewImageTypeFieldSelector>;
-  readonly title: InputMaybe<PrismicStructuredTextTypeFieldSelector>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
 };
 
 type PrismicPostDataTypeFilterInput = {
   readonly body: InputMaybe<PrismicStructuredTextTypeFilterInput>;
   readonly bodypreview: InputMaybe<StringQueryOperatorInput>;
   readonly imagepreview: InputMaybe<PrismicPostDataImagepreviewImageTypeFilterInput>;
-  readonly title: InputMaybe<PrismicStructuredTextTypeFilterInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
 type PrismicPostDataTypeSortInput = {
   readonly body: InputMaybe<PrismicStructuredTextTypeSortInput>;
   readonly bodypreview: InputMaybe<SortOrderEnum>;
   readonly imagepreview: InputMaybe<PrismicPostDataImagepreviewImageTypeSortInput>;
-  readonly title: InputMaybe<PrismicStructuredTextTypeSortInput>;
+  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type PrismicPostEdge = {
@@ -3098,7 +3097,6 @@ type PrismicPostFieldSelector = {
   readonly prismicId: InputMaybe<FieldSelectorEnum>;
   readonly tags: InputMaybe<FieldSelectorEnum>;
   readonly type: InputMaybe<FieldSelectorEnum>;
-  readonly uid: InputMaybe<FieldSelectorEnum>;
   readonly url: InputMaybe<FieldSelectorEnum>;
 };
 
@@ -3118,7 +3116,6 @@ type PrismicPostFilterInput = {
   readonly prismicId: InputMaybe<IDQueryOperatorInput>;
   readonly tags: InputMaybe<StringQueryOperatorInput>;
   readonly type: InputMaybe<StringQueryOperatorInput>;
-  readonly uid: InputMaybe<StringQueryOperatorInput>;
   readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -3179,7 +3176,6 @@ type PrismicPostSortInput = {
   readonly prismicId: InputMaybe<SortOrderEnum>;
   readonly tags: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
-  readonly uid: InputMaybe<SortOrderEnum>;
   readonly url: InputMaybe<SortOrderEnum>;
 };
 
@@ -4195,7 +4191,6 @@ type Query_prismicPostArgs = {
   prismicId: InputMaybe<IDQueryOperatorInput>;
   tags: InputMaybe<StringQueryOperatorInput>;
   type: InputMaybe<StringQueryOperatorInput>;
-  uid: InputMaybe<StringQueryOperatorInput>;
   url: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -5081,23 +5076,23 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
-type PostPreviewFragment = { readonly id: string, readonly first_publication_date: string, readonly data: { readonly bodypreview: string | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } };
+type PostPreviewFragment = { readonly id: string, readonly first_publication_date: string, readonly data: { readonly bodypreview: string | null, readonly title: string | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null } };
 
-type BasePostFragment = { readonly id: string, readonly first_publication_date: string, readonly data: { readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } };
+type BasePostFragment = { readonly id: string, readonly first_publication_date: string, readonly data: { readonly title: string | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null } };
 
-type PostFragment = { readonly id: string, readonly first_publication_date: string, readonly data: { readonly body: { readonly html: string | null } | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } };
+type PostFragment = { readonly id: string, readonly first_publication_date: string, readonly data: { readonly title: string | null, readonly body: { readonly html: string | null } | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null } };
 
 type HomePostsListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HomePostsListQuery = { readonly allPrismicPost: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly first_publication_date: string, readonly data: { readonly bodypreview: string | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } }> } };
+type HomePostsListQuery = { readonly allPrismicPost: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly first_publication_date: string, readonly data: { readonly title: string | null, readonly bodypreview: string | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null } }> } };
 
 type PostPageQueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-type PostPageQuery = { readonly prismicPost: { readonly id: string, readonly first_publication_date: string, readonly data: { readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null, readonly body: { readonly html: string | null } | null } } | null };
+type PostPageQuery = { readonly prismicPost: { readonly id: string, readonly first_publication_date: string, readonly data: { readonly title: string | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly body: { readonly html: string | null } | null } } | null };
 
 type PostsPageQueryVariables = Exact<{
   skip: Scalars['Int'];
@@ -5105,7 +5100,7 @@ type PostsPageQueryVariables = Exact<{
 }>;
 
 
-type PostsPageQuery = { readonly allPrismicPost: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly first_publication_date: string, readonly data: { readonly bodypreview: string | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null, readonly title: { readonly text: string | null } | null } }> } };
+type PostsPageQuery = { readonly allPrismicPost: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly first_publication_date: string, readonly data: { readonly title: string | null, readonly bodypreview: string | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null } }> } };
 
 type SocialButtonsQueryVariables = Exact<{ [key: string]: never; }>;
 
