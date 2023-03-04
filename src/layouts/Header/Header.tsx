@@ -8,9 +8,7 @@ const Header: FC = () => {
     return (
         <HStack
             as="header"
-            background="linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0))"
-            position="absolute"
-            py={[1, 4]}
+            position="fixed"
             width="100%"
             zIndex={100}
         >

@@ -26,11 +26,13 @@ const HeaderLinks: FC<{onClose?: () => void}> = ({ onClose }) => {
                     <Button
                         activeClassName="activeLink"
                         as={Link}
-                        color="primary.textLight"
-                        pl={[1,2,4]} pr={[1,2,4]}
+                        bgColor="rgba(0,0,0,0.3)"
+                        colorScheme="primary"
+                        pl={[1,2,4]}
+                        pr={[1,2,4]}
                         textTransform="uppercase"
                         to={to}
-                        variant="link"
+                        variant="solid"
                         onClick={onClose}
                     >
                         {name}
