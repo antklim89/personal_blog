@@ -21,7 +21,7 @@ export function postPreviewsTransform(nodes: readonly DeepRequired<GatsbyTypes.P
 
 function transform(post: DeepRequired<GatsbyTypes.BasePostFragment>) {
     return {
-        title: post.data.title.text,
+        title: post.data.title,
         imagePreview: {
             gatsbyImageData: post.data.imagepreview.gatsbyImageData as unknown as IGatsbyImageData,
             height: post.data.imagepreview.dimensions.height,
