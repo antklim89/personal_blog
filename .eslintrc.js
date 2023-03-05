@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path');
 
 
 module.exports = {
@@ -58,6 +56,7 @@ module.exports = {
         /**
         * React
         */
+        'react/no-multi-comp': [2, { 'ignoreStateless': true }],
         'react/jsx-no-useless-fragment': 0,
         'react/forbid-component-props': 0,
         'react/jsx-no-literals': 0,
