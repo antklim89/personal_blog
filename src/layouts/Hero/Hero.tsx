@@ -1,23 +1,34 @@
 import {
-    Box, Button, Container, Heading, VStack, Text, HStack, 
+    Box, Button, Container, VStack, Text, HStack, Image, 
 } from '@chakra-ui/react';
-import { Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { FC } from 'react';
-
-import background from './background.webp';
 
 import Social from '~/components/Social';
 
 
 const Hero: FC = () => {
+    const { prismicHero: { data: { image, text } } } = useStaticQuery<DeepRequired<GatsbyTypes.HeroQuery>>(graphql`
+    query Hero {
+        prismicHero {
+            data {
+                text {
+                    html
+                }
+                image {
+                    gatsbyImageData(height: 400)
+                }
+            }
+        }
+    }
+  `);
+
     return (
         <Box
-            background={`URL(${background})`}
-            backgroundSize="cover"
-            bgRepeat="no-repeat"
-            border="1px"
             display="flex"
             minHeight={400}
+            position="relative"
             py={8}
             width="100%"
         >
@@ -28,15 +39,7 @@ const Hero: FC = () => {
             >
                 <HStack gap={4}>
                     <VStack alignItems="flex-start" justifyContent="center">
-                        <Heading as="h1" color="primary.textLight">Hello my name is John</Heading>
-                        <Text color="primary.textLight">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            Adipisci nobis cupiditate sunt ex quisquam voluptate, id
-                            emo hic aspernatur dolorem esse veritatis molestiae magni!
-                        </Text>
-                        <Text color="primary.textLight">
-                            Enim accusamus omnis nesciunt tempore distinctio.
-                        </Text>
+                        <Text dangerouslySetInnerHTML={{ __html: text.html }} sx={{ '& > *': { color:'primary.textLight' } }} />
                     </VStack>
                     <Social flexDirection="column" />
                 </HStack>
@@ -52,6 +55,14 @@ const Hero: FC = () => {
                     Read More
                 </Button>
             </Container>
+            <Image
+                alt="hero"
+                as={GatsbyImage}
+                image={image.gatsbyImageData as unknown as IGatsbyImageData}
+                inset={0}
+                position="absolute"
+                zIndex={-1}
+            />
         </Box>
     );
 };
