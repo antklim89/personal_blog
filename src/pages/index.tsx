@@ -1,5 +1,5 @@
 import { Button, Container } from '@chakra-ui/react';
-import { graphql, Link, PageProps } from 'gatsby';
+import { graphql, HeadFC, Link, PageProps } from 'gatsby';
 import { FC } from 'react';
 
 import { Seo } from '~/components/Seo';
@@ -13,7 +13,6 @@ const HomePage: FC<PageProps<DeepRequired<GatsbyTypes.HomePostsListQuery>>> = ({
 
     return (
         <>
-            <Seo title="Home" />
             <Hero />
             <Container my={10}>
                 <PostsList posts={posts} />
@@ -30,8 +29,11 @@ const HomePage: FC<PageProps<DeepRequired<GatsbyTypes.HomePostsListQuery>>> = ({
     );
 };
 
-export default HomePage;
+export const Head: HeadFC = () => (
+    <Seo title="Home" />
+);
 
+export default HomePage;
 
 export const query = graphql`
     query HomePostsList {

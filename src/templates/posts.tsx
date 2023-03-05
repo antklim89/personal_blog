@@ -1,4 +1,4 @@
-import { graphql, PageProps } from 'gatsby';
+import { graphql, HeadFC, PageProps } from 'gatsby';
 import { FC } from 'react';
 
 import { Pagination } from '~/components/Pagination';
@@ -13,13 +13,16 @@ const PostsPage: FC<PageProps<DeepRequired<GatsbyTypes.HomePostsListQuery>, IPag
 
     return (
         <>
-            <Seo title="Posts" />
             <Pagination {...pageContext} />
             <PostsList posts={posts} />
             <Pagination {...pageContext} />
         </>
     );
 };
+
+export const Head: HeadFC = () => (
+    <Seo title="Posts" />
+);
 
 export default PostsPage;
 

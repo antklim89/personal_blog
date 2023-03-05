@@ -5107,6 +5107,11 @@ type PostsPageQueryVariables = Exact<{
 
 type PostsPageQuery = { readonly allPrismicPost: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly first_publication_date: string, readonly data: { readonly title: string | null, readonly bodypreview: string | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null } }> } };
 
+type SeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SeoQuery = { readonly prismicSiteInfo: { readonly data: { readonly author: string | null, readonly description: string | null, readonly keywords: string | null, readonly title: string | null } } | null };
+
 type SocialButtonsQueryVariables = Exact<{ [key: string]: never; }>;
 
 

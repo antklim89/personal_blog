@@ -1,77 +1,57 @@
+import { useStaticQuery, graphql } from 'gatsby';
 import { FC } from 'react';
-import { Helmet } from 'react-helmet';
 
 import { SeoProps } from './types';
-
-import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from '~/constants';
 
 
 export const Seo: FC<SeoProps> = ({
     description,
-    meta = [],
-    keywords = [],
+    keywords,
     title,
     image,
+    children,
 }) => {
-    const defaultDescription = `${DEFAULT_DESCRIPTION} ${description || ''}`.trim();
-    const defaultTitle = `${title ? `${title} | ` : ''}${DEFAULT_TITLE}`;
+    const { prismicSiteInfo: { data } } = useStaticQuery<DeepRequired<GatsbyTypes.SeoQuery>>(graphql`
+        query Seo {
+            prismicSiteInfo {
+              data {
+                author
+                description
+                keywords
+                title
+              }
+            }
+        }
+    `);
 
-    const imageMeta = image
-        ? [{
-            name: 'og:image',
-            content: image.src,
-        },
-        {
-            name: 'og:image:type',
-            content: image.type,
-        },
-        {
-            name: 'og:image:width',
-            content: image.width,
-        },
-        {
-            name: 'og:image:height',
-            content: image.height,
-        }]
-        : [];
+
+    const metaDescription = `${data.description} ${description || ''}`.trim();
+    const metaTitle = data.title;
+    const metaKeywords = `${data.keywords}, ${[...(keywords || [])].join(', ')}`;
 
     return (
-        <Helmet
-            htmlAttributes={{ lang: 'en' }}
-            meta={[
-                ...meta,
-                ...imageMeta,
-                {
-                    name: 'keywords',
-                    content: [...keywords].join(', '),
-                },
-                {
-                    name: 'description',
-                    content: defaultDescription,
-                },
-                {
-                    property: 'og:title',
-                    content: title,
-                },
-                {
-                    property: 'og:description',
-                    content: defaultDescription,
-                },
-                {
-                    property: 'og:type',
-                    content: 'website',
-                },
-                {
-                    name: 'twitter:card',
-                    content: 'summary',
-                },
-                {
-                    name: 'twitter:description',
-                    content: defaultDescription,
-                },
-                
-            ]}
-            title={defaultTitle}
-        />
+        <>
+            {image
+                ? (
+                    <><meta content={image.src} name="og:image" />
+                        <meta content={image.type} name="og:type" />
+                        <meta content={`${image.width}`} name="og:width" />
+                        <meta content={`${image.height}`} name="og:height" />
+                    </>
+                )
+                : null}
+
+            <meta content={metaKeywords} name="keywords" />
+            <meta content={metaDescription} name="description" />
+            <meta content={title} property="og:title" />
+            <meta content={metaDescription} property="og:description" />
+            <meta content="website" property="og:type" />
+            <meta content="summary" name="twitter:card" />
+            <meta content={data.author} name="twitter:creator" />
+            <meta content={title} name="twitter:title" />
+            <meta content={metaDescription} name="twitter:description" />
+            <title>{`${title} | ${metaTitle}`}</title>
+            {children}
+        </>
     );
 };
