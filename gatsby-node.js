@@ -14,12 +14,12 @@ exports.onCreateBabelConfig = ({ actions }) => {
 };
 
 /**
- * 
- * @param {import('gatsby').CreatePageArgs} 
+ *
+ * @param {import('gatsby').CreatePageArgs}
  */
 exports.createPages = async ({ actions, graphql, reporter }) => {
     const { createPage } = actions;
-    
+
 
     try {
         const { data: { allPrismicPost: { nodes: posts } } } = await graphql(`#graphql
@@ -31,7 +31,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                 }
             }
         `);
-        
+
         posts.forEach(({ id }) => {
             createPage({
                 path: `/posts/${id}`,
@@ -51,10 +51,26 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     } catch (error) {
         console.error(error);
         reporter.panicOnBuild('Error while running GraphQL query.');
-        return;
+
     }
 };
 
+
+const siteInfoSchema = z.object({
+    title: z.string(),
+    keywords: z.string(),
+    description: z.string(),
+    author: z.string(),
+});
+
+const heroSchema = z.object({
+    image: z.any(),
+    text: z.array(z.object({ type: z.string() })),
+});
+
+const aboutSchema = z.object({
+    text: z.array(z.object({ type: z.string() })),
+});
 
 const socialSchema = z.object({
     icon: z.any(),
@@ -74,17 +90,29 @@ const basePostSchema = z.object({
 });
 
 /**
- * 
- * @param {import('gatsby').CreateNodeArgs} 
+ *
+ * @param {import('gatsby').CreateNodeArgs}
  */
 exports.onCreateNode = ({ node }) => {
     try {
-        if(node.internal?.type === 'PrismicSocials') {
+        if (node.internal?.type === 'PrismicSocials') {
             socialSchema.parse(node.data);
         }
-        
-        if(node.internal?.type === 'PrismicPost') {
+
+        if (node.internal?.type === 'PrismicPost') {
             basePostSchema.parse(node.data);
+        }
+
+        if (node.internal?.type === 'PrismicHero') {
+            heroSchema.parse(node.data);
+        }
+
+        if (node.internal?.type === 'PrismicAbout') {
+            aboutSchema.parse(node.data);
+        }
+
+        if (node.internal?.type === 'PrismicSiteInfo') {
+            siteInfoSchema.parse(node.data);
         }
     } catch (error) {
         if (error instanceof ZodError) console.error(error.flatten());
