@@ -20,7 +20,7 @@ import theme from './src/theme';
 export const wrapPageElement = ({ element }) => {
     return (
         <AnimatePresence initial={false} mode='wait'>
-            <ChakraProvider theme={theme}>
+            <ChakraProvider resetCSS theme={theme}>
                 <Layout>
                     {element}
                 </Layout>
