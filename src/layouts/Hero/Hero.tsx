@@ -10,19 +10,19 @@ import Social from '~/components/Social';
 
 const Hero: FC = () => {
     const { prismicHero: { data: { image, text } } } = useStaticQuery<DeepRequired<GatsbyTypes.HeroQuery>>(graphql`
-    query Hero {
-        prismicHero {
-            data {
-                text {
-                    html
-                }
-                image {
-                    gatsbyImageData(height: 400)
+        query Hero {
+            prismicHero {
+                data {
+                    text {
+                        html
+                    }
+                    image {
+                        gatsbyImageData(height: 400)
+                    }
                 }
             }
         }
-    }
-  `);
+    `);
 
     return (
         <Box
@@ -39,7 +39,14 @@ const Hero: FC = () => {
             >
                 <HStack gap={4}>
                     <VStack alignItems="flex-start" justifyContent="center">
-                        <Text dangerouslySetInnerHTML={{ __html: text.html }} sx={{ '& > *': { color:'primary.textLight' } }} />
+                        <Text
+                            dangerouslySetInnerHTML={{ __html: text.html }}
+                            sx={{
+                                '& > *': { color:'primary.textLight' },
+                                'ul': { pl: 4 },
+                                'h1': { fontSize: '5xl' },
+                            }}
+                        />
                     </VStack>
                     <Social flexDirection="column" />
                 </HStack>
