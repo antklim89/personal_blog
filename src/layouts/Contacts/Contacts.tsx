@@ -17,15 +17,17 @@ const Contacts: FC = () => {
 
         if (response.ok) {
             setStatus('success');
-            (e?.target as HTMLFormElement)?.reset?.();
-        } else setStatus('error');
+            if (e.target instanceof HTMLFormElement) e.target.reset();
+        } else {
+            setStatus('error');
+        }
 
         setLoading(false);
     };
 
     return (
-        <Box as="section">
-            <Text fontSize="5xl" textAlign="center">
+        <Box as="section" mb={8} mt={[8, 12, 24]}>
+            <Text fontSize={['3xl', '4xl']} textAlign="center">
                 Have a question?<br />Contact me.
             </Text>
 
@@ -68,7 +70,7 @@ const Contacts: FC = () => {
                         mb={4}
                         minLength={3}
                         name="subject"
-                        placeholder="Your message subject"
+                        placeholder="Message subject"
                         type="subject"
                     />
                     <Textarea
@@ -83,6 +85,7 @@ const Contacts: FC = () => {
                     />
                     <input name="form-name" type="hidden" value="contact" />
                     <Button
+                        alignSelf="flex-end"
                         colorScheme="primary"
                         disabled={loading}
                         isLoading={loading}
