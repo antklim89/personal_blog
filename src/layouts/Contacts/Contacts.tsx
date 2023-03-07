@@ -18,29 +18,31 @@ const Contacts: FC = () => {
         if (response.ok) {
             setStatus('success');
             (e?.target as HTMLFormElement)?.reset?.();
-        }
-        else setStatus('error');
+        } else setStatus('error');
 
         setLoading(false);
     };
 
     return (
         <Box as="section">
-            <Text fontSize='5xl' textAlign="center">
+            <Text fontSize="5xl" textAlign="center">
                 Have a question?<br />Contact me.
             </Text>
 
-            {status && (
-                <Alert my={4} status={status}>
-                    <AlertIcon />
-                    {status === 'success' && 'The message has been sent successfully'}
-                    {status === 'error' && 'Unexpected error. Try again later.'}
-                </Alert>
-            )}
+            {status
+                ? (
+                    <Alert my={4} status={status}>
+                        <AlertIcon />
+                        {status === 'success' && 'The message has been sent successfully'}
+                        {status === 'error' && 'Unexpected error. Try again later.'}
+                    </Alert>
+                )
+                : null}
 
             <form
                 data-netlify="true"
                 name="contact"
+                // eslint-disable-next-line react/no-unknown-property
                 netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
             >
@@ -84,7 +86,7 @@ const Contacts: FC = () => {
                         colorScheme="primary"
                         disabled={loading}
                         isLoading={loading}
-                        loadingText='Sending'
+                        loadingText="Sending"
                         type="submit"
                     >
                         Send

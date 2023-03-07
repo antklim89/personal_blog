@@ -19,8 +19,8 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
                 <GatsbyImage alt="post prewiew image" image={imagePreview.gatsbyImageData} />
             </Container>
             <Container
-                alignItems="flex-start" 
-                as="article" 
+                alignItems="flex-start"
+                as="article"
                 display="flex"
                 flexDirection="column"
                 my={8}

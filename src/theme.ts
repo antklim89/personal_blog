@@ -1,4 +1,4 @@
-import { extendTheme, ThemeOverride  } from '@chakra-ui/react';
+import { extendTheme, ThemeOverride } from '@chakra-ui/react';
 
 
 const config: ThemeOverride = {
@@ -38,9 +38,13 @@ const config: ThemeOverride = {
                 display: 'flex',
                 alignItems: 'center',
                 width: 'min-content',
-                lineHeight:0,
+                lineHeight: 0,
             },
-            variants: { outline: { _hover:{ color: ({ colors }) => colors.primary['textLight'] } } },
+            variants: {
+                outline: {
+                    _hover: { color: ({ colors }) => colors.primary.textLight },
+                },
+            },
         },
         Container: { baseStyle: { maxWidth: 'container.lg' } },
     },

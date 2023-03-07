@@ -30,9 +30,9 @@ const Social: FC<BoxProps> = (props) => {
     return (
         <nav>
             <Box
-                as="ul" 
+                as="ul"
                 {...props}
-                display="flex" 
+                display="flex"
                 listStyleType="none"
                 my={2}
             >

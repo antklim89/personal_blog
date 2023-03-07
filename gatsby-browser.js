@@ -14,12 +14,12 @@ import theme from './src/theme';
 
 
 /**
- * 
+ *
  * @param {import('gatsby').WrapPageElementBrowserArgs}
  */
 export const wrapPageElement = ({ element }) => {
     return (
-        <AnimatePresence initial={false} mode='wait'>
+        <AnimatePresence initial={false} mode="wait">
             <ChakraProvider resetCSS theme={theme}>
                 <Layout>
                     {element}

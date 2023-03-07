@@ -1,5 +1,5 @@
 import {
-    Box, Button, Container, VStack, Text, HStack, Image, 
+    Box, Button, Container, VStack, Text, HStack, Image,
 } from '@chakra-ui/react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
@@ -42,7 +42,7 @@ const Hero: FC = () => {
                         <Text
                             dangerouslySetInnerHTML={{ __html: text.html }}
                             sx={{
-                                '& > *': { color:'primary.textLight' },
+                                '& > *': { color: 'primary.textLight' },
                                 'ul': { pl: 4 },
                                 'h1': { fontSize: '5xl' },
                             }}
@@ -51,14 +51,14 @@ const Hero: FC = () => {
                     <Social flexDirection="column" />
                 </HStack>
                 <Button
-                    _hover={{ color: 'black', bg: 'white' }} 
+                    _hover={{ color: 'black', bg: 'white' }}
                     alignSelf="flex-end"
                     as={Link}
                     color="white"
                     size="lg"
                     to="/posts"
                     variant="outline"
-                > 
+                >
                     Read More
                 </Button>
             </Container>

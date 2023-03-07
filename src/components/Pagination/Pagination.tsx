@@ -34,7 +34,7 @@ export const Pagination: FC<IPagination> = ({
                 )}
             <Text
                 as="span"
-                color='primary.600'
+                color="primary.600"
                 fontSize="xl"
                 px={10}
             >

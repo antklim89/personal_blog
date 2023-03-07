@@ -1,6 +1,6 @@
 import { HStack } from '@chakra-ui/react';
 import { FC, useEffect, useState } from 'react';
-import { 
+import {
     VKShareButton,
     VKIcon,
     EmailIcon,
@@ -16,7 +16,7 @@ import { SocialShareProps } from './types';
 
 const SocialShare: FC<SocialShareProps> = ({ title, image }) => {
     const [isLoad, setIsLoad] = useState(false);
-    
+
     useEffect(() => {
         if (location.href && !isLoad) setIsLoad(true);
     });
@@ -24,26 +24,26 @@ const SocialShare: FC<SocialShareProps> = ({ title, image }) => {
     if (!isLoad) return null;
     return (
         <HStack sx={{ svg: { width: 12 } }}>
-            <VKShareButton 
-                image={`${location.origin}${image}`} 
-                title={title} 
-                url={location.href} 
+            <VKShareButton
+                image={`${location.origin}${image}`}
+                title={title}
+                url={location.href}
             >
                 <VKIcon />
             </VKShareButton>
-            <EmailShareButton 
+            <EmailShareButton
                 subject={title}
                 url={location.href}
             >
                 <EmailIcon />
             </EmailShareButton>
-            <FacebookShareButton 
+            <FacebookShareButton
                 title={title}
                 url={location.href}
             >
                 <FacebookIcon />
             </FacebookShareButton>
-            <RedditShareButton 
+            <RedditShareButton
                 title={title}
                 url={location.href}
             >

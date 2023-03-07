@@ -1,17 +1,19 @@
 
-
 module.exports = {
     env: {
         browser: true,
         es2020: true,
     },
     extends: [
+        'eslint:all',
+
         /**
         * React
         */
         'plugin:react/all',
         'plugin:react-hooks/recommended',
         'plugin:jsx-a11y/strict',
+
         /**
         * Imports
         */
@@ -19,14 +21,15 @@ module.exports = {
         'plugin:import/errors',
         'plugin:import/warnings',
         'plugin:import/typescript',
+
         /**
         * TypeScript
         */
         'plugin:@typescript-eslint/recommended',
     ],
-    
+
     parser: '@typescript-eslint/parser', // TYPESCRIPT
-    
+
     parserOptions: {
         ecmaFeatures: { jsx: true },
         ecmaVersion: 12,
@@ -37,9 +40,11 @@ module.exports = {
         'jsx-a11y',
     ],
     rules: {
+
         /**
         * Imports
         */
+        'import/no-unresolved': 0,
         'import/prefer-default-export': 0,
         'import/extensions': 0,
         'import/newline-after-import': ['error', { count: 2 }],
@@ -51,12 +56,12 @@ module.exports = {
             },
         ],
         'import/no-extraneous-dependencies': ['error', { 'devDependencies': ['**/*.test.*', '**/*.spec.*', '**/*.config.*'] }],
-        'import/no-unresolved': 0,
-        
+
         /**
         * React
         */
         'react/no-multi-comp': [2, { 'ignoreStateless': true }],
+        'react/jsx-no-constructed-context-values': 0,
         'react/jsx-no-useless-fragment': 0,
         'react/forbid-component-props': 0,
         'react/jsx-no-literals': 0,
@@ -72,7 +77,7 @@ module.exports = {
         'jsx-a11y/label-has-for': 0,
         'jsx-a11y/anchor-is-valid': 0,
         'react/jsx-closing-bracket-location': 2,
-        'react/jsx-no-bind': [2, { ignoreDOMComponents: true }],
+        'react/jsx-no-bind': [0, { ignoreDOMComponents: true }],
         'react/function-component-definition': [2, { 'namedComponents': 'arrow-function' }],
         'react/jsx-max-depth': [1, { 'max': 5 }],
         'react/jsx-sort-props': [1, { callbacksLast: true, shorthandFirst: true }],
@@ -94,6 +99,9 @@ module.exports = {
         /**
         * JavaScript
         */
+        'no-undefined': 0,
+        'max-params': 0,
+        'newline-per-chained-call': [1, { ignoreChainWithDepth: 3 }],
         'new-cap': 0,
         'no-underscore-dangle': [2, { 'allow': ['_q'] }],
         'capitalized-comments': 0,
@@ -143,10 +151,11 @@ module.exports = {
         'max-len': [1, { code: 120, ignoreComments: true, ignoreStrings: true }],
         'no-restricted-syntax': [2, 'WithStatement'],
         'camelcase': [1, { properties: 'never' }],
-        'object-curly-newline': [1, { minProperties: 6, multiline: true }],
+        'object-curly-newline': [1, { minProperties: 6, multiline: false, consistent: true }],
         'array-element-newline': [1, 'consistent'],
     },
     settings: {
+
         /** REACT */
         'react': {
             pragma: 'React',
