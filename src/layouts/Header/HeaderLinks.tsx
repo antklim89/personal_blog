@@ -12,6 +12,10 @@ const LINKS = [
         to: '/contacts',
         name: 'contacts',
     },
+    {
+        to: '/about',
+        name: 'about',
+    },
 ];
 
 const HeaderLinks: FC<{onClose?: () => void}> = ({ onClose }) => {

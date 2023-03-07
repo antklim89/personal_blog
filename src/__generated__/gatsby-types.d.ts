@@ -5082,6 +5082,11 @@ type BasePostFragment = { readonly id: string, readonly first_publication_date: 
 
 type PostFragment = { readonly id: string, readonly first_publication_date: string, readonly data: { readonly title: string | null, readonly body: { readonly html: string | null } | null, readonly imagepreview: { readonly url: string | null, readonly gatsbyImageData: any | null, readonly dimensions: { readonly width: number, readonly height: number } | null } | null } };
 
+type AboutQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AboutQuery = { readonly prismicAbout: { readonly data: { readonly text: { readonly html: string | null } | null } } | null };
+
 type HeroQueryVariables = Exact<{ [key: string]: never; }>;
 
 
