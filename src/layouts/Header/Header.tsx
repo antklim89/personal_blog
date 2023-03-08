@@ -18,7 +18,12 @@ const Header: FC = () => {
             <Container display="flex" justifyContent="flex-end">
                 <HeaderLinks />
                 <IconButton
-                    aria-label="switch color mode" variant="solid"
+                    aria-label="switch color mode"
+                    bgColor="rgba(0,0,0,0.3)"
+                    color="white"
+                    colorScheme="primary"
+                    mx={8}
+                    variant="ghost"
                     onClick={toggleColorMode}
                 >
                     {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}

@@ -31,6 +31,7 @@ const HeaderLinks: FC<{onClose?: () => void}> = ({ onClose }) => {
                         activeClassName="activeLink"
                         as={Link}
                         bgColor="rgba(0,0,0,0.3)"
+                        color="white"
                         colorScheme="primary"
                         pl={[1, 2, 4]}
                         pr={[1, 2, 4]}
