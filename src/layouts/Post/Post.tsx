@@ -15,7 +15,7 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
 
     return (
         <article>
-            <Container p={0} sx={{ '*': { width: '100%' } }}>
+            <Container p={0} sx={{ '*': { width: '100%' }, 'img': { bgColor: 'white' } }}>
                 <GatsbyImage alt="post prewiew image" image={imagePreview.gatsbyImageData} />
             </Container>
             <Container
@@ -25,6 +25,7 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
                 flexDirection="column"
                 my={8}
                 position="relative"
+                sx={{ 'img': { bgColor: 'white' } }}
             >
                 <Button
                     colorScheme="primary"

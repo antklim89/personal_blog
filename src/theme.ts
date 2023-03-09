@@ -7,6 +7,8 @@ const config: ThemeOverride & ThemeConfig = {
         useSystemColorMode: false,
     },
     colors: {
+        white: '#FDFDFD',
+        black: '#010101',
         primary: {
             '50': '#F4F4F0',
             '100': '#E0DFD6',
@@ -30,7 +32,6 @@ const config: ThemeOverride & ThemeConfig = {
             'h6': { fontSize: 'md', mb: 2 },
             'p': { overflowWrap: 'break-word', pb: 6, lineHeight: 1.5 },
             '::placeholder': { color: colorMode === 'light' ? theme.colors.dark : theme.colors.white },
-            'img': { bgColor: 'white' },
         }),
     },
     components: {

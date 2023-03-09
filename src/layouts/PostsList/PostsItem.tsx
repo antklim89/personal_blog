@@ -9,7 +9,7 @@ import { IPostPreview } from '~/types';
 
 const PostsItem: FC<IPostPreview> = ({ id, title, imagePreview, createdAt, bodyPreview }) => {
     return (
-        <Box as="article">
+        <Box as="article" sx={{ 'img': { bgColor: 'white' } }}>
             <Box mb={4}>
                 <GatsbyImage
                     alt="post prewiew image"
