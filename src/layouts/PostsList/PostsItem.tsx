@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Divider, Heading } from '@chakra-ui/react';
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC } from 'react';
@@ -20,7 +20,7 @@ const PostsItem: FC<IPostPreview> = ({ id, title, imagePreview, createdAt, bodyP
                 {title}
             </Heading>
             <FromNow date={createdAt} mb={4} />
-            <Text dangerouslySetInnerHTML={{ __html: bodyPreview }} />
+            <Box dangerouslySetInnerHTML={{ __html: bodyPreview }} />
             <Button
                 as={Link}
                 colorScheme="primary"

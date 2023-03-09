@@ -1,5 +1,5 @@
 import {
-    Box, Button, Container, VStack, Text, HStack, Image, DarkMode,
+    Box, Button, Container, VStack, HStack, Image, DarkMode,
 } from '@chakra-ui/react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
@@ -40,7 +40,7 @@ const Hero: FC = () => {
                 >
                     <HStack gap={4}>
                         <VStack alignItems="flex-start" justifyContent="center">
-                            <Text
+                            <Box
                                 dangerouslySetInnerHTML={{ __html: text.html }}
                                 sx={{
                                     '& > *': { color: 'white' },
