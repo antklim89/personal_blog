@@ -38,7 +38,7 @@ const Hero: FC = () => {
                     flexDirection="column"
                     justifyContent="center"
                 >
-                    <HStack gap={4}>
+                    <HStack gap={[1, 1, 4]}>
                         <VStack alignItems="flex-start" justifyContent="center">
                             <Box
                                 dangerouslySetInnerHTML={{ __html: text.html }}

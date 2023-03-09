@@ -22,7 +22,7 @@ const Header: FC = () => {
                     bgColor="rgba(0,0,0,0.3)"
                     color="white"
                     colorScheme="primary"
-                    mx={8}
+                    ml={[2, 4, 8]}
                     variant="ghost"
                     onClick={toggleColorMode}
                 >

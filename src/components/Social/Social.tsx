@@ -34,6 +34,8 @@ const Social: FC<BoxProps> = (props) => {
                 {...props}
                 display="flex"
                 listStyleType="none"
+                minHeight="32px"
+                minWidth="32px"
                 my={2}
             >
                 {socials.map(({ icon, link, title }) => (
