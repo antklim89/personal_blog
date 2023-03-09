@@ -20,7 +20,7 @@ const PostsItem: FC<IPostPreview> = ({ id, title, imagePreview, createdAt, bodyP
                 {title}
             </Heading>
             <FromNow date={createdAt} mb={4} />
-            <Box dangerouslySetInnerHTML={{ __html: bodyPreview }} />
+            <Box dangerouslySetInnerHTML={{ __html: bodyPreview }} my={4} />
             <Button
                 as={Link}
                 colorScheme="primary"
