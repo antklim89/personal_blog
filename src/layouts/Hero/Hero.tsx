@@ -1,5 +1,5 @@
 import {
-    Box, Button, Container, VStack, Text, HStack, Image,
+    Box, Button, Container, VStack, Text, HStack, Image, DarkMode,
 } from '@chakra-ui/react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
@@ -25,52 +25,54 @@ const Hero: FC = () => {
     `);
 
     return (
-        <Box
-            display="flex"
-            minHeight={400}
-            position="relative"
-            py={8}
-            width="100%"
-        >
-            <Container
+        <DarkMode>
+            <Box
                 display="flex"
-                flexDirection="column"
-                justifyContent="center"
+                minHeight={400}
+                position="relative"
+                py={8}
+                width="100%"
             >
-                <HStack gap={4}>
-                    <VStack alignItems="flex-start" justifyContent="center">
-                        <Text
-                            dangerouslySetInnerHTML={{ __html: text.html }}
-                            sx={{
-                                '& > *': { color: 'primary.textLight' },
-                                'ul': { pl: 4 },
-                                'h1': { fontSize: '5xl' },
-                            }}
-                        />
-                    </VStack>
-                    <Social flexDirection="column" />
-                </HStack>
-                <Button
-                    _hover={{ color: 'black', bg: 'white' }}
-                    alignSelf="flex-end"
-                    as={Link}
-                    color="white"
-                    size="lg"
-                    to="/posts"
-                    variant="outline"
+                <Container
+                    display="flex"
+                    flexDirection="column"
+                    justifyContent="center"
                 >
-                    Read More
-                </Button>
-            </Container>
-            <Image
-                alt="hero"
-                as={GatsbyImage}
-                image={image.gatsbyImageData as unknown as IGatsbyImageData}
-                inset={0}
-                position="absolute"
-                zIndex={-1}
-            />
-        </Box>
+                    <HStack gap={4}>
+                        <VStack alignItems="flex-start" justifyContent="center">
+                            <Text
+                                dangerouslySetInnerHTML={{ __html: text.html }}
+                                sx={{
+                                    '& > *': { color: 'white' },
+                                    'ul': { pl: 4 },
+                                    'h1': { fontSize: '5xl' },
+                                }}
+                            />
+                        </VStack>
+                        <Social flexDirection="column" />
+                    </HStack>
+                    <Button
+                        _hover={{ color: 'black', bg: 'white' }}
+                        alignSelf="flex-end"
+                        as={Link}
+                        color="white"
+                        size="lg"
+                        to="/posts"
+                        variant="outline"
+                    >
+                        Read More
+                    </Button>
+                </Container>
+                <Image
+                    alt="hero"
+                    as={GatsbyImage}
+                    image={image.gatsbyImageData as unknown as IGatsbyImageData}
+                    inset={0}
+                    position="absolute"
+                    zIndex={-1}
+                />
+            </Box>
+        </DarkMode>
     );
 };
 

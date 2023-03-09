@@ -8,22 +8,20 @@ const config: ThemeOverride & ThemeConfig = {
     },
     colors: {
         primary: {
-            50: 'hsl(60, 10%, 80%)',
-            100: 'hsl(60, 10%, 75%)',
-            200: 'hsl(60, 10%, 70%)',
-            300: 'hsl(60, 10%, 65%)',
-            400: 'hsl(60, 10%, 60%)',
-            500: 'hsl(60, 10%, 55%)',
-            600: 'hsl(60, 10%, 50%)',
-            700: 'hsl(60, 10%, 40%)',
-            800: 'hsl(60, 10%, 30%)',
-            900: 'hsl(60, 10%, 20%)',
-            text: 'hsl(60, 10%, 5%)',
-            textLight: 'hsl(60, 10%, 90%)',
+            '50': '#F4F4F0',
+            '100': '#E0DFD6',
+            '200': '#CCCBBC',
+            '300': '#B9B6A2',
+            '400': '#A5A288',
+            '500': '#918D6E',
+            '600': '#747158',
+            '700': '#575542',
+            '800': '#3A382C',
+            '900': '#1D1C16',
         },
     },
     styles: {
-        global: {
+        global: ({ colorMode, theme }) => ({
             'h1': { fontSize: '3xl', mb: 2, fontWeight: 'bold', lineHeight: 0.9 },
             'h2': { fontSize: '2xl', mb: 2, fontWeight: 'bold', lineHeight: 0.9 },
             'h3': { fontSize: '1xl', mb: 2, lineHeight: 0.9 },
@@ -31,7 +29,9 @@ const config: ThemeOverride & ThemeConfig = {
             'h5': { fontSize: 'lg', mb: 2 },
             'h6': { fontSize: 'md', mb: 2 },
             'p': { overflowWrap: 'break-word', pb: 6, lineHeight: 1.5 },
-        },
+            '::placeholder': { color: colorMode === 'light' ? theme.colors.dark : theme.colors.white },
+            'img': { bgColor: 'white' },
+        }),
     },
     components: {
         Button: {
@@ -47,12 +47,16 @@ const config: ThemeOverride & ThemeConfig = {
             variants: {
                 outline: {
                     _hover: {
-                        color: ({ colors }) => colors.primary.textLight,
+                        color: ({ colors }) => colors.white,
                     },
                 },
             },
         },
-        Container: { baseStyle: { maxWidth: 'container.lg' } },
+        Container: {
+            baseStyle: {
+                maxWidth: 'container.lg',
+            },
+        },
     },
 } as const;
 
