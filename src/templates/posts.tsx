@@ -13,7 +13,6 @@ const PostsPage: FC<PageProps<DeepRequired<GatsbyTypes.HomePostsListQuery>, IPag
 
     return (
         <>
-            <Pagination {...pageContext} />
             <PostsList posts={posts} />
             <Pagination {...pageContext} />
         </>
