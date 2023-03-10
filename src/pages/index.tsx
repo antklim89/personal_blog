@@ -37,7 +37,10 @@ export default HomePage;
 
 export const query = graphql`
     query HomePostsList {
-        allPrismicPost {
+        allPrismicPost(
+            sort: { first_publication_date: DESC }
+            limit: 10
+        ) {
             nodes {
                 ...PostPreview
             }
