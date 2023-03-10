@@ -16,19 +16,12 @@ export const Pagination: FC<IPagination> = ({
         <Box display="flex" justifyContent="center" my={4}>
             {previousPagePath.length === 0
                 ? (
-                    <Button
-                        disabled
-                        colorScheme="primary"
-                    >
+                    <Button isDisabled>
                         Previous
                     </Button>
                 )
                 : (
-                    <Button
-                        as={Link}
-                        colorScheme="primary"
-                        to={previousPagePath}
-                    >
+                    <Button as={Link} to={previousPagePath}>
                         Previous
                     </Button>
                 )}
@@ -42,19 +35,12 @@ export const Pagination: FC<IPagination> = ({
             </Text>
             {nextPagePath.length === 0
                 ? (
-                    <Button
-                        disabled
-                        colorScheme="primary"
-                    >
+                    <Button isDisabled>
                         Next
                     </Button>
                 )
                 : (
-                    <Button
-                        as={Link}
-                        colorScheme="primary"
-                        to={nextPagePath}
-                    >
+                    <Button as={Link} to={nextPagePath}>
                         Next
                     </Button>
                 )}
