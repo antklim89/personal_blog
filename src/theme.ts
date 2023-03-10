@@ -51,6 +51,9 @@ const config: ThemeOverride & ThemeConfig = {
                     },
                 },
             },
+            defaultProps: {
+                colorScheme: 'primary',
+            },
         },
         Container: { baseStyle: { maxWidth: 'container.lg' } },
     },
