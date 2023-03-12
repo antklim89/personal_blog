@@ -1,4 +1,4 @@
-import { Container, Text } from '@chakra-ui/react';
+import { Box, Container } from '@chakra-ui/react';
 import { graphql, HeadFC, PageProps } from 'gatsby';
 import { FC } from 'react';
 
@@ -9,7 +9,7 @@ const AboutPage: FC<PageProps<DeepRequired<DeepRequired<GatsbyTypes.AboutQuery>>
 
     return (
         <Container my={12}>
-            <Text
+            <Box
                 dangerouslySetInnerHTML={{ __html: data.prismicAbout.data.text.html }}
                 sx={{ 'ul': { pl: 4 } }}
             />

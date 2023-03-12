@@ -15,7 +15,7 @@ const FromNow: FC<FromNowProps> = ({ date, ...props }) => {
     }, [date]);
 
     return (
-        <Text {...props}>{fromNowDate}&nbsp;</Text>
+        <Text as="span" {...props}>{fromNowDate}&nbsp;</Text>
     );
 };
 

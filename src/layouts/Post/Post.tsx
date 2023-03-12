@@ -1,5 +1,5 @@
 import { ArrowBackIcon } from '@chakra-ui/icons';
-import { Button, Container, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Container, Heading } from '@chakra-ui/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FC, useCallback } from 'react';
 
@@ -15,7 +15,7 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
 
     return (
         <article>
-            <Container p={0} sx={{ '*': { width: '100%' } }}>
+            <Container p={0} sx={{ '*': { width: '100%' }, 'img': { bgColor: 'white' } }}>
                 <GatsbyImage alt="post prewiew image" image={imagePreview.gatsbyImageData} />
             </Container>
             <Container
@@ -25,6 +25,7 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
                 flexDirection="column"
                 my={8}
                 position="relative"
+                sx={{ 'img': { bgColor: 'white' } }}
             >
                 <Button
                     colorScheme="primary"
@@ -43,7 +44,7 @@ const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {
                     title={title}
                 />
                 <FromNow date={createdAt} mb={4} />
-                <Text dangerouslySetInnerHTML={{ __html: body }} sx={{ 'li': { ml: 4 } }} />
+                <Box dangerouslySetInnerHTML={{ __html: body }} sx={{ 'li': { ml: 4 } }} />
                 <GoTopButton />
             </Container>
         </article>
