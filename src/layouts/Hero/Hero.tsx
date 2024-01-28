@@ -9,14 +9,14 @@ import Social from '~/components/Social';
 
 
 const Hero: FC = () => {
-    const { prismicHero: { data: { image, text } } } = useStaticQuery<DeepRequired<GatsbyTypes.HeroQuery>>(graphql`
+    const { prismicSiteInfo: { data: { image, text } } } = useStaticQuery<DeepRequired<GatsbyTypes.HeroQuery>>(graphql`
         query Hero {
-            prismicHero {
+            prismicSiteInfo {
                 data {
-                    text {
+                    text: hero_text {
                         html
                     }
-                    image {
+                    image: hero_image {
                         gatsbyImageData(height: 400)
                     }
                 }

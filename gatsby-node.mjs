@@ -1,7 +1,7 @@
 import path from 'path';
 
 import { paginate } from 'gatsby-awesome-pagination';
-import { z, ZodError } from 'zod';
+import { z } from 'zod';
 
 
 export const onCreateBabelConfig = ({ actions }) => {
@@ -54,20 +54,24 @@ export const createPages = async ({ actions, graphql, reporter }) => {
 };
 
 
+const richTextSchema = z.array(z.object({
+    type: z.string(),
+}));
+
+const imageSchema = z.object({
+    alt: z.string().nullish(),
+    url: z.string(),
+    dimensions: z.object({ width: z.number(), height: z.number() }),
+});
+
 const siteInfoSchema = z.object({
     title: z.string(),
     keywords: z.string(),
     description: z.string(),
     author: z.string(),
-});
-
-const heroSchema = z.object({
-    image: z.any(),
-    text: z.array(z.object({ type: z.string() })),
-});
-
-const aboutSchema = z.object({
-    text: z.array(z.object({ type: z.string() })),
+    hero_text: richTextSchema,
+    hero_image: imageSchema,
+    about: richTextSchema,
 });
 
 const socialSchema = z.object({
@@ -76,15 +80,11 @@ const socialSchema = z.object({
     title: z.string(),
 });
 
-const basePostSchema = z.object({
+const postSchema = z.object({
     title: z.string(),
-    imagepreview: z.object({
-        gatsbyImageData: z.any(),
-        url: z.string(),
-        dimensions: z.object({ width: z.number(), height: z.number() }),
-    }),
+    imagepreview: imageSchema,
     bodypreview: z.string(),
-    body: z.array(z.object({ type: z.string() })),
+    body: richTextSchema,
 });
 
 /**
@@ -98,22 +98,14 @@ export const onCreateNode = ({ node }) => {
         }
 
         if (node.internal?.type === 'PrismicPost') {
-            basePostSchema.parse(node.data);
-        }
-
-        if (node.internal?.type === 'PrismicHero') {
-            heroSchema.parse(node.data);
-        }
-
-        if (node.internal?.type === 'PrismicAbout') {
-            aboutSchema.parse(node.data);
+            postSchema.parse(node.data);
         }
 
         if (node.internal?.type === 'PrismicSiteInfo') {
             siteInfoSchema.parse(node.data);
         }
     } catch (error) {
-        if (error instanceof ZodError) console.error(error.flatten());
+        console.error('Validation Nodes Error:\n', error);
         process.exit(1);
     }
 };

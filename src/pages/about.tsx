@@ -9,7 +9,7 @@ const AboutPage: FC<PageProps<DeepRequired<GatsbyTypes.AboutQuery>>> = ({ data }
     return (
         <Container my={12}>
             <Box
-                dangerouslySetInnerHTML={{ __html: data.prismicAbout.data.text.html }}
+                dangerouslySetInnerHTML={{ __html: data.prismicSiteInfo.data.about.html }}
                 sx={{ 'ul': { pl: 4 } }}
             />
         </Container>
@@ -24,9 +24,9 @@ export default AboutPage;
 
 export const query = graphql`
     query About {
-        prismicAbout {
+        prismicSiteInfo {
             data {
-                text {
+                about {
                     html
                 }
             }
