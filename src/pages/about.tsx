@@ -5,8 +5,7 @@ import { FC } from 'react';
 import { Seo } from '~/components/Seo';
 
 
-const AboutPage: FC<PageProps<DeepRequired<DeepRequired<GatsbyTypes.AboutQuery>>>> = ({ data }) => {
-
+const AboutPage: FC<PageProps<DeepRequired<GatsbyTypes.AboutQuery>>> = ({ data }) => {
     return (
         <Container my={12}>
             <Box
