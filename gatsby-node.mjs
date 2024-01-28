@@ -1,12 +1,10 @@
+import path from 'path';
+
+import { paginate } from 'gatsby-awesome-pagination';
+import { z, ZodError } from 'zod';
 
 
-const path = require('path');
-
-const { paginate } = require('gatsby-awesome-pagination');
-const { z, ZodError } = require('zod');
-
-
-exports.onCreateBabelConfig = ({ actions }) => {
+export const onCreateBabelConfig = ({ actions }) => {
     actions.setBabelPreset({
         name: '@babel/preset-react',
         options: { runtime: 'automatic' },
@@ -17,7 +15,7 @@ exports.onCreateBabelConfig = ({ actions }) => {
  *
  * @param {import('gatsby').CreatePageArgs}
  */
-exports.createPages = async ({ actions, graphql, reporter }) => {
+export const createPages = async ({ actions, graphql, reporter }) => {
     const { createPage } = actions;
 
 
@@ -93,7 +91,7 @@ const basePostSchema = z.object({
  *
  * @param {import('gatsby').CreateNodeArgs}
  */
-exports.onCreateNode = ({ node }) => {
+export const onCreateNode = ({ node }) => {
     try {
         if (node.internal?.type === 'PrismicSocials') {
             socialSchema.parse(node.data);

@@ -1,7 +1,10 @@
-require('dotenv').config();
+import { config } from 'dotenv';
 
 
-module.exports = {
+config();
+
+
+export default {
     siteMetadata: {},
     plugins: [
         'gatsby-plugin-react-helmet',
@@ -49,7 +52,7 @@ module.exports = {
             resolve: 'gatsby-source-filesystem',
             options: {
                 name: 'images',
-                path: `${__dirname}/src/images`,
+                path: 'src/images',
             },
         },
         'gatsby-transformer-sharp',
