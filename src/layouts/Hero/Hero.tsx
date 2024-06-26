@@ -25,7 +25,7 @@ const Hero: FC = () => {
 
     return (
         <DarkMode>
-            <Box as="section" pos="relative" overflow="hidden" bg="gray.800">
+            <Box as="section" pos="relative" overflow="hidden" bg="gray.700">
                 <Box maxW="7xl" mx="auto">
                     <Box
                         pos="relative"
@@ -33,7 +33,7 @@ const Hero: FC = () => {
                         maxW={{ lg: "2xl" }}
                         w={{ lg: "full" }}
                         zIndex={1}
-                        bg="gray.800"
+                        bg="gray.700"
                         border="solid 1px transparent"
                     >
                     <Icon
@@ -44,7 +44,7 @@ const Hero: FC = () => {
                         bottom={0}
                         h="full"
                         w={48}
-                        color="gray.800"
+                        color="gray.700"
                         transform="translateX(50%)"
                         fill="currentColor"
                         viewBox="0 0 100 100"
