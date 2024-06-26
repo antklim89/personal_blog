@@ -1,21 +1,14 @@
 import { Text } from '@chakra-ui/react';
-import { FC, useEffect, useState } from 'react';
-
+import { FC } from 'react';
+import { formatDistanceToNow } from 'date-fns/formatDistanceToNow'
 import { FromNowProps } from './types';
 
 
 const FromNow: FC<FromNowProps> = ({ date, ...props }) => {
-    const [fromNowDate, setFromNowDate] = useState('');
-
-    useEffect(() => {
-        import('date-fns')
-            .then(({ formatDistanceToNow }) => formatDistanceToNow(new Date(date), { addSuffix: true }))
-            .then(setFromNowDate)
-            .catch(console.error);
-    }, [date]);
-
+    const formatedDate = formatDistanceToNow(new Date(date), { addSuffix: true });
+    
     return (
-        <Text as="span" {...props}>{fromNowDate}&nbsp;</Text>
+        <Text as="span" {...props}>{formatedDate}</Text>
     );
 };
 
