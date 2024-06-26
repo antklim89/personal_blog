@@ -83,7 +83,7 @@ const Hero: FC = () => {
                                     to="/posts"
                                     variant="outline"
                                 >
-                                    Read More
+                                    Show All Posts
                                 </Button>
                             </HStack>
                         </Box>
