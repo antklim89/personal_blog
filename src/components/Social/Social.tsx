@@ -47,7 +47,7 @@ const Social: FC<BoxProps> = (props) => {
                             href={link}
                             size="sm"
                             target="_blank"
-                            variant="unstyled"
+                            variant="outline"
                         >
                             <GatsbyImage
                                 alt={title}
