@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { SeoProps } from './types';
 
 
-export const Seo: FC<SeoProps> = ({
+const Seo: FC<SeoProps> = ({
     description,
     keywords,
     title,
@@ -55,3 +55,5 @@ export const Seo: FC<SeoProps> = ({
         </>
     );
 };
+
+export default Seo;

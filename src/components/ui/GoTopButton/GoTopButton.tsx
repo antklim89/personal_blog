@@ -3,7 +3,7 @@ import { Button, Flex } from '@chakra-ui/react';
 import { FC, useCallback, useEffect, useState } from 'react';
 
 
-export const GoTopButton: FC = () => {
+const GoTopButton: FC = () => {
     const goTop = useCallback(() => {
         document.body.scrollTop = 0;
     }, []);
@@ -23,3 +23,5 @@ export const GoTopButton: FC = () => {
         </Flex>
     );
 };
+
+export default GoTopButton;

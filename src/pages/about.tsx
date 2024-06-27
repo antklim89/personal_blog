@@ -2,7 +2,7 @@ import { Box, Container } from '@chakra-ui/react';
 import { graphql, HeadFC, PageProps } from 'gatsby';
 import { FC } from 'react';
 
-import { Seo } from '~/components/Seo';
+import { Seo } from '~/components/ui/Seo';
 
 
 const AboutPage: FC<PageProps<DeepRequired<GatsbyTypes.AboutQuery>>> = ({ data }) => {

@@ -1,9 +1,9 @@
 import { graphql, HeadFC, PageProps } from 'gatsby';
 import { FC } from 'react';
 
-import { Pagination } from '~/components/Pagination';
-import { Seo } from '~/components/Seo';
-import PostsList from '~/layouts/PostsList';
+import { Pagination } from '~/components/ui/Pagination';
+import { Seo } from '~/components/ui/Seo';
+import PostsList from '~/components/features/PostsList';
 import { postPreviewsTransform } from '~/transforms';
 import { IPagination } from '~/types';
 

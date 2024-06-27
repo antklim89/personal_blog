@@ -5,7 +5,7 @@ import { FC } from 'react';
 import { IPagination } from '~/types';
 
 
-export const Pagination: FC<IPagination> = ({
+const Pagination: FC<IPagination> = ({
     previousPagePath,
     nextPagePath,
     humanPageNumber,
@@ -47,3 +47,5 @@ export const Pagination: FC<IPagination> = ({
         </Box>
     );
 };
+
+export default Pagination;

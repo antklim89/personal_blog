@@ -1,7 +1,7 @@
 import { HeadFC } from 'gatsby';
 import { FC } from 'react';
 
-import { Seo } from '~/components/Seo';
+import { Seo } from '~/components/ui/Seo';
 
 
 const NotFoundPage: FC = () => (
