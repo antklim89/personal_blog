@@ -1,8 +1,7 @@
 import { graphql, HeadFC, PageProps } from 'gatsby';
 import { FC } from 'react';
 
-import { Seo } from '~/components/ui/Seo';
-import Post from '~/components/features/Post';
+import { Seo, Post } from '~/components';
 import { postTransform } from '~/transforms';
 
 

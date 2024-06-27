@@ -1,7 +1,7 @@
 import { Box, Container, HStack } from '@chakra-ui/react';
 import { FC } from 'react';
 
-import Social from '~/components/ui/Social';
+import { Social } from '~/components';
 
 
 const Footer: FC = () => {

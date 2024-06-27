@@ -1,5 +1,7 @@
-export * from './post';
-export * from './pagination';
-export * from './gatsby-image';
 
 
+// @ index generate start
+export { type IGatsbyImage } from './gatsby-image';
+export { type IPagination } from './pagination';
+export { type IPostPreview, type IPost } from './post';
+export { type ISocial } from './social';

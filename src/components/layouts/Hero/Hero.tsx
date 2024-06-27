@@ -2,7 +2,7 @@ import { Box, Button, HStack, Image, Icon, DarkMode } from '@chakra-ui/react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, type IGatsbyImageData } from 'gatsby-plugin-image';
 import { FC } from 'react';
-import Social from '~/components/ui/Social';
+import { Social } from '~/components';
 
 
 const Hero: FC = () => {

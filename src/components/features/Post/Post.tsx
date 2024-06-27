@@ -5,9 +5,7 @@ import { FC, useCallback } from 'react';
 
 import { PostProps } from './types';
 
-import FromNow from '~/components/ui/FromNow';
-import { GoTopButton } from '~/components/ui/GoTopButton';
-import SocialShare from '~/components/ui/SocialShare';
+import { FromNow, GoTopButton, SocialShare } from '~/components';
 
 
 const Post: FC<PostProps> = ({ body, title, imagePreview, createdAt }) => {

@@ -4,7 +4,7 @@ import { Flex, Image, Link } from '@chakra-ui/react';
 import { type IPostPreview } from '~/types';
 import { Link as GatsbyLink } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import FromNow from '~/components/ui/FromNow';
+import { FromNow } from '~/components';
 
 
 const PostsItem: FC<IPostPreview> = ({ id, title, imagePreview, createdAt, bodyPreview }) => {

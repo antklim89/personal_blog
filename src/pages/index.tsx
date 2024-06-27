@@ -2,9 +2,7 @@ import { Button, Container } from '@chakra-ui/react';
 import { graphql, HeadFC, Link, PageProps } from 'gatsby';
 import { FC } from 'react';
 
-import { Seo } from '~/components/ui/Seo';
-import Hero from '~/components/layouts/Hero';
-import PostsList from '~/components/features/PostsList';
+import { Seo, Hero, PostsList } from '~/components';
 import { postPreviewsTransform } from '~/transforms';
 
 

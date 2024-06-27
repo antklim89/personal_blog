@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { FC } from 'react';
 
-import Footer from '~/components/layouts/Footer';
-import Header from '~/components/layouts/Header';
+import { Footer, Header } from '~/components';
 
 
 const Layout: FC = ({ children }) => {
