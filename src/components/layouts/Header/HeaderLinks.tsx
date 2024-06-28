@@ -18,7 +18,7 @@ const LINKS = [
     },
 ];
 
-const HeaderLinks: FC<{onClose?: () => void}> = ({ onClose }) => {
+const HeaderLinks: FC<{readonly onClose?: () => void}> = ({ onClose }) => {
     return (
         <nav>
             <HStack

@@ -4,7 +4,7 @@ import { FC, ReactNode } from 'react';
 import { Footer, Header } from '~/components';
 
 
-const Layout: FC<{ children: ReactNode }> = ({ children }) => {
+const Layout: FC<{ readonly children: ReactNode }> = ({ children }) => {
 
     return (
         <div className="root">

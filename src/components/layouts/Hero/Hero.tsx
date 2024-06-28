@@ -1,7 +1,8 @@
-import { Box, Button, HStack, Image, Icon, DarkMode } from '@chakra-ui/react';
+import { Box, Button, HStack, Image, Icon } from '@chakra-ui/react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, type IGatsbyImageData } from 'gatsby-plugin-image';
 import { FC } from 'react';
+
 import { Social } from '~/components';
 
 
@@ -23,46 +24,48 @@ const Hero: FC = () => {
     
 
     return (
-        <DarkMode>
-            <Box as="section" pos="relative" overflow="hidden" bg="gray.700">
-                <Box maxW="7xl" mx="auto">
-                    <Box
-                        pos="relative"
-                        pb={{ base: 8, sm: 16, md: 20, lg: 28, xl: 32 }}
-                        maxW={{ lg: "2xl" }}
-                        w={{ lg: "full" }}
-                        zIndex={1}
-                        bg="gray.700"
-                        border="solid 1px transparent"
-                    >
+        <Box
+            as="section" bg="gray.700" overflow="hidden"
+            pos="relative"
+        >
+            <Box maxW="7xl" mx="auto">
+                <Box
+                    bg="gray.700"
+                    border="solid 1px transparent"
+                    maxW={{ lg: '2xl' }}
+                    pb={{ base: 8, sm: 16, md: 20, lg: 28, xl: 32 }}
+                    pos="relative"
+                    w={{ lg: 'full' }}
+                    zIndex={1}
+                >
                     <Icon
-                        display={{ base: "none", lg: "block" }}
+                        aria-hidden="true"
+                        bottom={0}
+                        color="gray.700"
+                        display={{ base: 'none', lg: 'block' }}
+                        fill="currentColor"
+                        h="full"
                         position="absolute"
+                        preserveAspectRatio="none"
                         right={0}
                         top={0}
-                        bottom={0}
-                        h="full"
-                        w={48}
-                        color="gray.700"
                         transform="translateX(50%)"
-                        fill="currentColor"
                         viewBox="0 0 100 100"
-                        preserveAspectRatio="none"
-                        aria-hidden="true"
+                        w={48}
                     >
                         <polygon points="50,0 100,0 50,100 0,100" />
                     </Icon>
                     <Box
-                        mx="auto"
-                        maxW={{base: "7xl"}}
-                        px={{ base: 4, sm: 6, lg: 8 }}
+                        maxW={{ base: '7xl' }}
                         mt={{ base: 10, sm: 12, md: 16, lg: 20, xl: 28 }}
+                        mx="auto"
+                        px={{ base: 4, sm: 6, lg: 8 }}
                     >
                         <Box
-                        w="full"
-                        textAlign={{ sm: "center", lg: "left" }}
-                        justifyContent="center"
-                        alignItems="center"
+                            alignItems="center"
+                            justifyContent="center"
+                            textAlign={{ sm: 'center', lg: 'left' }}
+                            w="full"
                         >
                             <Box
                                 dangerouslySetInnerHTML={{ __html: text.html }}
@@ -72,44 +75,43 @@ const Hero: FC = () => {
                                     'h1': { fontSize: '5xl' },
                                 }}
                             />
-                            <HStack justifyContent="space-between" alignItems="center">
-                                <Social />
-                                <Button
-                                    _hover={{ color: 'black', bg: 'white' }}
-                                    as={Link}
-                                    color="white"
-                                    size="lg"
-                                    to="/posts"
-                                    variant="outline"
-                                >
-                                    Show All Posts
-                                </Button>
-                            </HStack>
                         </Box>
+                        <HStack alignItems="center" justifyContent="space-between">
+                            <Social />
+                            <Button
+                                _hover={{ color: 'black', bg: 'white' }}
+                                as={Link}
+                                color="white"
+                                size="lg"
+                                to="/posts"
+                                variant="outline"
+                            >
+                                Show All Posts
+                            </Button>
+                        </HStack>
                     </Box>
-                    </Box>
-                </Box>
-                <Box
-                    position={{ lg: "absolute" }}
-                    top={{ lg: 0 }}
-                    bottom={{ lg: 0 }}
-                    right={{ lg: 0 }}
-                    w={{ lg: "50%" }}
-                    border="solid 1px transparent"
-                >
-                    <Image
-                        h={[56, 72, 96, "full"]}
-                        w="full"
-                        fit="cover"
-                        alt="Hero image."
-                        loading="lazy"
-                        as={GatsbyImage}
-                        image={image.gatsbyImageData as unknown as IGatsbyImageData}
-                    />
                 </Box>
             </Box>
-        </DarkMode>
-      );
+            <Box
+                border="solid 1px transparent"
+                bottom={{ lg: 0 }}
+                position={{ lg: 'absolute' }}
+                right={{ lg: 0 }}
+                top={{ lg: 0 }}
+                w={{ lg: '50%' }}
+            >
+                <Image
+                    alt="Hero image."
+                    as={GatsbyImage}
+                    fit="cover"
+                    h={[56, 72, 96, 'full']}
+                    image={image.gatsbyImageData as unknown as IGatsbyImageData}
+                    loading="lazy"
+                    w="full"
+                />
+            </Box>
+        </Box>
+    );
 };
 
 export default Hero;

@@ -1,10 +1,12 @@
-import { Box, Button, useColorModeValue } from '@chakra-ui/react';
-import { FC } from 'react';
-import { Flex, Image, Link } from '@chakra-ui/react';
-import { type IPostPreview } from '~/types';
+import {
+    Box, Button, useColorModeValue , Flex, Image, Link, 
+} from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { FC } from 'react';
+
 import { FromNow } from '~/components';
+import { type IPostPreview } from '~/types';
 
 
 const PostsItem: FC<IPostPreview> = ({ id, title, imagePreview, createdAt, bodyPreview }) => {
@@ -12,11 +14,11 @@ const PostsItem: FC<IPostPreview> = ({ id, title, imagePreview, createdAt, bodyP
 
     return (
         <Flex
-            w="full"
             alignItems="center"
-            justifyContent="center"
             bg={bgColor}
+            justifyContent="center"
             m={8}
+            w="full"
         >
             <Box
                 mx="auto"
@@ -24,23 +26,23 @@ const PostsItem: FC<IPostPreview> = ({ id, title, imagePreview, createdAt, bodyP
                 shadow="md"
             >
                 <Image
+                    alt="Article photo"
                     as={GatsbyImage}
+                    fit="cover"
+                    h={64}
+                    image={imagePreview.gatsbyImageData}
                     roundedTop="lg"
                     w="full"
-                    h={64}
-                    fit="cover"
-                    image={imagePreview.gatsbyImageData}
-                    alt="Article photo"
                 />
                 <Box p={8}>
                     <Box>
                         <h2>
                             <Link
                                 as={GatsbyLink}
-                                to={`/posts/${id}`}
                                 display="block"
-                                fontWeight="bold"
                                 fontSize="4xl"
+                                fontWeight="bold"
+                                to={`/posts/${id}`}
                             >
                                 {title}
                             </Link>
@@ -64,7 +66,7 @@ const PostsItem: FC<IPostPreview> = ({ id, title, imagePreview, createdAt, bodyP
                     </Box>
                 </Box>
             </Box>
-      </Flex>
+        </Flex>
     );
 };
 

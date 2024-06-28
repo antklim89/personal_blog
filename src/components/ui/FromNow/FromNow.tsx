@@ -1,6 +1,7 @@
 import { Text } from '@chakra-ui/react';
+import { formatDistanceToNow } from 'date-fns/formatDistanceToNow';
 import { FC } from 'react';
-import { formatDistanceToNow } from 'date-fns/formatDistanceToNow'
+
 import { FromNowProps } from './types';
 
 
