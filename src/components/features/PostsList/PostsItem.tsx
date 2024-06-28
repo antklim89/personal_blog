@@ -15,9 +15,10 @@ const PostsItem: FC<IPostPreview> = ({ id, title, imagePreview, createdAt, bodyP
     return (
         <Flex
             alignItems="center"
+            as="article"
             bg={bgColor}
             justifyContent="center"
-            m={8}
+            my={8}
             w="full"
         >
             <Box
@@ -35,35 +36,33 @@ const PostsItem: FC<IPostPreview> = ({ id, title, imagePreview, createdAt, bodyP
                     w="full"
                 />
                 <Box p={8}>
-                    <Box>
-                        <h2>
-                            <Link
-                                as={GatsbyLink}
-                                display="block"
-                                fontSize="4xl"
-                                fontWeight="bold"
-                                to={`/posts/${id}`}
-                            >
-                                {title}
-                            </Link>
-                        </h2>
+                    <h2>
+                        <Link
+                            as={GatsbyLink}
+                            display="block"
+                            fontSize="4xl"
+                            fontWeight="bold"
+                            to={`/posts/${id}`}
+                        >
+                            {title}
+                        </Link>
+                    </h2>
             
-                        <FromNow date={createdAt} mb={4} />
+                    <FromNow date={createdAt} mb={4} />
 
-                        <Box dangerouslySetInnerHTML={{ __html: bodyPreview }} my={4} />
+                    <Box dangerouslySetInnerHTML={{ __html: bodyPreview }} my={4} />
 
-                        <Flex>
-                            <Button
-                                as={GatsbyLink}
-                                colorScheme="primary"
-                                marginLeft="auto"
-                                to={`/posts/${id}`}
-                                variant="outline"
-                            >
-                                Read more...
-                            </Button>
-                        </Flex>
-                    </Box>
+                    <Flex>
+                        <Button
+                            as={GatsbyLink}
+                            colorScheme="primary"
+                            marginLeft="auto"
+                            to={`/posts/${id}`}
+                            variant="outline"
+                        >
+                            Read more...
+                        </Button>
+                    </Flex>
                 </Box>
             </Box>
         </Flex>
