@@ -8,7 +8,8 @@
     "build": "gatsby build",
     "dev": "gatsby develop -p 3000 -H 0.0.0.0",
     "serve": "gatsby serve -p 3000 -H 0.0.0.0",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "lint": "tsc --noEmit && eslint --ext .tsx,.ts,.js,.mjs ./src --fix"
   },
   "dependencies": {
     "@chakra-ui/gatsby-plugin": "^3.1.3",
