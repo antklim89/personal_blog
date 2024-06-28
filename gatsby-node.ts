@@ -1,5 +1,6 @@
 import path from 'path';
 
+import { GatsbyNode } from 'gatsby';
 import { paginate } from 'gatsby-awesome-pagination';
 import { z } from 'zod';
 
@@ -11,16 +12,21 @@ export const onCreateBabelConfig = ({ actions }) => {
     });
 };
 
-/**
- *
- * @param {import('gatsby').CreatePageArgs}
- */
-export const createPages = async ({ actions, graphql, reporter }) => {
+
+const allPrismicPostSchema = z.object({
+    allPrismicPost: z.object({
+        nodes: z.array(z.object({
+            id: z.string(),
+        })),
+    }),
+});
+
+export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql, reporter }) => {
     const { createPage } = actions;
 
 
     try {
-        const { data: { allPrismicPost: { nodes: posts } } } = await graphql(`#graphql
+        const { data, errors } = await graphql<z.infer<typeof allPrismicPostSchema>>(`#graphql
             query Posts {
                 allPrismicPost {
                   nodes {
@@ -29,6 +35,13 @@ export const createPages = async ({ actions, graphql, reporter }) => {
                 }
             }
         `);
+
+        if (!data || errors) {
+            console.error(errors);
+            throw new Error('Error load allPrismicPost.');
+        }
+
+        const { allPrismicPost: { nodes: posts } } = await allPrismicPostSchema.parseAsync(data);
 
         posts.forEach(({ id }) => {
             createPage({
@@ -52,7 +65,6 @@ export const createPages = async ({ actions, graphql, reporter }) => {
 
     }
 };
-
 
 const richTextSchema = z.array(z.object({
     type: z.string(),
@@ -87,11 +99,7 @@ const postSchema = z.object({
     body: richTextSchema,
 });
 
-/**
- *
- * @param {import('gatsby').CreateNodeArgs}
- */
-export const onCreateNode = ({ node }) => {
+export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node }) => {
     try {
         if (node.internal?.type === 'PrismicSocials') {
             socialSchema.parse(node.data);
