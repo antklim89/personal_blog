@@ -13,59 +13,55 @@ const PostsItem: FC<IPostPreview> = ({ id, title, imagePreview, createdAt, bodyP
     const bgColor = useColorModeValue('gray.100', 'gray.700');
 
     return (
-        <Flex
+        <Box
             alignItems="center"
             as="article"
             bg={bgColor}
             justifyContent="center"
             my={8}
+            rounded="lg"
+            shadow="md"
             w="full"
         >
-            <Box
-                mx="auto"
-                rounded="lg"
-                shadow="md"
-            >
-                <Image
-                    alt="Article photo"
-                    as={GatsbyImage}
-                    fit="cover"
-                    h={64}
-                    image={imagePreview.gatsbyImageData}
-                    roundedTop="lg"
-                    w="full"
-                />
-                <Box p={8}>
-                    <h2>
-                        <Link
-                            as={GatsbyLink}
-                            display="block"
-                            fontSize="4xl"
-                            fontWeight="bold"
-                            to={`/posts/${id}`}
-                        >
-                            {title}
-                        </Link>
-                    </h2>
+            <Image
+                alt="Article photo"
+                as={GatsbyImage}
+                fit="cover"
+                h={64}
+                image={imagePreview.gatsbyImageData}
+                roundedTop="lg"
+                w="full"
+            />
+            <Box p={8}>
+                <h2>
+                    <Link
+                        as={GatsbyLink}
+                        display="block"
+                        fontSize="4xl"
+                        fontWeight="bold"
+                        to={`/posts/${id}`}
+                    >
+                        {title}
+                    </Link>
+                </h2>
             
-                    <FromNow date={createdAt} mb={4} />
+                <FromNow date={createdAt} mb={4} />
 
-                    <Box dangerouslySetInnerHTML={{ __html: bodyPreview }} my={4} />
+                <Box dangerouslySetInnerHTML={{ __html: bodyPreview }} my={4} />
 
-                    <Flex>
-                        <Button
-                            as={GatsbyLink}
-                            colorScheme="primary"
-                            marginLeft="auto"
-                            to={`/posts/${id}`}
-                            variant="outline"
-                        >
-                            Read more...
-                        </Button>
-                    </Flex>
-                </Box>
+                <Flex>
+                    <Button
+                        as={GatsbyLink}
+                        colorScheme="primary"
+                        marginLeft="auto"
+                        to={`/posts/${id}`}
+                        variant="outline"
+                    >
+                        Read more...
+                    </Button>
+                </Flex>
             </Box>
-        </Flex>
+        </Box>
     );
 };
 
