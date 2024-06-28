@@ -41,13 +41,15 @@ const Social: FC<BoxProps> = (props) => {
                 {socials.map(({ icon, link, title }) => (
                     <Box as="li" key={link} m={1}>
                         <IconButton
+                            isRound
                             aria-label={title}
                             as="a"
-                            borderRadius={0}
+                            bgColor="gray.900"
                             href={link}
+                            overflow="hidden"
+                            p={1}
                             size="sm"
                             target="_blank"
-                            variant="outline"
                         >
                             <GatsbyImage
                                 alt={title}
