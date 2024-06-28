@@ -1,3 +1,4 @@
+import { Container } from '@chakra-ui/react';
 import { graphql, HeadFC, PageProps } from 'gatsby';
 import { FC } from 'react';
 
@@ -10,10 +11,10 @@ const PostsPage: FC<PageProps<DeepRequired<GatsbyTypes.HomePostsListQuery>, IPag
     const posts = postPreviewsTransform(data.allPrismicPost.nodes);
 
     return (
-        <>
+        <Container my={10}>
             <PostsList posts={posts} />
             <Pagination {...pageContext} />
-        </>
+        </Container>
     );
 };
 
