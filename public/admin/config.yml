@@ -1,0 +1,39 @@
+
+backend:
+  name: git-gateway
+local_backend: true
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: blog
+    label: Blog
+    folder: src/content/blog
+    create: true
+    fields:
+      - {
+        label: Title, 
+        name: title, 
+        widget: string
+      }
+      - {
+        label: Description, 
+        name: description, 
+        widget: text
+      }
+      - {
+        label: Publish Date, 
+        name: pubDate, 
+        widget: datetime,
+        format: "MMM DD YYYY"
+      }
+      - {
+        label: Featured Image, 
+        name: heroImage, 
+        widget: image
+      }
+      - {
+        label: Body, 
+        name: body, 
+        widget: markdown
+      }

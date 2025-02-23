@@ -1,0 +1,38 @@
+---
+import heroBg from '@/assets/hero_bg.webp';
+---
+
+<style lang="scss" define:vars={{ 'hero-bg': `url("${heroBg.src}")` }}>
+  section {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: var(--hero-bg);
+    background-position: center;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: self-start;
+      justify-content: center;
+      height: 18rem;
+      text-align: center;
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.25rem;
+        color: var(--text-dark);
+      }
+      p {
+        font-size: 1.15rem;
+        color: var(--text-dark);
+      }
+    }
+  }
+</style>
+
+<section>
+  <div class="container">
+    <h1>Добро пожаловать на мой блог!</h1>
+    <p>Здесь я делюсь своими мыслями и идеями.</p>
+  </div>
+</section>

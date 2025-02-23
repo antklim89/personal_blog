@@ -1,0 +1,76 @@
+---
+import HeaderLink from '@/components/ui/HeaderLink.astro';
+import { SITE_TITLE } from '@/consts';
+---
+
+<header>
+  <div class="container">
+    <h2>
+      <a href="/">
+        {SITE_TITLE}
+      </a>
+    </h2>
+    <nav class="internal-links">
+      <ul>
+        <li>
+          <HeaderLink href="/">Home</HeaderLink>
+        </li>
+        <li>
+          <HeaderLink href="/blog">Blog</HeaderLink>
+        </li>
+        <li>
+          <HeaderLink href="/about">About</HeaderLink>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style lang="scss">
+  header {
+    background: var(--bg-dark);
+    box-shadow: 0 2px 8px rgba(black, 5%);
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.25em;
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  h2 {
+    margin: 0;
+    a {
+      text-decoration: none;
+      font-size: 2rem;
+      text-wrap: nowrap;
+      color: var(--text);
+    }
+  }
+
+  nav {
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 0.125rem;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      color: var(--text);
+      text-transform: uppercase;
+    }
+  }
+</style>
