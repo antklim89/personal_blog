@@ -2,12 +2,20 @@
 import heroBg from '@/assets/hero_bg.webp';
 ---
 
+<section>
+  <div class="container">
+    <h1>Welcome to my blog!</h1>
+    <p>Here I share my thoughts and ideas.</p>
+  </div>
+</section>
+
 <style lang="scss" define:vars={{ 'hero-bg': `url("${heroBg.src}")` }}>
   section {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: var(--hero-bg);
     background-position: center;
+    margin-bottom: 1rem;
 
     div {
       display: flex;
@@ -29,10 +37,3 @@ import heroBg from '@/assets/hero_bg.webp';
     }
   }
 </style>
-
-<section>
-  <div class="container">
-    <h1>Добро пожаловать на мой блог!</h1>
-    <p>Здесь я делюсь своими мыслями и идеями.</p>
-  </div>
-</section>
