@@ -1,8 +1,29 @@
 ---
 import Hero from '@/components/Hero.astro';
 import Layout from '@/components/Layout.astro';
+import PostCard from '@/components/PostCard.astro';
+import PostGrid from '@/components/PostGrid.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const recentPosts = sortedPosts.slice(0, 4);
 ---
 
 <Layout>
   <Hero />
+
+  <section class="container">
+    <h2>Recent Posts</h2>
+    <PostGrid>
+      {recentPosts.map((post) => <PostCard post={post} />)}
+    </PostGrid>
+  </section>
 </Layout>
+
+<style lang="scss">
+  section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+</style>
