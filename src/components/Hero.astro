@@ -1,39 +1,34 @@
 ---
 import heroBg from '@/assets/hero_bg.webp';
+import HeroImage from './ui/HeroImage.astro';
 ---
 
 <section>
-  <div class="container">
-    <h1>Welcome to my blog!</h1>
-    <p>Here I share my thoughts and ideas.</p>
-  </div>
+  <HeroImage src={heroBg.src} class="image">
+    <div class="text">
+      <h1>Welcome to my blog!</h1>
+      <p>Here I share my thoughts and ideas.</p>
+    </div>
+  </HeroImage>
 </section>
 
-<style lang="scss" define:vars={{ 'hero-bg': `url("${heroBg.src}")` }}>
-  section {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: var(--hero-bg);
-    background-position: center;
-    margin-bottom: 1rem;
+<style lang="scss">
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: center;
+    height: 100%;
 
-    div {
-      display: flex;
-      flex-direction: column;
-      align-items: self-start;
-      justify-content: center;
-      height: 18rem;
-      text-align: center;
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+      color: var(--text-dark);
+    }
 
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 0.25rem;
-        color: var(--text-dark);
-      }
-      p {
-        font-size: 1.15rem;
-        color: var(--text-dark);
-      }
+    p {
+      font-size: 1.15rem;
+      color: var(--text-dark);
     }
   }
 </style>

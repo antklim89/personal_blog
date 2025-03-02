@@ -1,0 +1,79 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { Image } from 'astro:assets';
+
+type Props = HTMLAttributes<'div'> & {
+  src: string;
+};
+
+const { src, ...props } = Astro.props;
+---
+
+<div class="wrapper" {...props}>
+  <div class="container">
+    <div class="images">
+      {
+        Array.from({ length: 3 }, (_, i) => (
+          <Image
+            fit="cover"
+            widths={[480, 720, 1080]}
+            src={{
+              format: 'webp',
+              src,
+              width: 1440,
+              height: 400,
+            }}
+            alt="hero"
+          />
+        ))
+      }
+    </div>
+
+    <div class="text">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .wrapper {
+    width: 100vw;
+    overflow-x: hidden;
+    max-height: 18rem;
+  }
+  .container {
+    position: relative;
+  }
+  .images {
+    display: flex;
+    position: relative;
+    max-height: 18rem;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    :first-child,
+    :last-child {
+      position: absolute;
+      filter: blur(10px);
+    }
+
+    :first-child {
+      transform: translateX(-99%) rotateY(180deg);
+    }
+
+    :last-child {
+      transform: translateX(99%) rotateY(180deg);
+    }
+  }
+  .text {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 18rem;
+  }
+</style>
