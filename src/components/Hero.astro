@@ -1,13 +1,17 @@
 ---
 import heroBg from '@/assets/hero_bg.webp';
 import HeroImage from './ui/HeroImage.astro';
+import { getEntry, render } from 'astro:content';
+
+const hero = await getEntry('hero', 'hero');
+if (!hero) throw new Error('Hero entry not found');
+const { Content } = await render(hero);
 ---
 
 <section>
-  <HeroImage src={heroBg.src} class="image">
+  <HeroImage src={hero.data.image.src} class="image">
     <div class="text">
-      <h1>Welcome to my blog!</h1>
-      <p>Here I share my thoughts and ideas.</p>
+      <Content />
     </div>
   </HeroImage>
 </section>
@@ -19,16 +23,14 @@ import HeroImage from './ui/HeroImage.astro';
     align-items: self-start;
     justify-content: center;
     height: 100%;
+    color: var(--text);
 
     h1 {
       font-size: 2rem;
-      margin-bottom: 0.25rem;
-      color: var(--text-dark);
     }
 
     p {
       font-size: 1.15rem;
-      color: var(--text-dark);
     }
   }
 </style>

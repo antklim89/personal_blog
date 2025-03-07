@@ -2,38 +2,86 @@
 backend:
   name: git-gateway
 local_backend: true
-media_folder: public/images
-public_folder: /images
+media_folder: src/content/blog/images
+public_folder: ./images
+
 
 collections:
   - name: blog
+    editor: { preview: false }
     label: Blog
     folder: src/content/blog
+    slug: '{{slug}}/post'
+    media_folder: 'images'
+    public_folder: './images'
     create: true
     fields:
       - {
         label: Title, 
         name: title, 
-        widget: string
+        widget: string,
+        required: true
       }
       - {
         label: Description, 
         name: description, 
-        widget: text
+        widget: text,
+        required: true
       }
       - {
         label: Publish Date, 
         name: pubDate, 
         widget: datetime,
-        format: "MMM DD YYYY"
+        format: "MMM DD YYYY",
+        required: true
       }
       - {
         label: Featured Image, 
         name: heroImage, 
-        widget: image
+        widget: image,
+        required: true
       }
       - {
         label: Body, 
         name: body, 
-        widget: markdown
+        widget: markdown,
+        required: true
       }
+
+
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Hero"
+        name: "hero"
+        editor: { preview: false }
+        file: "src/content/hero/index.md"
+        media_folder: 'images'
+        public_folder: './images'
+        fields:
+          - {
+            label: Body,
+            name: body,
+            widget: markdown,
+            editor_components: [],
+            required: true
+          }
+          - {
+            label: Image,
+            name: image,
+            widget: image,
+            required: true
+          }
+      - label: "About"
+        name: "about"
+        editor: { preview: false }
+        file: "src/content/about/index.md"
+        media_folder: 'images'
+        public_folder: './images'
+        fields:
+          - {
+            label: Body,
+            name: body,
+            widget: markdown,
+            required: true
+          }
