@@ -37,9 +37,10 @@ const { src, ...props } = Astro.props;
 
 <style lang="scss">
   .wrapper {
+    --max-height: 18rem;
     width: 100vw;
     overflow-x: hidden;
-    max-height: 18rem;
+    max-height: var(--max-height);
   }
   .container {
     position: relative;
@@ -47,11 +48,12 @@ const { src, ...props } = Astro.props;
   .images {
     display: flex;
     position: relative;
-    max-height: 18rem;
+    max-height: var(--max-height);
 
     img {
       width: 100%;
       object-fit: cover;
+      max-height: var(--max-height);
     }
 
     :first-child,
@@ -74,6 +76,6 @@ const { src, ...props } = Astro.props;
     bottom: 0;
     left: 0;
     right: 0;
-    max-height: 18rem;
+    max-height: var(--max-height);
   }
 </style>
