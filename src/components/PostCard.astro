@@ -1,8 +1,8 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import FormattedDate from './ui/FormattedDate.astro';
 import type { HTMLAttributes } from 'astro/types';
 import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
 
 interface Props extends HTMLAttributes<'article'> {
   post: CollectionEntry<'blog'>;

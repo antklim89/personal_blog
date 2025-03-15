@@ -1,9 +1,9 @@
 ---
 import Layout from '@/components/Layout.astro';
-import { render, getEntry } from 'astro:content';
+import { loadAbout } from '@/content-loaders/about';
+import { render } from 'astro:content';
 
-const about = await getEntry('about', 'about');
-if (!about) throw new Error('About entry not found');
+const about = await loadAbout();
 const { Content } = await render(about);
 ---
 

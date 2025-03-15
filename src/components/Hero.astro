@@ -1,15 +1,18 @@
 ---
-import heroBg from '@/assets/hero_bg.webp';
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
 import HeroImage from './ui/HeroImage.astro';
-import { getEntry, render } from 'astro:content';
 
-const hero = await getEntry('hero', 'hero');
-if (!hero) throw new Error('Hero entry not found');
+type Props = CollectionEntry<'hero'>;
+
+const hero = Astro.props;
+
 const { Content } = await render(hero);
+const { data } = hero;
 ---
 
 <section>
-  <HeroImage src={hero.data.image.src} class="image">
+  <HeroImage src={data.image.src} class="image">
     <div class="text">
       <Content />
     </div>

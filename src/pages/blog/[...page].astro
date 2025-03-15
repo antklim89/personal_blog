@@ -1,0 +1,47 @@
+---
+import Layout from '@/components/Layout.astro';
+import PostCard from '@/components/PostCard.astro';
+import PostGrid from '@/components/PostGrid.astro';
+import { POSTS_PER_PAGE } from '@/consts';
+import { loadPosts } from '@/content-loaders/post';
+
+export async function getStaticPaths() {
+  const paths = [];
+  let page = 1;
+  while (true) {
+    const { posts, totalPages } = await loadPosts({ page, limit: POSTS_PER_PAGE });
+    if (page > totalPages) break;
+
+    paths.push({
+      params: {
+        page: page.toString(),
+      },
+      props: {
+        page,
+        posts,
+        totalPages,
+      },
+    });
+
+    page += 1;
+  }
+
+  return paths;
+}
+const { posts } = Astro.props;
+---
+
+<Layout>
+  <section class="container">
+    <PostGrid>
+      {posts.map((post) => <PostCard post={post} />)}
+    </PostGrid>
+  </section>
+</Layout>
+
+<style lang="scss">
+  section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+</style>

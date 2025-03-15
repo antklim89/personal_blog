@@ -3,9 +3,11 @@ import { getCollection } from 'astro:content';
 import Layout from '@/components/Layout.astro';
 import PostGrid from '@/components/PostGrid.astro';
 import PostCard from '@/components/PostCard.astro';
+import { loadPosts } from '@/content-loaders/post';
+import Pagination from '@/components/ui/Pagination.astro';
+import { POSTS_PER_PAGE } from '@/consts';
 
-const posts = await getCollection('blog');
-posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const { posts, totalPages } = await loadPosts({ limit: POSTS_PER_PAGE });
 ---
 
 <Layout title="About Me" description="Lorem ipsum dolor sit amet" image="/images/blog-placeholder-about.jpg">

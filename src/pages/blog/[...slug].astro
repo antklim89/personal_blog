@@ -1,11 +1,11 @@
 ---
 import Layout from '@/components/Layout.astro';
 import Post from '@/components/Post.astro';
+import { loadPosts } from '@/content-loaders/post';
 import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const { posts } = await loadPosts();
 
   return posts.map((post) => ({
     params: {
