@@ -1,0 +1,134 @@
+---
+type Props = {
+  totalPages: number;
+  page: number;
+};
+
+const { page, totalPages } = Astro.props;
+
+const prevPage = Math.max(1, page - 1);
+const nextPage = Math.min(totalPages, page + 1);
+
+const maxVisiblePages = Math.min(5, totalPages);
+const middlePage = Math.floor(maxVisiblePages / 2);
+
+const startPage = page - middlePage;
+const startPageOffset = startPage <= 0 ? Math.abs(startPage) + 1 : 0;
+
+const endPage = page + middlePage - totalPages;
+const endPageOffset = endPage <= 0 ? Math.abs(endPage) : 0;
+
+const pageNumbers = Array.from(
+  { length: maxVisiblePages },
+  (_, i) => i + startPage + startPageOffset - endPage - endPageOffset,
+);
+---
+
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href={`/blog/${prevPage}`} class="rounded-start">
+        <span class="sr-only">Previous</span>
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"
+          ></path>
+        </svg>
+      </a>
+    </li>
+    {
+      pageNumbers.map((i) => (
+        <li>
+          <a href={`/blog/${i}`} aria-current={page === i ? 'page' : undefined}>
+            {i}
+          </a>
+        </li>
+      ))
+    }
+    <li>
+      <a href={`/blog/${nextPage}`} class="rounded-end">
+        <span class="sr-only">Next</span>
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"
+          ></path>
+        </svg>
+      </a>
+    </li>
+  </ul>
+
+  <style lang="scss">
+    nav {
+      display: flex;
+      justify-content: center;
+
+      .pagination {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        height: 2rem;
+        font-size: 0.875rem;
+        align-items: center;
+
+        li {
+          margin-left: -1px;
+
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.75rem;
+            height: 2rem;
+            line-height: 1.25;
+            color: var(--text);
+            background-color: var(--bg);
+            border: 1px solid var(--bg-dark);
+            text-decoration: none;
+
+            &:hover {
+              background-color: var(--bg-light);
+              color: var(--text-light);
+            }
+
+            &[aria-current='page'] {
+              z-index: 10;
+              background-color: var(--bg-light);
+              color: var(--text-light);
+            }
+
+            &.rounded-start {
+              border-top-left-radius: 0.5rem;
+              border-bottom-left-radius: 0.5rem;
+            }
+
+            &.rounded-end {
+              border-top-right-radius: 0.5rem;
+              border-bottom-right-radius: 0.5rem;
+            }
+
+            .sr-only {
+              position: absolute;
+              width: 1px;
+              height: 1px;
+              padding: 0;
+              margin: -1px;
+              overflow: hidden;
+              clip: rect(0, 0, 0, 0);
+              border: 0;
+            }
+
+            svg {
+              width: 0.625rem;
+              height: 0.625rem;
+
+              &.rtl\:rotate-180 {
+                [dir='rtl'] & {
+                  transform: rotate(180deg);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  </style>
+</nav>

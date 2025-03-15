@@ -2,6 +2,7 @@
 import Layout from '@/components/Layout.astro';
 import PostCard from '@/components/PostCard.astro';
 import PostGrid from '@/components/PostGrid.astro';
+import Pagination from '@/components/ui/Pagination.astro';
 import { POSTS_PER_PAGE } from '@/consts';
 import { loadPosts } from '@/content-loaders/post';
 
@@ -28,14 +29,16 @@ export async function getStaticPaths() {
 
   return paths;
 }
-const { posts } = Astro.props;
+const { page, posts, totalPages } = Astro.props;
 ---
 
 <Layout>
   <section class="container">
+    <Pagination page={page} totalPages={totalPages} />
     <PostGrid>
       {posts.map((post) => <PostCard post={post} />)}
     </PostGrid>
+    <Pagination page={page} totalPages={totalPages} />
   </section>
 </Layout>
 
