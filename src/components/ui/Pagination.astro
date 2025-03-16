@@ -24,7 +24,7 @@ const pageNumbers = Array.from(
 );
 ---
 
-<nav aria-label="Page navigation">
+<nav aria-label="Page navigation" transition:name="pagination" transition:animate="none">
   <ul class="pagination">
     <li>
       <a href={`/blog/${prevPage}`} class="rounded-start">

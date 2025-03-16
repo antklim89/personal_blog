@@ -11,16 +11,14 @@ const { Content } = await render(post);
 ---
 
 <section>
-  <div>
-    <HeroImage src={post.data.heroImage.src} />
-  </div>
+  <HeroImage src={post.data.heroImage.src} />
 
-  <header class="container">
+  <header class="container" transition:name="post-header">
     <h1>{post.data.title}</h1>
     <div>Published: <FormattedDate date={post.data.pubDate} /></div>
   </header>
 
-  <main class="container">
+  <main class="container" transition:name="post-content">
     <Content />
   </main>
 </section>

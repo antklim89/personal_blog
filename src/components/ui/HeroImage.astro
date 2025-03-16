@@ -9,7 +9,7 @@ type Props = HTMLAttributes<'div'> & {
 const { src, ...props } = Astro.props;
 ---
 
-<div class="wrapper" {...props}>
+<div class="wrapper" {...props} transition:name="hero-image" transition:animate="fade">
   <div class="container">
     <div class="images">
       {
