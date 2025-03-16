@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import FormattedDate from '@/components/ui/FormattedDate.astro';
+import HeroImage from '@/components/ui/HeroImage.astro';
+
+type Props = CollectionEntry<'blog'>;
+
+const blog = Astro.props;
+const { Content } = await render(blog);
+---
+
+<section>
+  <HeroImage src={blog.data.heroImage.src} />
+
+  <header class="container" transition:name="blog-header">
+    <h1>{blog.data.title}</h1>
+    <div>Published: <FormattedDate date={blog.data.pubDate} /></div>
+  </header>
+
+  <main class="container" transition:name="blog-content">
+    <Content />
+  </main>
+</section>
+
+<style lang="scss">
+  header {
+    margin-bottom: 2rem;
+
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+</style>

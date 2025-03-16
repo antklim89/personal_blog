@@ -1,24 +1,24 @@
 ---
 import Layout from '@/components/Layout.astro';
-import Post from '@/components/Post.astro';
-import { loadPosts } from '@/content-loaders/post';
+import Blog from '@/components/Blog.astro';
+import { loadBlogs } from '@/content-loaders/blog';
 import type { CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
-  const { posts } = await loadPosts();
+  const { blogs } = await loadBlogs();
 
-  return posts.map((post) => ({
+  return blogs.map((blog) => ({
     params: {
-      slug: post.id,
+      slug: blog.id,
     },
-    props: post,
+    props: blog,
   }));
 }
 type Props = CollectionEntry<'blog'>;
 
-const post = Astro.props;
+const blog = Astro.props;
 ---
 
-<Layout {...post.data}>
-  <Post {...post} />
+<Layout {...blog.data}>
+  <Blog {...blog} />
 </Layout>

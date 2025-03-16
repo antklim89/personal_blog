@@ -1,22 +1,22 @@
 ---
 import Hero from '@/components/Hero.astro';
 import Layout from '@/components/Layout.astro';
-import PostCard from '@/components/PostCard.astro';
-import PostGrid from '@/components/PostGrid.astro';
-import { POSTS_PER_PAGE } from '@/consts';
+import BlogCard from '@/components/BlogCard.astro';
+import BlogGrid from '@/components/BlogGrid.astro';
+import { BLOGS_PER_PAGE } from '@/consts';
 import { loadHero } from '@/content-loaders/hero';
-import { loadPosts } from '@/content-loaders/post';
+import { loadBlogs } from '@/content-loaders/blog';
 
-const [{ posts }, hero] = await Promise.all([loadPosts({ limit: POSTS_PER_PAGE }), loadHero()]);
+const [{ blogs }, hero] = await Promise.all([loadBlogs({ limit: BLOGS_PER_PAGE }), loadHero()]);
 ---
 
 <Layout>
   <Hero {...hero} />
 
-  <PostGrid>
-    <h2 slot="title">Recent Posts</h2>
-    {posts.map((post) => <PostCard post={post} />)}
-  </PostGrid>
+  <BlogGrid>
+    <h2 slot="title">Recent Blogs</h2>
+    {blogs.map((blog) => <BlogCard blog={blog} />)}
+  </BlogGrid>
 </Layout>
 
 <style lang="scss">

@@ -8,10 +8,10 @@ const START_DATE = '1989-01-01T00:00:00.000Z';
 const NEWS_NUMBER = 50;
 
 /**
- * Posts
+ * Blogs
  */
-const postsDir = path.resolve('src/content/blog');
-const postImages = fs.readdirSync(path.resolve('seed/images'))
+const blogDir = path.resolve('src/content/blog');
+const blogImages = fs.readdirSync(path.resolve('seed/images'))
   .map(fileName => path.join(`../../../../seed/images`, fileName));
 
 
@@ -20,17 +20,17 @@ for (let index = 0; index < NEWS_NUMBER; index += 1) {
   const pubDate = faker.date.between({ from: START_DATE, to: new Date() });
 
   const markdown = `---
-title: "${title}"
+title: "${_.capitalize(title)}"
 pubDate: ${pubDate.toISOString()}
 description: "${faker.lorem.paragraph({ min: 5, max: 10 })}"
-heroImage: "${_.sample(postImages)}"
+heroImage: "${_.sample(blogImages)}"
 ---
 
-${generateMarkdown({ images: postImages })}
+${generateMarkdown({ images: blogImages })}
 `;
 
-  fs.mkdirSync(path.resolve(postsDir, _.kebabCase(title)), { recursive: true });
-  fs.writeFileSync(path.resolve(postsDir, _.kebabCase(title), 'post.md'), markdown);
+  fs.mkdirSync(path.resolve(blogDir, _.kebabCase(title)), { recursive: true });
+  fs.writeFileSync(path.resolve(blogDir, _.kebabCase(title), 'index.md'), markdown);
 }
 
 

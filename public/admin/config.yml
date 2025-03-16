@@ -11,7 +11,7 @@ collections:
     editor: { preview: false }
     label: Blog
     folder: src/content/blog
-    slug: '{{slug}}/post'
+    slug: '{{slug}}/index'
     media_folder: 'images'
     public_folder: './images'
     create: true

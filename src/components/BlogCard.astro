@@ -1,0 +1,65 @@
+---
+import FormattedDate from './ui/FormattedDate.astro';
+import type { HTMLAttributes } from 'astro/types';
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props extends HTMLAttributes<'article'> {
+  blog: CollectionEntry<'blog'>;
+}
+
+const { blog, ...props } = Astro.props;
+---
+
+<article {...props}>
+  <h2>{blog.data.title}</h2>
+  <FormattedDate date={blog.data.pubDate} />
+  <p>{blog.data.description}</p>
+  <a href={`/blog/${blog.id}`} aria-label={`Read ${blog.data.title}`}></a>
+  <Image src={blog.data.heroImage} alt={blog.data.title} width={640} height={360} />
+</article>
+
+<style lang="scss">
+  article {
+    position: relative;
+    transition: transform 0.2s ease;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    background: var(--bg-dark);
+    opacity: 0.05;
+    transition: opacity 0.2s ease;
+  }
+
+  a:hover + img {
+    opacity: 0.2;
+  }
+</style>

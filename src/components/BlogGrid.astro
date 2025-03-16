@@ -1,0 +1,18 @@
+<section class="container" transition:name="blog-grid" transition:animate="slide">
+  <slot name="title" />
+  <div class="grid">
+    <slot />
+  </div>
+</section>
+
+<style lang="scss">
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr));
+    gap: 1rem;
+  }
+  section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+</style>
