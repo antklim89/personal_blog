@@ -2,7 +2,7 @@
 backend:
   name: git-gateway
 local_backend: true
-media_folder: src/content/blog/images
+media_folder: src/content/images
 public_folder: ./images
 
 
@@ -11,9 +11,9 @@ collections:
     editor: { preview: false }
     label: Blog
     folder: src/content/blog
-    slug: '{{slug}}/index'
-    media_folder: 'images'
-    public_folder: './images'
+    slug: '{{slug}}'
+    media_folder: 'images/{{slug}}'
+    public_folder: './images/{{slug}}'
     create: true
     fields:
       - {

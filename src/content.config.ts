@@ -1,4 +1,3 @@
-import { randomUUID } from 'node:crypto';
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
@@ -7,7 +6,6 @@ const blog = defineCollection({
   loader: glob({
     base: 'src/content/blog',
     pattern: '**/*.{md,mdx}',
-    generateId: () => randomUUID(),
   }),
   schema: ({ image }) => z.object({
     title: z.string(),
