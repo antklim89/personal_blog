@@ -1,5 +1,6 @@
 ---
 import HeaderLink from '@/components/ui/HeaderLink.astro';
+import ThemeToggleButton from '@/components/ui/ThemeToggleButton.astro';
 import { SITE_TITLE } from '@/consts';
 ---
 
@@ -10,7 +11,7 @@ import { SITE_TITLE } from '@/consts';
         {SITE_TITLE}
       </a>
     </h2>
-    <nav class="internal-links">
+    <nav>
       <ul>
         <li>
           <HeaderLink href="/">Home</HeaderLink>
@@ -22,6 +23,7 @@ import { SITE_TITLE } from '@/consts';
           <HeaderLink href="/about">About</HeaderLink>
         </li>
       </ul>
+      <ThemeToggleButton />
     </nav>
   </div>
 </header>
@@ -57,6 +59,10 @@ import { SITE_TITLE } from '@/consts';
   }
 
   nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+
     ul {
       display: flex;
       align-items: center;

@@ -1,0 +1,33 @@
+---
+import DarkLightIcon from '@/components/icons/DarkLightIcon.astro';
+---
+
+<button aria-label="toggle dark light mode" id="theme-toggle">
+  <DarkLightIcon class="icon" />
+</button>
+
+<script>
+  function init() {
+    const themeToggle = document.querySelector('#theme-toggle');
+    const root = document.documentElement;
+
+    themeToggle?.addEventListener('click', () => {
+      const newTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = newTheme;
+      localStorage.setItem('theme', newTheme);
+    });
+  }
+  init();
+  document.addEventListener('astro:after-swap', init);
+</script>
+
+<style lang="scss">
+  button {
+    border: none;
+    padding: 0.25em;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--text);
+  }
+</style>

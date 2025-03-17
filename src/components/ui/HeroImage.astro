@@ -29,7 +29,7 @@ const { src, ...props } = Astro.props;
       }
     </div>
 
-    <div class="text">
+    <div class="text" data-theme="dark">
       <slot />
     </div>
   </div>
@@ -71,6 +71,8 @@ const { src, ...props } = Astro.props;
     }
   }
   .text {
+    color-scheme: light;
+    color: var(--text);
     position: absolute;
     top: 0;
     bottom: 0;
