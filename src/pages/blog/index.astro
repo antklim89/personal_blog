@@ -10,13 +10,11 @@ const { blogs, totalPages } = await loadBlogs({ limit: BLOGS_PER_PAGE });
 ---
 
 <Layout title="About Me" description="Lorem ipsum dolor sit amet" image="/images/blog-placeholder-about.jpg">
-  <section class="container">
-    <Pagination page={1} totalPages={totalPages} />
-    <BlogGrid>
-      {blogs.map((blog) => <BlogCard blog={blog} />)}
-    </BlogGrid>
-    <Pagination page={1} totalPages={totalPages} />
-  </section>
+  <Pagination page={1} totalPages={totalPages} />
+  <BlogGrid>
+    {blogs.map((blog) => <BlogCard blog={blog} />)}
+  </BlogGrid>
+  <Pagination page={1} totalPages={totalPages} />
 </Layout>
 
 <style lang="scss">

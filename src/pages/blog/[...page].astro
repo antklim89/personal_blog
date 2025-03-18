@@ -33,13 +33,11 @@ const { page, blogs, totalPages } = Astro.props;
 ---
 
 <Layout>
-  <section class="container">
-    <Pagination page={page} totalPages={totalPages} />
-    <BlogGrid>
-      {blogs.map((blog) => <BlogCard blog={blog} />)}
-    </BlogGrid>
-    <Pagination page={page} totalPages={totalPages} />
-  </section>
+  <Pagination page={page} totalPages={totalPages} />
+  <BlogGrid>
+    {blogs.map((blog) => <BlogCard blog={blog} />)}
+  </BlogGrid>
+  <Pagination page={page} totalPages={totalPages} />
 </Layout>
 
 <style lang="scss">
