@@ -1,10 +1,14 @@
+---
+import Button from '@/components/ui/Button.astro';
+---
+
 <section class="container" transition:name="contacts">
   <h1>Contact Me</h1>
   <form name="contact" method="POST" data-netlify="true">
     <label>Your Name: <input type="text" name="name" required /></label>
     <label>Your Email: <input type="email" name="email" required /></label>
     <label>Message: <textarea name="message" rows="5" required></textarea></label>
-    <button type="submit">Send</button>
+    <Button type="submit">Send</Button>
   </form>
 </section>
 
@@ -34,20 +38,5 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     resize: none;
-  }
-
-  button {
-    width: 100%;
-    padding: 0.25rem 0.5rem;
-    background-color: var(--accent);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.1s ease;
-  }
-
-  button:hover {
-    background-color: var(--accent-dark);
   }
 </style>
