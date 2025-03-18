@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { render } from 'astro:content';
 import HeroImage from './ui/HeroImage.astro';
+import ShowMoreButton from './ui/ShowMoreButton.astro';
 
 type Props = CollectionEntry<'hero'>;
 
@@ -15,6 +16,7 @@ const { data } = hero;
   <HeroImage src={data.image.src} class="image">
     <div class="text">
       <Content />
+      <ShowMoreButton />
     </div>
   </HeroImage>
 </section>
@@ -27,6 +29,7 @@ const { data } = hero;
     justify-content: center;
     height: 100%;
     color: var(--text);
+    padding: 1rem 1.5rem;
 
     h1 {
       font-size: 2rem;
