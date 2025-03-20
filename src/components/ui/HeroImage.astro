@@ -21,7 +21,7 @@ const { src, ...props } = Astro.props;
               format: 'webp',
               src,
               width: 1440,
-              height: 400,
+              height: 320,
             }}
             alt="hero"
           />
@@ -37,10 +37,7 @@ const { src, ...props } = Astro.props;
 
 <style lang="scss">
   .wrapper {
-    // --max-height: auto;
     width: 100vw;
-    // overflow-x: hidden;
-    // max-height: var(--max-height);
   }
   .container {
     position: relative;
@@ -48,12 +45,10 @@ const { src, ...props } = Astro.props;
   .images {
     display: flex;
     position: relative;
-    // max-height: var(--max-height);
 
     img {
       width: 100%;
       object-fit: cover;
-      // max-height: var(--max-height);
     }
 
     :first-child,
@@ -78,6 +73,5 @@ const { src, ...props } = Astro.props;
     bottom: 0;
     left: 0;
     right: 0;
-    // max-height: var(--max-height);
   }
 </style>
