@@ -11,12 +11,15 @@ const props = Astro.props;
 <style>
   button {
     width: 100%;
-    padding: 0.5em 0.75em;
-    background-color: var(--accent);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+    padding: 1em 1.25em;
+    background-color: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--bg-dark);
+    border-radius: 2px;
     cursor: pointer;
     transition: background-color 0.1s ease;
+  }
+  button:hover {
+    background-color: var(--bg-dark);
   }
 </style>
