@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import { render } from 'astro:content';
 import FormattedDate from '@/components/ui/FormattedDate.astro';
 import HeroImage from '@/components/ui/HeroImage.astro';
+import Share from './Share.tsx';
 
 type Props = CollectionEntry<'blog'>;
 
@@ -15,6 +16,9 @@ const { Content } = await render(blog);
 
   <header class="container" transition:name="blog-header">
     <h1>{blog.data.title}</h1>
+    <div class="share">
+      <Share client:only title={blog.data.title} text={blog.data.description} />
+    </div>
     <div>Published: <FormattedDate date={blog.data.pubDate} /></div>
   </header>
 
@@ -30,5 +34,9 @@ const { Content } = await render(blog);
     h1 {
       margin-bottom: 0;
     }
+  }
+
+  .share {
+    height: 76px;
   }
 </style>
