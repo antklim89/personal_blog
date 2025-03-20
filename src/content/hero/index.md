@@ -1,5 +1,11 @@
 ---
-image: images/ryan-ancill-veee7a3x80y-unsplash.jpg
+image: images/maxim-hopman-zeeqrk7f4j8-unsplash.webp
 ---
 # Welcome to my blog!
-Here I share my thoughts and ideas.
+
+This is where I share my thoughts, projects, and the occasional existential crisis.
+
+Developer by day.
+
+Writer by night. Coffee enthusiast 24/7.
+
