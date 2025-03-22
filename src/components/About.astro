@@ -1,0 +1,23 @@
+---
+import { loadAbout } from '@/content-loaders/about';
+import { render } from 'astro:content';
+
+const about = await loadAbout();
+const { Content } = await render(about);
+---
+
+<section class="container" transition:name="about">
+  <h1>About me</h1>
+  <Content />
+</section>
+
+<style>
+  section {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    text-align: center;
+  }
+</style>
