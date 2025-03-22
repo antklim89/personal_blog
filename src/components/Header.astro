@@ -2,6 +2,7 @@
 import HeaderLink from '@/components/ui/HeaderLink.astro';
 import ThemeToggleButton from '@/components/ui/ThemeToggleButton.astro';
 import { SITE_TITLE } from '@/consts';
+import Social from './Social.astro';
 ---
 
 <header>
@@ -14,9 +15,6 @@ import { SITE_TITLE } from '@/consts';
     <nav>
       <ul>
         <li>
-          <HeaderLink href="/">Home</HeaderLink>
-        </li>
-        <li>
           <HeaderLink href="/blog">Blog</HeaderLink>
         </li>
         <li>
@@ -26,6 +24,7 @@ import { SITE_TITLE } from '@/consts';
           <HeaderLink href="/about">About</HeaderLink>
         </li>
       </ul>
+      <Social />
       <ThemeToggleButton />
     </nav>
   </div>
@@ -41,10 +40,9 @@ import { SITE_TITLE } from '@/consts';
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 0.25em;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 640px) {
     .container {
       flex-direction: column;
       align-items: center;
@@ -53,6 +51,7 @@ import { SITE_TITLE } from '@/consts';
 
   h2 {
     margin: 0;
+
     a {
       text-decoration: none;
       font-size: 2rem;

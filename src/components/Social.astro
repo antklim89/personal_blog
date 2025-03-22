@@ -1,0 +1,35 @@
+---
+import { loadSocial } from '@/content-loaders/social';
+import { Image } from 'astro:assets';
+
+const socials = await loadSocial();
+---
+
+<section>
+  {
+    socials.map((social) => (
+      <a href={social.url} target="_blank" rel="noopener noreferrer">
+        <Image src={{ src: social.icon.src, width: 24, height: 24, format: 'png' }} alt={social.url} />
+      </a>
+    ))
+  }
+</section>
+
+<style>
+  section {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 0.1rem;
+    height: 28px;
+    width: 28px;
+    border-radius: 0.25rem;
+  }
+</style>

@@ -85,3 +85,25 @@ collections:
             widget: markdown,
             required: true
           }
+
+      - label: "Social"
+        name: "social"
+        editor: { preview: false }
+        file: "src/content/social/index.md"
+        media_folder: 'images'
+        public_folder: './images'
+        fields:
+          - label: Socials
+            name: socials
+            widget: list
+            required: true
+            summary: '{{fields.url}}'
+            fields:
+              - label: url
+                name: url
+                widget: text
+              - label: icon
+                name: icon
+                widget: image
+                required: true
+                

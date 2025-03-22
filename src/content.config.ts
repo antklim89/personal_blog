@@ -34,4 +34,23 @@ const about = defineCollection({
   }),
 });
 
-export const collections = { blog, hero, about };
+const social = defineCollection({
+  loader: glob({
+    base: 'src/content/social',
+    pattern: 'index.md',
+    generateId: () => 'social',
+  }),
+  schema: ({ image }) => z.object({
+    socials: z.object({
+      url: z.string(),
+      icon: image(),
+    }).array(),
+  }),
+});
+
+export const collections = {
+  blog,
+  hero,
+  about,
+  social,
+};

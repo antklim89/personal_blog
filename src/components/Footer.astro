@@ -1,15 +1,29 @@
 ---
+import Social from '@/components/Social.astro';
+
 const today = new Date();
 ---
 
 <footer>
-  <div class="container">
-    &copy; {today.getFullYear()} Personal blog. All rights reserved.
-  </div>
+  <section class="container">
+    <div class="content">
+      <span>
+        &copy; {today.getFullYear()} Personal blog. All rights reserved.
+      </span>
+      <Social />
+    </div>
+  </section>
 </footer>
 
 <style>
   footer {
     background-color: var(--bg-dark);
+    padding: 0.5rem 0;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 </style>
