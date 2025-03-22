@@ -1,5 +1,6 @@
 ---
 import Layout from '@/components/Layout.astro';
+import Social from '@/components/Social.astro';
 import { loadAbout } from '@/content-loaders/about';
 import { render } from 'astro:content';
 
@@ -9,6 +10,13 @@ const { Content } = await render(about);
 
 <Layout title="About Me" description="Lorem ipsum dolor sit amet" image="/images/blog-placeholder-about.jpg">
   <section class="container" transition:name="about">
+    <h1>About me</h1>
     <Content />
   </section>
 </Layout>
+
+<style>
+  h1 {
+    text-align: center;
+  }
+</style>

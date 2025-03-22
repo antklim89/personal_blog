@@ -41,6 +41,7 @@ const { src, ...props } = Astro.props;
   }
   .container {
     position: relative;
+    padding: 0;
   }
   .images {
     display: flex;
@@ -49,6 +50,7 @@ const { src, ...props } = Astro.props;
     img {
       width: 100%;
       object-fit: cover;
+      height: 320px;
     }
 
     :first-child,
